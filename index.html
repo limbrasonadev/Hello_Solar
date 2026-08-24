@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Hello Solar</title>
+    <!-- Brand Favicon for Browser Tab -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='sunGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23F59E0B'/%3E%3Cstop offset='100%25' stop-color='%23EA580C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M6 20 A10 10 0 0 1 26 20 Z' fill='url(%23sunGlow)'/%3E%3Crect x='3' y='21' width='26' height='2.5' rx='1.25' fill='url(%23sunGlow)'/%3E%3Cline x1='16' y1='4' x2='16' y2='8' stroke='url(%23sunGlow)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='6' y1='8' x2='9' y2='11' stroke='url(%23sunGlow)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='26' y1='8' x2='23' y2='11' stroke='url(%23sunGlow)' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAFAFB;
+            overflow-x: hidden;
+        }
+
+        /* 4K Precision-Blended Edge Mask */
+        .hero-seamless-mask {
+            -webkit-mask-image:
+                linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 10%, rgba(0, 0, 0, 0.6) 28%, rgba(0, 0, 0, 1) 48%),
+                linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0.35) 90%, transparent 100%);
+            -webkit-mask-composite: destination-in;
+            mask-image:
+                linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 10%, rgba(0, 0, 0, 0.6) 28%, rgba(0, 0, 0, 1) 48%),
+                linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0.35) 90%, transparent 100%);
+            mask-composite: intersect;
+        }
+
+        /* GPU Layer Promotion for Crisp 4K Scaling */
+        .render-4k {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: auto;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+
+        /* Accessibility: Respect Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            ::before,
+            ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="text-[#0F172A] selection:bg-amber-500/20">
+
+    <!-- UNIFIED HERO & BANNER WRAPPER -->
+    <div class="relative w-full overflow-hidden">
+
+        <!-- BACKGROUND IMAGE: 4K Viewport Anchor -->
+        <div
+            class="absolute right-0 top-0 w-full lg:w-[80%] xl:w-[70%] 2xl:w-[72%] h-[820px] lg:h-[880px] 2xl:h-[850px] pointer-events-none select-none z-0">
+            <div class="w-full h-full hero-seamless-mask relative">
+                <img src="assets/images/hello_solar_pic.jpg" alt="Solar House & Rock Pathway" fetchpriority="high"
+                    decoding="async" class="w-full h-full object-cover object-[78%_55%] lg:object-[80%_65%] render-4k"
+                    onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=3840&q=95'" />
+                <!-- Mobile Ambient Readability Scrim -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-[#FAFAFB]/95 via-[#FAFAFB]/70 to-[#FAFAFB] lg:hidden">
+                </div>
+                <!-- 4K Ambient Directional Feathers -->
+                <div
+                    class="absolute inset-y-0 left-0 w-48 2xl:w-64 bg-gradient-to-r from-[#FAFAFB] via-[#FAFAFB]/60 to-transparent hidden lg:block">
+                </div>
+                <div
+                    class="absolute inset-x-0 bottom-0 h-32 2xl:h-44 bg-gradient-to-t from-[#FAFAFB] via-[#FAFAFB]/40 to-transparent">
+                </div>
+            </div>
+        </div>
+
+        <!-- NAVBAR -->
+        <header
+            class="w-full max-w-[2000px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-24 py-5 sm:py-6 flex items-center justify-between relative z-30 bg-transparent">
+            <a href="#home" class="flex items-center gap-1.5 focus:outline-none shrink-0">
+                <span
+                    class="text-[24px] sm:text-[26px] 2xl:text-[32px] font-black tracking-tight text-[#0F172A]">hello</span>
+                <span
+                    class="text-[24px] sm:text-[26px] 2xl:text-[32px] font-black tracking-tight bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent flex items-center">
+                    solar
+                    <svg class="w-4 h-4 2xl:w-6 2xl:h-6 ml-1 text-amber-500" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5">
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M12 2v2" />
+                        <path d="M12 20v2" />
+                        <path d="m4.93 4.93 1.41 1.41" />
+                        <path d="m17.66 17.66 1.41 1.41" />
+                        <path d="M2 12h2" />
+                        <path d="M20 12h2" />
+                        <path d="m6.34 17.66-1.41 1.41" />
+                        <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                </span>
+            </a>
+
+            <!-- DESKTOP NAVBAR (Visible ONLY on xl / 1280px+ displays where ample space exists) -->
+            <nav id="desktopNav"
+                class="hidden xl:flex items-center gap-8 2xl:gap-12 text-[14px] 2xl:text-[16px] font-bold text-[#0F172A]">
+                <a href="#home" data-nav="home"
+                    class="text-[#0F172A] border-b-2 border-amber-500 pb-0.5 font-black nav-link transition-colors">Home</a>
+                <a href="#solar-systems" data-nav="solar-systems"
+                    class="text-[#0F172A]/80 hover:text-[#0F172A] pb-0.5 font-bold transition-colors nav-link">Solar
+                    Systems</a>
+                <a href="#how-it-works" data-nav="how-it-works"
+                    class="text-[#0F172A]/80 hover:text-[#0F172A] pb-0.5 font-bold transition-colors nav-link">How It
+                    Works</a>
+                <a href="#about-us" data-nav="about-us"
+                    class="text-[#0F172A]/80 hover:text-[#0F172A] pb-0.5 font-bold transition-colors nav-link">About
+                    Us</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button data-action="recommend"
+                    class="hidden sm:flex bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white text-xs 2xl:text-sm font-extrabold px-5 sm:px-6 2xl:px-8 py-2.5 2xl:py-3.5 rounded-full items-center gap-2 shadow-sm hover:shadow-md transition">
+                    Get My Recommendation &rarr;
+                </button>
+
+                <!-- Mobile & Tablet Menu Button (Visible on all screens < 1280px, including iPad Mini/Tablets) -->
+                <button id="mobileMenuBtn" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu"
+                    aria-expanded="false"
+                    class="xl:hidden w-11 h-11 rounded-xl bg-white/70 hover:bg-white border border-slate-200/80 text-[#0F172A] flex items-center justify-center shadow-xs transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
+                    <span class="sr-only">Open navigation menu</span>
+                    <!-- Clearly visible 24px Menu Icon (Closed State) -->
+                    <i data-lucide="menu" id="menuIconClosed" class="w-6 h-6 text-[#0F172A] stroke-[2.4]"></i>
+                    <!-- Clearly visible 24px X Icon (Open State) -->
+                    <i data-lucide="x" id="menuIconOpen" class="w-6 h-6 text-[#0F172A] stroke-[2.4] hidden"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- MOBILE & TABLET NAVIGATION BACKDROP OVERLAY -->
+        <div id="mobileMenuBackdrop"
+            class="xl:hidden fixed inset-0 z-40 bg-slate-900/35 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none">
+        </div>
+
+        <!-- MOBILE & TABLET NAVIGATION DRAWER -->
+        <div id="mobileMenu"
+            class="xl:hidden fixed inset-x-4 sm:inset-x-8 md:inset-x-auto md:w-[480px] md:right-8 top-[74px] sm:top-[84px] z-50 bg-white/98 backdrop-blur-xl border border-slate-200/90 rounded-[28px] shadow-[0_24px_55px_-12px_rgba(15,23,42,0.22)] p-6 space-y-4 transition-all duration-300 transform -translate-y-4 scale-98 opacity-0 pointer-events-none max-w-md md:max-w-lg mx-auto">
+            <div class="flex items-center justify-between px-1 pb-1 border-b border-slate-100">
+                <span class="text-[11px] font-black text-slate-400 uppercase tracking-wider">Navigation</span>
+                <span
+                    class="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/60">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                    Smart Solar Matching
+                </span>
+            </div>
+
+            <nav class="flex flex-col space-y-1.5 text-[15px] font-bold text-slate-700">
+                <a href="#home" data-nav="home"
+                    class="py-3 px-4 rounded-xl hover:bg-slate-50 hover:text-amber-600 transition flex items-center justify-between mobile-nav-link text-[#0F172A]">
+                    <span>Home</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
+                </a>
+                <a href="#solar-systems" data-nav="solar-systems"
+                    class="py-3 px-4 rounded-xl hover:bg-slate-50 hover:text-amber-600 transition flex items-center justify-between mobile-nav-link">
+                    <span>Solar Systems</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
+                </a>
+                <a href="#how-it-works" data-nav="how-it-works"
+                    class="py-3 px-4 rounded-xl hover:bg-slate-50 hover:text-amber-600 transition flex items-center justify-between mobile-nav-link">
+                    <span>How It Works</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
+                </a>
+                <a href="#about-us" data-nav="about-us"
+                    class="py-3 px-4 rounded-xl hover:bg-slate-50 hover:text-amber-600 transition flex items-center justify-between mobile-nav-link">
+                    <span>About Us</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
+                </a>
+            </nav>
+
+            <div class="pt-2 border-t border-slate-100">
+                <button data-action="recommend"
+                    class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white text-xs sm:text-sm font-extrabold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-sm transition">
+                    Get My Recommendation &rarr;
+                </button>
+            </div>
+        </div>
+
+        <!-- HERO TEXT & BADGES -->
+        <section id="home"
+            class="w-full max-w-[2000px] mx-auto px-6 sm:px-12 lg:px-16 2xl:px-24 relative z-10 pt-8 sm:pt-14 pb-20 lg:pb-28 2xl:pb-36">
+            <div class="max-w-xl 2xl:max-w-2xl space-y-7 2xl:space-y-9">
+                <h1
+                    class="text-4xl sm:text-5xl md:text-[56px] lg:text-[62px] 2xl:text-[76px] font-black tracking-tight leading-[1.1] sm:leading-[1.05] text-[#0F172A]">
+                    Power your home.<br />
+                    <span
+                        class="bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 bg-clip-text text-transparent">Lower
+                        your bills.</span>
+                </h1>
+                <p class="text-[15px] sm:text-[16px] 2xl:text-[20px] font-semibold text-slate-600">
+                    Own your energy. Live more, worry less.
+                </p>
+
+                <!-- 3 Dynamic Multi-Tone Badges -->
+                <div
+                    class="grid grid-cols-3 gap-2.5 sm:gap-3 2xl:gap-4 pt-3 text-center max-w-[440px] 2xl:max-w-[520px]">
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-indigo-100 flex items-center justify-center bg-indigo-50/80 text-indigo-600 shadow-xs mb-2.5 backdrop-blur-xs">
+                            <i data-lucide="piggy-bank" class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2]"></i>
+                        </div>
+                        <p
+                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-slate-900">
+                            Save<br />every month</p>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-amber-200 flex items-center justify-center bg-amber-50/90 text-amber-600 shadow-xs mb-2.5 backdrop-blur-xs">
+                            <i data-lucide="zap" class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2.2]"></i>
+                        </div>
+                        <p
+                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-slate-900">
+                            Stay
+                            powered<br />during
+                            brownouts</p>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-emerald-100 flex items-center justify-center bg-emerald-50/90 text-emerald-600 shadow-xs mb-2.5 backdrop-blur-xs">
+                            <i data-lucide="leaf" class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2]"></i>
+                        </div>
+                        <p
+                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-slate-900">
+                            Build
+                            a<br />cleaner future
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULATOR BANNER (Fixed Sunburst Layering) -->
+        <div class="w-full max-w-[2000px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-24 relative z-20">
+            <section
+                class="relative w-full bg-gradient-to-r from-[#FFFDF7]/95 via-[#FEF3C7]/90 to-[#FED7AA]/85 backdrop-blur-md border border-amber-200/80 p-8 sm:p-10 2xl:p-12 rounded-[32px] 2xl:rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_16px_40px_-12px_rgba(245,158,11,0.15)]">
+
+                <!-- PROPERLY LAYERED SUNBURST / ACCENT RAYS (z-30 & anchored to top right) -->
+                <div class="absolute -top-3 sm:-top-4 right-8 sm:right-12 z-30 select-none pointer-events-none">
+                    <svg class="w-7 h-7 sm:w-8 sm:h-8 text-amber-500 drop-shadow-xs" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                        <line x1="6" y1="6" x2="9.5" y2="9.5"></line>
+                        <line x1="12" y1="3" x2="12" y2="8"></line>
+                        <line x1="18" y1="6" x2="14.5" y2="9.5"></line>
+                    </svg>
+                </div>
+
+                <div class="space-y-1.5 text-center md:text-left relative z-10">
+                    <h2 class="text-2xl sm:text-[28px] 2xl:text-[36px] font-black text-[#0F172A] leading-tight">Find the
+                        right<br class="hidden sm:inline" /> solar system for your home.</h2>
+                    <p class="text-xs sm:text-[14px] 2xl:text-[16px] font-semibold text-slate-600">Answer a few
+                        questions and get a personalized recommendation in 1 minute.</p>
+                </div>
+
+                <div class="flex flex-col items-center shrink-0 relative z-10">
+                    <button data-action="recommend"
+                        class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold px-8 2xl:px-10 py-3.5 2xl:py-4 rounded-full flex items-center gap-2 shadow-sm hover:shadow-md transition text-xs 2xl:text-sm tracking-wide">
+                        Get My Recommendation &rarr;
+                    </button>
+                    <span class="text-[10.5px] 2xl:text-[12px] font-bold text-slate-500 mt-2">No obligation. Takes less
+                        than 60 seconds.</span>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- MAIN BODY CONTENT -->
+    <main
+        class="w-full max-w-[2000px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-24 space-y-12 2xl:space-y-16 pb-16 2xl:pb-24 relative z-10 pt-12">
+
+        <!-- MAIN RECOMMENDATION CARD -->
+        <section id="featured-recommendation"
+            class="w-full bg-white rounded-[28px] 2xl:rounded-[36px] border border-slate-200/80 p-8 sm:p-10 2xl:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+            <div class="grid lg:grid-cols-12 gap-8 2xl:gap-12 items-center">
+                <!-- Specs Column -->
+                <div class="lg:col-span-5 space-y-4 2xl:space-y-6">
+                    <span
+                        class="inline-block bg-amber-500/10 border border-amber-500/20 text-amber-700 text-[10px] 2xl:text-[12px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
+                        ⭐ OUR RECOMMENDATION
+                    </span>
+                    <h2 class="text-4xl 2xl:text-5xl font-black text-[#0F172A] tracking-tight">HS 6 <span
+                            class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">LITE</span>
+                    </h2>
+                    <p class="text-xs 2xl:text-sm font-bold text-slate-500">Smart. Reliable. Built for Everyday Savings.
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-3 2xl:gap-4 pt-2">
+                        <div
+                            class="border border-slate-100 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-slate-50/60">
+                            <i data-lucide="sun-medium"
+                                class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-amber-500 stroke-[2]"></i>
+                            <div class="text-sm 2xl:text-base font-black text-slate-900">4.96kW</div>
+                            <div class="text-[10px] 2xl:text-xs text-slate-400 font-bold uppercase">Panels</div>
+                        </div>
+                        <div
+                            class="border border-slate-100 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-slate-50/60">
+                            <i data-lucide="zap"
+                                class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-amber-500 stroke-[2]"></i>
+                            <div class="text-sm 2xl:text-base font-black text-slate-900">6kW</div>
+                            <div class="text-[10px] 2xl:text-xs text-slate-400 font-bold uppercase">Inverter</div>
+                        </div>
+                        <div
+                            class="border border-slate-100 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-slate-50/60">
+                            <i data-lucide="battery"
+                                class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-emerald-500 stroke-[2]"></i>
+                            <div class="text-sm 2xl:text-base font-black text-slate-900">4.8kWh</div>
+                            <div class="text-[10px] 2xl:text-xs text-slate-400 font-bold uppercase">Battery</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Column -->
+                <div
+                    class="lg:col-span-4 border-y lg:border-y-0 lg:border-x border-slate-100 py-6 lg:py-0 lg:px-10 2xl:px-14 space-y-3">
+                    <div class="text-xs 2xl:text-sm font-bold text-slate-400">Pay as low as</div>
+                    <div class="text-4xl sm:text-5xl 2xl:text-6xl font-black text-amber-500 tracking-tight">
+                        ₱7,650<span class="text-sm 2xl:text-lg font-bold text-slate-500">/month</span>
+                    </div>
+                    <div class="text-xs 2xl:text-sm font-extrabold text-slate-700">for 5 years, with 10% DP</div>
+                    <div class="text-xs 2xl:text-sm text-slate-500 font-semibold pt-1">Cash Price: <span
+                            class="font-extrabold text-[#0F172A]">₱270,000</span></div>
+                    <button data-product="hs6-lite" data-action="choose"
+                        class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 2xl:py-4 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs 2xl:text-sm mt-3 shadow-sm hover:shadow">
+                        Choose HS 6 Lite &rarr;
+                    </button>
+                </div>
+
+                <!-- Checklist Column -->
+                <div
+                    class="lg:col-span-3 bg-gradient-to-br from-amber-50/80 to-orange-50/40 rounded-2xl 2xl:rounded-3xl p-6 2xl:p-8 space-y-4 border border-amber-200/50">
+                    <div class="flex items-start gap-2.5">
+                        <i data-lucide="check-circle"
+                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-500 shrink-0 mt-0.5 stroke-[2.5]"></i>
+                        <span class="text-xs 2xl:text-sm font-bold text-slate-800 leading-snug">Lower your electric bill
+                            every month</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <i data-lucide="check-circle"
+                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-500 shrink-0 mt-0.5 stroke-[2.5]"></i>
+                        <span class="text-xs 2xl:text-sm font-bold text-slate-800 leading-snug">Keep your lights, fans
+                            and Wi-Fi running during brownouts</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <i data-lucide="check-circle"
+                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-500 shrink-0 mt-0.5 stroke-[2.5]"></i>
+                        <span class="text-xs 2xl:text-sm font-bold text-slate-800 leading-snug">Lowest upfront
+                            investment</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3-TIER OPTIONS SECTION -->
+        <section id="solar-systems" class="w-full space-y-6">
+            <div class="text-center space-y-1">
+                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#0F172A]">Or explore other options</h2>
+                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-slate-500">Find the best fit for your home.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 2xl:gap-8 items-stretch pt-2">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 shadow-xs hover:-translate-y-1 hover:border-amber-500 hover:shadow-[0_12px_30px_rgba(245,158,11,0.15)] transition-all duration-300 ease-out">
+                    <div class="space-y-4">
+                        <div class="text-center space-y-0.5">
+                            <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 6 <span
+                                    class="text-amber-500">LITE</span>
+                            </h3>
+                            <p class="text-xs 2xl:text-sm text-slate-400 font-bold">Essential coverage</p>
+                        </div>
+                        <div
+                            class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-slate-700 bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
+                            <span>4.96kW</span><span class="text-slate-300">|</span><span>6kW</span><span
+                                class="text-slate-300">|</span><span>4.8kWh</span>
+                        </div>
+                        <div class="text-center text-xs 2xl:text-sm text-slate-500 font-semibold">
+                            Ideal for bills: <span class="font-extrabold text-slate-800">₱5,000–₱8,000</span>
+                        </div>
+                        <div class="text-center pt-1">
+                            <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱7,650 <span
+                                    class="text-xs 2xl:text-sm font-bold text-slate-400">/month</span></div>
+                            <div class="text-xs 2xl:text-sm text-slate-400 font-bold">5 years, 10% DP</div>
+                        </div>
+                    </div>
+                    <button data-product="hs6-lite" data-action="details"
+                        class="w-full border border-slate-300 hover:bg-slate-50 text-slate-700 font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition">
+                        View Details
+                    </button>
+                </div>
+
+                <!-- Card 2 (Most Popular Highlighted) -->
+                <div
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border-2 border-amber-500 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-[0_12px_36px_-10px_rgba(245,158,11,0.22)] hover:-translate-y-1.5 hover:border-amber-500 hover:shadow-[0_0_0_2px_rgba(245,158,11,0.18),0_16px_36px_rgba(245,158,11,0.22)] transition-all duration-300 ease-out">
+                    <div
+                        class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] 2xl:text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                        Most Popular
+                    </div>
+                    <div class="space-y-4 pt-1">
+                        <div class="text-center space-y-0.5">
+                            <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 6 <span
+                                    class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">PRO</span>
+                            </h3>
+                            <p class="text-xs 2xl:text-sm text-slate-400 font-bold">More power, more backup</p>
+                        </div>
+                        <div
+                            class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-amber-800 bg-amber-50 py-1.5 2xl:py-2 rounded-lg border border-amber-200/50">
+                            <span>6.2kW</span><span class="text-amber-300">|</span><span>6kW</span><span
+                                class="text-amber-300">|</span><span>9.6kWh</span>
+                        </div>
+                        <div class="text-center text-xs 2xl:text-sm text-slate-500 font-semibold">
+                            Ideal for bills: <span class="font-extrabold text-slate-800">₱5,000–₱8,000</span>
+                        </div>
+                        <div class="text-center pt-1">
+                            <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱9,067 <span
+                                    class="text-xs 2xl:text-sm font-bold text-slate-400">/month</span></div>
+                            <div class="text-xs 2xl:text-sm text-slate-400 font-bold">5 years, 10% DP</div>
+                        </div>
+                    </div>
+                    <button data-product="hs6-pro" data-action="details"
+                        class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition shadow-sm hover:shadow">
+                        View Details
+                    </button>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 shadow-xs hover:-translate-y-1 hover:border-amber-500 hover:shadow-[0_12px_30px_rgba(245,158,11,0.15)] transition-all duration-300 ease-out">
+                    <div class="space-y-4">
+                        <div class="text-center space-y-0.5">
+                            <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 8 <span
+                                    class="text-orange-500">PRO</span>
+                            </h3>
+                            <p class="text-xs 2xl:text-sm text-slate-400 font-bold">For bigger homes</p>
+                        </div>
+                        <div
+                            class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-slate-700 bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
+                            <span>8.27kW</span><span class="text-slate-300">|</span><span>8kW</span><span
+                                class="text-slate-300">|</span><span>9.6kWh</span>
+                        </div>
+                        <div class="text-center text-xs 2xl:text-sm text-slate-500 font-semibold">
+                            Ideal for bills: <span class="font-extrabold text-slate-800">₱8,000–₱12,000</span>
+                        </div>
+                        <div class="text-center pt-1">
+                            <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱11,750 <span
+                                    class="text-xs 2xl:text-sm font-bold text-slate-400">/month</span></div>
+                            <div class="text-xs 2xl:text-sm text-slate-400 font-bold">5 years, 10% DP</div>
+                        </div>
+                    </div>
+                    <button data-product="hs8-pro" data-action="details"
+                        class="w-full border border-slate-300 hover:bg-slate-50 text-slate-700 font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition">
+                        View Details
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS SECTION -->
+        <section id="how-it-works" class="w-full space-y-6 pt-6">
+            <div class="text-center space-y-1">
+                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#0F172A]">How it works</h2>
+                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-slate-500">Your simple 4-step journey to clean
+                    solar energy.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 2xl:gap-8 items-stretch pt-2">
+                <!-- Step 1 -->
+                <div
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div
+                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-500">
+                                <i data-lucide="clipboard-list" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
+                            </div>
+                            <span
+                                class="text-xs 2xl:text-sm font-black text-amber-600 bg-amber-50 border border-amber-200/50 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                1</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#0F172A]">Tell Us About Your Home</h3>
+                            <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                                Share basic details about your average electricity usage, monthly electric bill, and
+                                household power requirements.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div
+                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                                <i data-lucide="sparkles" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
+                            </div>
+                            <span
+                                class="text-xs 2xl:text-sm font-black text-indigo-600 bg-indigo-50 border border-indigo-100 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                2</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#0F172A]">Get Your Recommendation</h3>
+                            <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                                Hello Solar evaluates your consumption profile and recommends the ideal panel, inverter,
+                                and battery setup for your needs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div
+                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600">
+                                <i data-lucide="check-square" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
+                            </div>
+                            <span
+                                class="text-xs 2xl:text-sm font-black text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                3</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#0F172A]">Choose Your Solar System</h3>
+                            <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                                Compare available solar packages and choose the system and financing plan that best fits
+                                your home and budget.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div
+                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600">
+                                <i data-lucide="sun" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
+                            </div>
+                            <span
+                                class="text-xs 2xl:text-sm font-black text-emerald-600 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                4</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#0F172A]">Start Saving</h3>
+                            <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                                After turnkey installation, enjoy substantially lower electric bills every month and
+                                reliable backup power when applicable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE US SECTION -->
+        <section id="why-choose-us" class="w-full space-y-6 pt-6">
+            <h2 class="text-center text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#0F172A]">Why choose Hello Solar?
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 2xl:gap-8 text-center">
+                <div class="space-y-2 flex flex-col items-center">
+                    <div
+                        class="w-14 h-14 2xl:w-18 2xl:h-18 rounded-2xl bg-indigo-50/80 border border-indigo-100/80 shadow-xs flex items-center justify-center mb-1 text-indigo-600">
+                        <i data-lucide="piggy-bank" class="w-6 h-6 2xl:w-8 2xl:h-8 stroke-[2]"></i>
+                    </div>
+                    <h4 class="text-sm 2xl:text-base font-black text-[#0F172A]">Lower Electric Bills</h4>
+                    <p class="text-xs 2xl:text-sm text-slate-500 font-bold">Save for the long term</p>
+                </div>
+
+                <div class="space-y-2 flex flex-col items-center">
+                    <div
+                        class="w-14 h-14 2xl:w-18 2xl:h-18 rounded-2xl bg-amber-50/80 border border-amber-100/80 shadow-xs flex items-center justify-center mb-1 text-amber-500">
+                        <i data-lucide="zap" class="w-6 h-6 2xl:w-8 2xl:h-8 stroke-[2.2]"></i>
+                    </div>
+                    <h4 class="text-sm 2xl:text-base font-black text-[#0F172A]">Reliable Backup Power</h4>
+                    <p class="text-xs 2xl:text-sm text-slate-500 font-bold">Stay powered when it matters</p>
+                </div>
+
+                <div class="space-y-2 flex flex-col items-center">
+                    <div
+                        class="w-14 h-14 2xl:w-18 2xl:h-18 rounded-2xl bg-sky-50/80 border border-sky-100/80 shadow-xs flex items-center justify-center mb-1 text-sky-600">
+                        <i data-lucide="home" class="w-6 h-6 2xl:w-8 2xl:h-8 stroke-[2]"></i>
+                    </div>
+                    <h4 class="text-sm 2xl:text-base font-black text-[#0F172A]">Increase Home Value</h4>
+                    <p class="text-xs 2xl:text-sm text-slate-500 font-bold">A smarter investment</p>
+                </div>
+
+                <div class="space-y-2 flex flex-col items-center">
+                    <div
+                        class="w-14 h-14 2xl:w-18 2xl:h-18 rounded-2xl bg-emerald-50/80 border border-emerald-100/80 shadow-xs flex items-center justify-center mb-1 text-emerald-500">
+                        <i data-lucide="sun" class="w-6 h-6 2xl:w-8 2xl:h-8 stroke-[2]"></i>
+                    </div>
+                    <h4 class="text-sm 2xl:text-base font-black text-[#0F172A]">Cleaner, Greener Energy</h4>
+                    <p class="text-xs 2xl:text-sm text-slate-500 font-bold">For you and the next generation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US SECTION -->
+        <section id="about-us" class="w-full space-y-6 pt-6">
+            <div
+                class="bg-white rounded-[28px] 2xl:rounded-[36px] border border-slate-200/80 p-8 sm:p-10 2xl:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)] space-y-10">
+                <div class="max-w-3xl mx-auto text-center space-y-4">
+                    <span
+                        class="inline-block bg-amber-500/10 border border-amber-500/20 text-amber-700 text-[10px] 2xl:text-[12px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
+                        About Hello Solar
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#0F172A] tracking-tight">
+                        Powering Filipino homes with cleaner, smarter energy.
+                    </h2>
+                    <p class="text-xs sm:text-sm 2xl:text-base font-semibold text-slate-600 leading-relaxed">
+                        Hello Solar helps Filipino homeowners make the transition to cleaner, more reliable, and more
+                        affordable energy. We make solar easier to understand by helping homeowners find a system that
+                        matches their electricity needs, lifestyle, and budget.
+                    </p>
+                    <div class="pt-2">
+                        <div
+                            class="inline-block bg-gradient-to-r from-amber-50/80 via-amber-50/40 to-orange-50/60 border border-amber-200/70 rounded-2xl px-6 py-3.5">
+                            <p class="text-xs sm:text-sm 2xl:text-base font-extrabold text-[#0F172A]">
+                                Our goal is simple: <span
+                                    class="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Help
+                                    homeowners take control of their energy and reduce their electricity costs.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 Supporting Values -->
+                <div class="grid md:grid-cols-3 gap-6 2xl:gap-8 pt-8 border-t border-slate-100">
+                    <div class="space-y-3 text-center md:text-left flex flex-col items-center md:items-start">
+                        <div
+                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-500 flex items-center justify-center">
+                            <i data-lucide="zap" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2.2]"></i>
+                        </div>
+                        <h3 class="text-base 2xl:text-lg font-black text-[#0F172A]">Smart Energy</h3>
+                        <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                            Solar solutions designed around the customer's actual energy needs, maximizing daily savings
+                            and efficiency.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 text-center md:text-left flex flex-col items-center md:items-start">
+                        <div
+                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center">
+                            <i data-lucide="shield-check" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2.2]"></i>
+                        </div>
+                        <h3 class="text-base 2xl:text-lg font-black text-[#0F172A]">Reliable Power</h3>
+                        <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                            Systems designed to help homeowners stay powered when electricity reliability matters.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 text-center md:text-left flex flex-col items-center md:items-start">
+                        <div
+                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-500 flex items-center justify-center">
+                            <i data-lucide="leaf" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2.2]"></i>
+                        </div>
+                        <h3 class="text-base 2xl:text-lg font-black text-[#0F172A]">Sustainable Future</h3>
+                        <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                            Helping households move toward cleaner and more sustainable energy for the next generation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER CTA BANNER -->
+        <section
+            class="w-full bg-gradient-to-r from-amber-500 via-amber-500 to-orange-600 p-8 sm:p-12 2xl:p-16 rounded-[32px] 2xl:rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_20px_50px_-15px_rgba(234,88,12,0.3)]">
+            <div class="space-y-1.5 text-center md:text-left">
+                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-white">Start saving on electricity today.
+                </h2>
+                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-amber-100">Get your personalized solar
+                    recommendation now.
+                </p>
+            </div>
+            <button data-action="recommend"
+                class="bg-[#0F172A] hover:bg-black text-white text-xs sm:text-sm 2xl:text-base font-black px-8 2xl:px-10 py-4 2xl:py-5 rounded-full flex items-center gap-2 shadow-xl hover:scale-[1.02] transition whitespace-nowrap">
+                Get My Recommendation &rarr;
+            </button>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- INTERACTIVE MODALS (Styled with exact brand tokens; hidden by default)   -->
+    <!-- ========================================================================= -->
+
+    <!-- 1. RECOMMENDATION QUESTIONNAIRE MODAL -->
+    <div id="recommendationModal" role="dialog" aria-modal="true" aria-label="Personalized Solar Recommendation Wizard"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        <div
+            class="relative w-full max-w-lg bg-white rounded-[28px] 2xl:rounded-[36px] border border-slate-200/90 shadow-2xl p-6 sm:p-8 2xl:p-10 max-h-[90vh] overflow-y-auto">
+            <!-- Accessible Close Button -->
+            <button onclick="closeModal('recommendationModal')" aria-label="Close recommendation wizard"
+                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Wizard Content Dynamic Container -->
+            <div id="wizardContainer">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. PRODUCT DETAILS MODAL -->
+    <div id="productDetailModal" role="dialog" aria-modal="true" aria-label="Product Technical Specifications"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        <div
+            class="relative w-full max-w-xl bg-white rounded-[28px] 2xl:rounded-[36px] border border-slate-200/90 shadow-2xl p-6 sm:p-8 2xl:p-10 max-h-[90vh] overflow-y-auto">
+            <!-- Accessible Close Button -->
+            <button onclick="closeModal('productDetailModal')" aria-label="Close details modal"
+                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Detail Content Container -->
+            <div id="productDetailContent">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. INQUIRY / LEAD CAPTURE MODAL -->
+    <div id="inquiryModal" role="dialog" aria-modal="true" aria-label="Free Solar Assessment Request"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        <div
+            class="relative w-full max-w-lg bg-white rounded-[28px] 2xl:rounded-[36px] border border-slate-200/90 shadow-2xl p-6 sm:p-8 2xl:p-10 max-h-[90vh] overflow-y-auto">
+            <!-- Accessible Close Button -->
+            <button onclick="closeModal('inquiryModal')" aria-label="Close inquiry modal"
+                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div id="inquiryFormContainer">
+                <div class="space-y-1 mb-6">
+                    <span
+                        class="inline-block bg-amber-500/10 text-amber-700 text-[10px] 2xl:text-xs font-black px-3 py-0.5 rounded-full uppercase tracking-wider">
+                        Free Consultation & Site Assessment
+                    </span>
+                    <h3 id="inquiryTitle" class="text-2xl 2xl:text-3xl font-black text-[#0F172A] tracking-tight">Request
+                        Solar Proposal</h3>
+                    <p class="text-xs 2xl:text-sm text-slate-500 font-semibold">Get customized savings estimates & roof
+                        engineering review in 24 hours.</p>
+                </div>
+
+                <form id="leadForm" onsubmit="handleLeadSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">Selected
+                            System</label>
+                        <select id="leadPackage"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-extrabold text-[#0F172A] focus:outline-none focus:border-amber-500 transition">
+                            <option value="hs6-lite">HS 6 LITE (4.96kW | 6kW | 4.8kWh) — ₱7,650/mo</option>
+                            <option value="hs6-pro">HS 6 PRO (6.2kW | 6kW | 9.6kWh) — ₱9,067/mo</option>
+                            <option value="hs8-pro">HS 8 PRO (8.27kW | 8kW | 9.6kWh) — ₱11,750/mo</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <div>
+                            <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">Full
+                                Name *</label>
+                            <input type="text" id="leadName" required placeholder="Juan Dela Cruz"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:border-amber-500 transition" />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">Mobile
+                                Number *</label>
+                            <input type="tel" id="leadPhone" required placeholder="0917 123 4567"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:border-amber-500 transition" />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <div>
+                            <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">Email
+                                Address</label>
+                            <input type="email" id="leadEmail" placeholder="juan@example.com"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:border-amber-500 transition" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">City
+                                / Municipality *</label>
+                            <input type="text" id="leadLocation" required placeholder="e.g. Quezon City, Cebu"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:border-amber-500 transition" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">Average
+                            Monthly Electric Bill</label>
+                        <select id="leadBill"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-amber-500 transition">
+                            <option value="₱3,000 – ₱5,000">₱3,000 – ₱5,000 / month</option>
+                            <option value="₱5,000 – ₱8,000" selected>₱5,000 – ₱8,000 / month</option>
+                            <option value="₱8,000 – ₱12,000">₱8,000 – ₱12,000 / month</option>
+                            <option value="₱12,000+">₱12,000+ / month</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="submitLeadBtn"
+                        class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 2xl:py-4 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs 2xl:text-sm shadow-sm hover:shadow mt-4">
+                        <span>Submit Free Assessment Request</span> &rarr;
+                    </button>
+                    <p class="text-[11px] text-center text-slate-400 font-medium">100% confidential. No spam or
+                        marketing calls.</p>
+                </form>
+
+                <!-- Success Screen (Replaces Form on submission) -->
+                <div id="leadSuccessScreen" class="hidden text-center py-6 space-y-4">
+                    <div
+                        class="w-16 h-16 bg-emerald-50 border border-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mx-auto">
+                        <i data-lucide="check" class="w-8 h-8 stroke-[2.5]"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-2xl font-black text-[#0F172A]">Request Submitted!</h4>
+                        <p class="text-xs sm:text-sm font-bold text-slate-500 max-w-sm mx-auto">
+                            Thank you, <span id="successUserName" class="text-slate-900"></span>. A Hello Solar
+                            consultant will review your energy profile and reach out within 24 hours.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-amber-50/80 border border-amber-200/70 rounded-2xl p-4 text-left max-w-sm mx-auto space-y-2">
+                        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Confirmed Package
+                        </div>
+                        <div id="successPackageName" class="text-sm font-black text-slate-900"></div>
+                        <div class="text-xs text-amber-800 font-semibold flex items-center gap-1.5">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-amber-600"></i>
+                            Complimentary rooftop solar irradiance scan included.
+                        </div>
+                    </div>
+                    <button onclick="closeModal('inquiryModal')"
+                        class="bg-[#0F172A] hover:bg-black text-white text-xs font-black px-6 py-3 rounded-full transition">
+                        Done
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC ENGINE -->
+    <script>
+        // Initialize Lucide icons on page load
+        lucide.createIcons();
+
+        // PRODUCT DATA SPECIFICATIONS
+        const PRODUCTS = {
+            'hs6-lite': {
+                id: 'hs6-lite',
+                name: 'HS 6 LITE',
+                tag: 'OUR RECOMMENDATION',
+                tagline: 'Smart. Reliable. Built for Everyday Savings.',
+                badge: 'Essential coverage',
+                panels: '4.96kW',
+                inverter: '6kW',
+                battery: '4.8kWh',
+                idealBills: '₱5,000–₱8,000',
+                monthly: '₱7,650',
+                cashPrice: '₱270,000',
+                estSavings: '₱4,200 – ₱6,800',
+                features: [
+                    'Tier-1 Monocrystalline Solar Panels (4.96kW capacity)',
+                    '6kW High-Efficiency Pure Sine Wave Hybrid Inverter',
+                    '4.8kWh LiFePO4 Ultra-Safe Lithium Iron Battery Storage',
+                    'Smart Wi-Fi Energy Tracking App for iOS & Android',
+                    '25-Year Linear Solar Panel Performance Warranty',
+                    '5-Year Inverter & Battery Replacement Warranty',
+                    'Turnkey Rooftop Installation & Net-Metering Assistance'
+                ]
+            },
+            'hs6-pro': {
+                id: 'hs6-pro',
+                name: 'HS 6 PRO',
+                tag: 'MOST POPULAR',
+                tagline: 'More power, more backup for seamless family living.',
+                badge: 'Most Popular',
+                panels: '6.2kW',
+                inverter: '6kW',
+                battery: '9.6kWh',
+                idealBills: '₱5,000–₱8,000',
+                monthly: '₱9,067',
+                cashPrice: '₱320,000',
+                estSavings: '₱5,500 – ₱8,400',
+                features: [
+                    '6.2kW Tier-1 High-Efficiency Half-Cut Solar Panels',
+                    '6kW Heavy-Duty Smart Hybrid Inverter with UPS mode (<10ms)',
+                    '9.6kWh Double-Capacity LiFePO4 Energy Storage Bank',
+                    'Whole-Home Critical Load Automatic Backup Switch',
+                    'Real-time Cloud Solar Production & Consumption Analytics',
+                    '25-Year Solar Panel Warranty & 10-Year Battery Warranty',
+                    'Full Meralco/Electric Coop Net Metering Processing'
+                ]
+            },
+            'hs8-pro': {
+                id: 'hs8-pro',
+                name: 'HS 8 PRO',
+                tag: 'COMMERCIAL / LARGE HOME',
+                tagline: 'Maximum solar yield and multi-aircon whole home power.',
+                badge: 'For bigger homes',
+                panels: '8.27kW',
+                inverter: '8kW',
+                battery: '9.6kWh',
+                idealBills: '₱8,000–₱12,000+',
+                monthly: '₱11,750',
+                cashPrice: '₱415,000',
+                estSavings: '₱7,800 – ₱12,500',
+                features: [
+                    '8.27kW High-Yield Monocrystalline PV Generation Array',
+                    '8kW Commercial-Grade Dual MPPT Hybrid Inverter',
+                    '9.6kWh Scalable Modular Lithium LiFePO4 Storage',
+                    'Heavy-duty surge & lightning arrestor protection kit',
+                    'Multi-Split Inverter AC and EV-ready power distribution',
+                    '25-Year Panel Warranty + Premium Rapid Maintenance Support',
+                    'Complete Engineering Permit and Utility Grid Interconnection'
+                ]
+            }
+        };
+
+        // RECOMMENDATION WIZARD STATE
+        const wizardState = {
+            step: 1,
+            bill: '₱5,000–₱8,000',
+            timeUsage: 'day',
+            priority: 'balanced'
+        };
+
+        // MODAL HELPERS
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                modal.classList.remove('opacity-0');
+            });
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 200);
+        }
+
+        // Close modal on escape key or backdrop click
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                ['recommendationModal', 'productDetailModal', 'inquiryModal'].forEach(closeModal);
+            }
+        });
+
+        ['recommendationModal', 'productDetailModal', 'inquiryModal'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('click', (e) => {
+                    if (e.target === el) closeModal(id);
+                });
+            }
+        });
+
+        // RENDER RECOMMENDATION WIZARD
+        function renderWizard() {
+            const container = document.getElementById('wizardContainer');
+            if (!container) return;
+
+            if (wizardState.step === 1) {
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <!-- Progress Header -->
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-black text-amber-600 uppercase tracking-wider">Step 1 of 3 &bull; Electric Bill</span>
+                                <span class="text-[11px] font-bold text-slate-400">~30 sec match</span>
+                            </div>
+                            <!-- 3-Step Visual Progress Track -->
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-amber-500 to-orange-500 h-full rounded-full transition-all duration-300 w-1/3"></div>
+                            </div>
+                            <div class="pt-1">
+                                <h3 class="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">What is your average monthly electric bill?</h3>
+                                <p class="text-xs sm:text-sm text-slate-500 font-semibold mt-1">This helps us size the solar capacity required to offset your consumption.</p>
+                            </div>
+                        </div>
+
+                        <!-- Bill Options Cards -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1" role="radiogroup">
+                            <button type="button" role="radio" aria-checked="${wizardState.bill === '₱3,000–₱5,000'}"
+                                onclick="selectWizardCard('bill', '₱3,000–₱5,000', 2, this)"
+                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱3,000–₱5,000' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white shadow-2xs'}">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-lg sm:text-xl font-black text-[#0F172A]">₱3,000 – ₱5,000</span>
+                                    <span class="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱3,000–₱5,000' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                </div>
+                                <div class="text-[11px] sm:text-xs font-bold text-slate-400 mt-2">Light household usage (1-2 ACs)</div>
+                            </button>
+
+                            <button type="button" role="radio" aria-checked="${wizardState.bill === '₱5,000–₱8,000'}"
+                                onclick="selectWizardCard('bill', '₱5,000–₱8,000', 2, this)"
+                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱5,000–₱8,000' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white shadow-2xs'}">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-lg sm:text-xl font-black text-[#0F172A]">₱5,000 – ₱8,000</span>
+                                    <span class="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱5,000–₱8,000' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                </div>
+                                <div class="flex items-center gap-1 text-[11px] sm:text-xs font-black text-amber-600 mt-2">
+                                    <span>⭐ Most Common</span>
+                                    <span class="text-slate-400 font-normal">&bull; Average family home</span>
+                                </div>
+                            </button>
+
+                            <button type="button" role="radio" aria-checked="${wizardState.bill === '₱8,000–₱12,000'}"
+                                onclick="selectWizardCard('bill', '₱8,000–₱12,000', 2, this)"
+                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱8,000–₱12,000' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white shadow-2xs'}">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-lg sm:text-xl font-black text-[#0F172A]">₱8,000 – ₱12,000</span>
+                                    <span class="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱8,000–₱12,000' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                </div>
+                                <div class="text-[11px] sm:text-xs font-bold text-slate-400 mt-2">Higher usage (2-3 Inverter ACs)</div>
+                            </button>
+
+                            <button type="button" role="radio" aria-checked="${wizardState.bill === '₱12,000+'}"
+                                onclick="selectWizardCard('bill', '₱12,000+', 2, this)"
+                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱12,000+' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white shadow-2xs'}">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-lg sm:text-xl font-black text-[#0F172A]">₱12,000+</span>
+                                    <span class="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱12,000+' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                </div>
+                                <div class="text-[11px] sm:text-xs font-bold text-slate-400 mt-2">Large home / Commercial load</div>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (wizardState.step === 2) {
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <!-- Progress Header -->
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-black text-amber-600 uppercase tracking-wider">Step 2 of 3 &bull; Power Habits</span>
+                                <button onclick="wizardState.step = 1; renderWizard();" class="text-xs font-bold text-slate-500 hover:text-[#0F172A] flex items-center gap-1 transition">
+                                    &larr; Back
+                                </button>
+                            </div>
+                            <!-- Progress Track -->
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-amber-500 to-orange-500 h-full rounded-full transition-all duration-300 w-2/3"></div>
+                            </div>
+                            <div class="pt-1">
+                                <h3 class="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">When does your home use the most power?</h3>
+                                <p class="text-xs sm:text-sm text-slate-500 font-semibold mt-1">Determines if you need higher daytime solar output or larger battery storage.</p>
+                            </div>
+                        </div>
+
+                        <!-- Power Usage Cards -->
+                        <div class="space-y-3 pt-1" role="radiogroup">
+                            <button type="button" role="radio" aria-checked="${wizardState.timeUsage === 'day'}"
+                                onclick="selectWizardCard('timeUsage', 'day', 3, this)"
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.timeUsage === 'day' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                <div>
+                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                        <span>☀️ Daytime Heavy</span>
+                                    </div>
+                                    <div class="text-xs text-slate-500 font-semibold mt-1">Work-from-home, daytime ACs, pool pumps, daytime laundry</div>
+                                </div>
+                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.timeUsage === 'day' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                            </button>
+
+                            <button type="button" role="radio" aria-checked="${wizardState.timeUsage === 'night'}"
+                                onclick="selectWizardCard('timeUsage', 'night', 3, this)"
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.timeUsage === 'night' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                <div>
+                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                        <span>🌙 Evening & Night Heavy</span>
+                                        <span class="text-[10px] font-black text-amber-600 bg-amber-100/70 px-2 py-0.5 rounded-full">⭐ Most Common</span>
+                                    </div>
+                                    <div class="text-xs text-slate-500 font-semibold mt-1">Family is away daytime, multiple ACs run throughout the night</div>
+                                </div>
+                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.timeUsage === 'night' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                            </button>
+
+                            <button type="button" role="radio" aria-checked="${wizardState.timeUsage === 'balanced'}"
+                                onclick="selectWizardCard('timeUsage', 'balanced', 3, this)"
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.timeUsage === 'balanced' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                <div>
+                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                        <span>⚡ Balanced 24/7 Steady</span>
+                                    </div>
+                                    <div class="text-xs text-slate-500 font-semibold mt-1">Consistent high power consumption throughout day and night</div>
+                                </div>
+                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.timeUsage === 'balanced' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (wizardState.step === 3) {
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <!-- Progress Header -->
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-black text-amber-600 uppercase tracking-wider">Step 3 of 3 &bull; Primary Goal</span>
+                                <button onclick="wizardState.step = 2; renderWizard();" class="text-xs font-bold text-slate-500 hover:text-[#0F172A] flex items-center gap-1 transition">
+                                    &larr; Back
+                                </button>
+                            </div>
+                            <!-- Progress Track -->
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-amber-500 to-orange-500 h-full rounded-full transition-all duration-300 w-full"></div>
+                            </div>
+                            <div class="pt-1">
+                                <h3 class="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">What is your primary goal with solar?</h3>
+                                <p class="text-xs sm:text-sm text-slate-500 font-semibold mt-1">We customize your proposal to deliver exactly what matters most.</p>
+                            </div>
+                        </div>
+
+                        <!-- Goal Cards -->
+                        <div class="space-y-3 pt-1" role="radiogroup">
+                            <button type="button" role="radio" aria-checked="${wizardState.priority === 'savings'}"
+                                onclick="selectWizardCard('priority', 'savings', 4, this)"
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.priority === 'savings' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                <div>
+                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                        <span>💰 Maximum Bill Savings</span>
+                                    </div>
+                                    <div class="text-xs text-slate-500 font-semibold mt-1">Focus on fastest ROI and cutting monthly electricity expenses</div>
+                                </div>
+                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.priority === 'savings' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                            </button>
+
+                            <button type="button" role="radio" aria-checked="${wizardState.priority === 'maximum'}"
+                                onclick="selectWizardCard('priority', 'maximum', 4, this)"
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.priority === 'maximum' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                <div>
+                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                        <span>🔋 Outage & Brownout Protection</span>
+                                        <span class="text-[10px] font-black text-amber-600 bg-amber-100/70 px-2 py-0.5 rounded-full">⭐ Most Common</span>
+                                    </div>
+                                    <div class="text-xs text-slate-500 font-semibold mt-1">Keep ACs, lights, refrigerator, and Wi-Fi running seamlessly in outages</div>
+                                </div>
+                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.priority === 'maximum' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                            </button>
+
+                            <button type="button" role="radio" aria-checked="${wizardState.priority === 'essential'}"
+                                onclick="selectWizardCard('priority', 'essential', 4, this)"
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.priority === 'essential' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                <div>
+                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                        <span>🌿 Future-Proof Clean Energy</span>
+                                    </div>
+                                    <div class="text-xs text-slate-500 font-semibold mt-1">Energy independence and sustainable living for your family</div>
+                                </div>
+                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.priority === 'essential' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (wizardState.step === 4) {
+                // Determine recommendation
+                let recommendedId = 'hs6-lite';
+                if (wizardState.bill === '₱12,000+' || wizardState.bill === '₱8,000–₱12,000') {
+                    recommendedId = 'hs8-pro';
+                } else if (wizardState.bill === '₱5,000–₱8,000') {
+                    recommendedId = (wizardState.priority === 'maximum' || wizardState.timeUsage === 'night') ? 'hs6-pro' : 'hs6-lite';
+                } else {
+                    recommendedId = 'hs6-lite';
+                }
+
+                const rec = PRODUCTS[recommendedId];
+
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <!-- Result Eyebrow & Title -->
+                        <div class="text-center space-y-1.5">
+                            <span class="inline-block bg-amber-500/10 text-amber-700 border border-amber-500/20 text-[11px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
+                                ⭐ Your Tailored Solar Match
+                            </span>
+                            <h3 class="text-3xl sm:text-4xl font-black text-[#0F172A] tracking-tight">${rec.name}</h3>
+                            <p class="text-xs sm:text-sm text-slate-500 font-bold">${rec.tagline}</p>
+                        </div>
+
+                        <!-- System Specs & Estimated Savings -->
+                        <div class="bg-gradient-to-br from-amber-50/80 via-amber-50/40 to-orange-50/50 rounded-2xl p-5 sm:p-6 border border-amber-200/70 space-y-4 shadow-xs">
+                            <div class="grid grid-cols-3 gap-2.5 text-center">
+                                <div class="bg-white rounded-xl p-3 border border-amber-100 shadow-2xs">
+                                    <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Solar Panels</div>
+                                    <div class="text-sm sm:text-base font-black text-[#0F172A] mt-0.5">${rec.panels}</div>
+                                </div>
+                                <div class="bg-white rounded-xl p-3 border border-amber-100 shadow-2xs">
+                                    <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Inverter</div>
+                                    <div class="text-sm sm:text-base font-black text-[#0F172A] mt-0.5">${rec.inverter}</div>
+                                </div>
+                                <div class="bg-white rounded-xl p-3 border border-amber-100 shadow-2xs">
+                                    <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Battery Storage</div>
+                                    <div class="text-sm sm:text-base font-black text-[#0F172A] mt-0.5">${rec.battery}</div>
+                                </div>
+                            </div>
+
+                            <!-- Financial Breakdown -->
+                            <div class="pt-3 flex items-center justify-between border-t border-amber-200/60">
+                                <div>
+                                    <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">Est. Monthly Savings</div>
+                                    <div class="text-base sm:text-lg font-black text-emerald-600">${rec.estSavings} <span class="text-xs font-bold text-slate-400">/mo</span></div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">Financing Option</div>
+                                    <div class="text-base sm:text-lg font-black text-amber-600">${rec.monthly} <span class="text-xs font-bold text-slate-400">/mo</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Why We Recommend It -->
+                        <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 sm:p-5 space-y-2">
+                            <h4 class="text-xs font-black text-[#0F172A] uppercase tracking-wider">Why we recommend this system:</h4>
+                            <ul class="space-y-1.5 text-xs text-slate-600 font-semibold">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-500 font-black mt-0.5">✓</span>
+                                    <span>Precision-sized to offset your estimated <strong>${wizardState.bill}</strong> monthly electricity bill.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-500 font-black mt-0.5">✓</span>
+                                    <span>High-efficiency LiFePO4 battery storage engineered for your <strong>${wizardState.timeUsage === 'night' ? 'Evening & Night' : (wizardState.timeUsage === 'day' ? 'Daytime' : '24/7 Steady')}</strong> usage pattern.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-500 font-black mt-0.5">✓</span>
+                                    <span>Automatic switchover ensures dependable power protection during grid brownouts.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="space-y-2.5 pt-1">
+                            <button onclick="startInquiry('${rec.id}')"
+                                class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-4 px-6 rounded-full flex items-center justify-center gap-2 transition text-xs sm:text-sm shadow-sm hover:shadow-md active:scale-98">
+                                Choose ${rec.name} & Request Free Assessment &rarr;
+                            </button>
+                            <button onclick="viewProductDetails('${rec.id}')"
+                                class="w-full border border-slate-200 hover:bg-slate-50 text-slate-700 font-extrabold py-3 px-4 rounded-xl text-xs transition">
+                                View Technical Specifications
+                            </button>
+                            <button onclick="wizardState.step = 1; renderWizard();"
+                                class="w-full text-center text-xs font-bold text-slate-400 hover:text-slate-700 py-1 transition flex items-center justify-center gap-1">
+                                &larr; Change Answers / Start Over
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            lucide.createIcons();
+        }
+
+        function selectWizardCard(key, val, nextStep, element) {
+            wizardState[key] = val;
+
+            // Visual feedback on click
+            if (element) {
+                const parent = element.parentElement;
+                if (parent) {
+                    parent.querySelectorAll('.wizard-card').forEach(card => {
+                        card.className = card.className.replace('border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30', 'border-slate-200 bg-white');
+                        const checkmark = card.querySelector('.checkmark-circle');
+                        if (checkmark) {
+                            checkmark.className = 'w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs checkmark-circle text-transparent';
+                        }
+                    });
+                }
+                element.className = element.className.replace('border-slate-200 bg-white', 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30');
+                const activeCheck = element.querySelector('.checkmark-circle');
+                if (activeCheck) {
+                    activeCheck.className = 'w-5 h-5 rounded-full border border-amber-500 bg-amber-500 text-white font-bold flex items-center justify-center text-xs checkmark-circle';
+                }
+            }
+
+            // Smoothly advance after 240ms so selection is clearly confirmed
+            setTimeout(() => {
+                wizardState.step = nextStep;
+                renderWizard();
+            }, 240);
+        }
+
+        // PRODUCT DETAILS VIEW
+        function viewProductDetails(productId) {
+            closeModal('recommendationModal');
+            const product = PRODUCTS[productId] || PRODUCTS['hs6-lite'];
+            const container = document.getElementById('productDetailContent');
+            if (!container) return;
+
+            container.innerHTML = `
+                <div class="space-y-6">
+                    <div class="space-y-1">
+                        <span class="inline-block bg-amber-500/10 text-amber-700 text-[10px] 2xl:text-xs font-black px-3 py-0.5 rounded-full uppercase tracking-wider">
+                            ${product.tag}
+                        </span>
+                        <h3 class="text-3xl font-black text-[#0F172A] tracking-tight">${product.name}</h3>
+                        <p class="text-xs 2xl:text-sm text-slate-500 font-semibold">${product.tagline}</p>
+                    </div>
+
+                    <!-- Specs Row -->
+                    <div class="grid grid-cols-3 gap-3 text-center">
+                        <div class="border border-slate-100 rounded-2xl p-3 bg-slate-50">
+                            <div class="text-xs font-bold text-slate-400 uppercase">Solar Panels</div>
+                            <div class="text-sm 2xl:text-base font-black text-slate-900 mt-0.5">${product.panels}</div>
+                        </div>
+                        <div class="border border-slate-100 rounded-2xl p-3 bg-slate-50">
+                            <div class="text-xs font-bold text-slate-400 uppercase">Inverter</div>
+                            <div class="text-sm 2xl:text-base font-black text-slate-900 mt-0.5">${product.inverter}</div>
+                        </div>
+                        <div class="border border-slate-100 rounded-2xl p-3 bg-slate-50">
+                            <div class="text-xs font-bold text-slate-400 uppercase">Battery Storage</div>
+                            <div class="text-sm 2xl:text-base font-black text-slate-900 mt-0.5">${product.battery}</div>
+                        </div>
+                    </div>
+
+                    <!-- Pricing Summary -->
+                    <div class="bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-200/60 rounded-2xl p-4 sm:p-5 flex items-center justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-slate-400">Monthly Installment</div>
+                            <div class="text-2xl font-black text-amber-600">${product.monthly}<span class="text-xs font-bold text-slate-500">/mo</span></div>
+                            <div class="text-[11px] font-bold text-slate-500">5 yrs with 10% DP</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xs font-bold text-slate-400">Cash Discount Price</div>
+                            <div class="text-xl font-black text-[#0F172A]">${product.cashPrice}</div>
+                            <div class="text-[11px] font-bold text-emerald-600">Save ~${product.estSavings}/mo</div>
+                        </div>
+                    </div>
+
+                    <!-- Inclusions List -->
+                    <div class="space-y-2.5">
+                        <div class="text-xs font-black text-slate-700 uppercase tracking-wider">Package Inclusions</div>
+                        <div class="space-y-2">
+                            ${product.features.map(f => `
+                                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-slate-700">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5 stroke-[2.5]"></i>
+                                    <span>${f}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-2 pt-2">
+                        <button onclick="startInquiry('${product.id}')" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs 2xl:text-sm shadow-sm hover:shadow">
+                            Inquire & Select ${product.name} &rarr;
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            openModal('productDetailModal');
+        }
+
+        // START INQUIRY
+        function startInquiry(productId) {
+            closeModal('recommendationModal');
+            closeModal('productDetailModal');
+
+            // Reset form view
+            const form = document.getElementById('leadForm');
+            const successScreen = document.getElementById('leadSuccessScreen');
+            if (form) form.classList.remove('hidden');
+            if (successScreen) successScreen.classList.add('hidden');
+
+            const pkgSelect = document.getElementById('leadPackage');
+            if (pkgSelect && productId) {
+                pkgSelect.value = productId;
+            }
+
+            const billSelect = document.getElementById('leadBill');
+            if (billSelect && wizardState.bill) {
+                billSelect.value = wizardState.bill;
+            }
+
+            openModal('inquiryModal');
+        }
+
+        // HANDLE LEAD SUBMISSION
+        function handleLeadSubmit(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitLeadBtn');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `<span>Processing...</span>`;
+            }
+
+            const packageId = document.getElementById('leadPackage').value;
+            const name = document.getElementById('leadName').value.trim();
+            const phone = document.getElementById('leadPhone').value.trim();
+            const email = document.getElementById('leadEmail').value.trim();
+            const location = document.getElementById('leadLocation').value.trim();
+            const bill = document.getElementById('leadBill').value;
+
+            const leadData = {
+                id: 'lead_' + Date.now(),
+                timestamp: new Date().toISOString(),
+                packageId,
+                packageName: (PRODUCTS[packageId] || {}).name || packageId,
+                name,
+                phone,
+                email,
+                location,
+                bill
+            };
+
+            // Save to LocalStorage
+            try {
+                const existingLeads = JSON.parse(localStorage.getItem('hello_solar_leads') || '[]');
+                existingLeads.push(leadData);
+                localStorage.setItem('hello_solar_leads', JSON.stringify(existingLeads));
+            } catch (err) {
+                console.warn('LocalStorage save skipped', err);
+            }
+
+            setTimeout(() => {
+                const form = document.getElementById('leadForm');
+                const successScreen = document.getElementById('leadSuccessScreen');
+                const successUser = document.getElementById('successUserName');
+                const successPkg = document.getElementById('successPackageName');
+
+                if (form) form.classList.add('hidden');
+                if (successScreen) successScreen.classList.remove('hidden');
+                if (successUser) successUser.textContent = name;
+                if (successPkg) successPkg.textContent = (PRODUCTS[packageId] || {}).name + ' — ' + (PRODUCTS[packageId] || {}).monthly + '/month';
+
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `<span>Submit Free Assessment Request</span> &rarr;`;
+                }
+
+                lucide.createIcons();
+            }, 600);
+        }
+
+        // WIRE ALL EXISTING CTA AND PRODUCT BUTTONS
+        function initPageInteractions() {
+            // 1. All "Get My Recommendation" buttons
+            document.querySelectorAll('[data-action="recommend"]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    wizardState.step = 1;
+                    renderWizard();
+                    openModal('recommendationModal');
+                });
+            });
+
+            // 2. "Choose HS 6 Lite" button
+            document.querySelectorAll('[data-action="choose"]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const productId = btn.getAttribute('data-product') || 'hs6-lite';
+                    startInquiry(productId);
+                });
+            });
+
+            // 3. "View Details" product buttons
+            document.querySelectorAll('[data-action="details"]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const productId = btn.getAttribute('data-product') || 'hs6-lite';
+                    viewProductDetails(productId);
+                });
+            });
+
+            // 4. Desktop Navigation Hover Underline & Active State Controller
+            const desktopNav = document.getElementById('desktopNav');
+            const desktopNavLinks = desktopNav ? desktopNav.querySelectorAll('a.nav-link') : [];
+            let currentActiveSection = 'home';
+
+            const activeStyles = 'text-[#0F172A] border-b-2 border-amber-500 pb-0.5 font-black nav-link transition-colors';
+            const inactiveStyles = 'text-[#0F172A]/80 hover:text-[#0F172A] pb-0.5 font-bold transition-colors nav-link';
+
+            function renderNavUnderline(activeKey) {
+                desktopNavLinks.forEach(link => {
+                    const key = link.getAttribute('data-nav') || (link.getAttribute('href') || '').replace('#', '');
+                    if (key === activeKey) {
+                        link.className = activeStyles;
+                    } else {
+                        link.className = inactiveStyles;
+                    }
+                });
+            }
+
+            if (desktopNav) {
+                // Hover moves the underline to hovered item
+                desktopNavLinks.forEach(link => {
+                    link.addEventListener('mouseenter', () => {
+                        const targetKey = link.getAttribute('data-nav') || (link.getAttribute('href') || '').replace('#', '');
+                        renderNavUnderline(targetKey);
+                    });
+
+                    link.addEventListener('click', () => {
+                        const targetKey = link.getAttribute('data-nav') || (link.getAttribute('href') || '').replace('#', '');
+                        currentActiveSection = targetKey;
+                        renderNavUnderline(currentActiveSection);
+                    });
+                });
+
+                // Mouse leaving nav restores the true active section underline
+                desktopNav.addEventListener('mouseleave', () => {
+                    renderNavUnderline(currentActiveSection);
+                });
+            }
+
+            // 5. Intelligent Section Detection (Scrollspy)
+            const sectionKeys = ['home', 'solar-systems', 'how-it-works', 'about-us'];
+            function onScrollDetectSection() {
+                const scrollPos = window.scrollY + 200;
+                let detected = 'home';
+
+                if (window.scrollY > 150) {
+                    for (let i = sectionKeys.length - 1; i >= 0; i--) {
+                        const secEl = document.getElementById(sectionKeys[i]);
+                        if (secEl && secEl.offsetTop <= scrollPos) {
+                            detected = sectionKeys[i];
+                            break;
+                        }
+                    }
+                }
+
+                if (detected !== currentActiveSection) {
+                    currentActiveSection = detected;
+                    // Only update if not actively hovering the nav
+                    if (!desktopNav || !desktopNav.matches(':hover')) {
+                        renderNavUnderline(currentActiveSection);
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', onScrollDetectSection, { passive: true });
+            onScrollDetectSection();
+
+            // 6. Mobile & Tablet Navigation Drawer Controller
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+            const menuIconClosed = document.getElementById('menuIconClosed');
+            const menuIconOpen = document.getElementById('menuIconOpen');
+            let isMobileMenuOpen = false;
+
+            function toggleMobileMenu(forceState) {
+                isMobileMenuOpen = (forceState !== undefined) ? forceState : !isMobileMenuOpen;
+                if (!mobileMenuBtn || !mobileMenu) return;
+
+                mobileMenuBtn.setAttribute('aria-expanded', isMobileMenuOpen);
+
+                if (isMobileMenuOpen) {
+                    // Lock body scroll safely
+                    document.body.style.overflow = 'hidden';
+
+                    // Backdrop in
+                    if (mobileMenuBackdrop) {
+                        mobileMenuBackdrop.classList.remove('pointer-events-none', 'opacity-0');
+                        mobileMenuBackdrop.classList.add('opacity-100');
+                    }
+
+                    // Panel in
+                    mobileMenu.classList.remove('pointer-events-none', '-translate-y-4', 'scale-98', 'opacity-0');
+                    mobileMenu.classList.add('translate-y-0', 'scale-100', 'opacity-100');
+
+                    // Switch icon to X
+                    if (menuIconClosed) menuIconClosed.classList.add('hidden');
+                    if (menuIconOpen) menuIconOpen.classList.remove('hidden');
+                } else {
+                    // Restore body scroll safely
+                    document.body.style.overflow = '';
+
+                    // Backdrop out
+                    if (mobileMenuBackdrop) {
+                        mobileMenuBackdrop.classList.add('pointer-events-none', 'opacity-0');
+                        mobileMenuBackdrop.classList.remove('opacity-100');
+                    }
+
+                    // Panel out
+                    mobileMenu.classList.add('pointer-events-none', '-translate-y-4', 'scale-98', 'opacity-0');
+                    mobileMenu.classList.remove('translate-y-0', 'scale-100', 'opacity-100');
+
+                    // Switch icon back to Hamburger
+                    if (menuIconClosed) menuIconClosed.classList.remove('hidden');
+                    if (menuIconOpen) menuIconOpen.classList.add('hidden');
+                }
+                lucide.createIcons();
+            }
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleMobileMenu();
+                });
+            }
+
+            if (mobileMenuBackdrop) {
+                mobileMenuBackdrop.addEventListener('click', () => {
+                    toggleMobileMenu(false);
+                });
+            }
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    const targetKey = link.getAttribute('data-nav') || (link.getAttribute('href') || '').replace('#', '');
+                    currentActiveSection = targetKey;
+                    renderNavUnderline(currentActiveSection);
+                    toggleMobileMenu(false);
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (isMobileMenuOpen && mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    toggleMobileMenu(false);
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isMobileMenuOpen) {
+                    toggleMobileMenu(false);
+                }
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initPageInteractions);
+        } else {
+            initPageInteractions();
+        }
+    </script>
+</body>
+
+</html>
