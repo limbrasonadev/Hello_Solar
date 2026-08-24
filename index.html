@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>Hello Solar</title>
-    <!-- Brand Favicon for Browser Tab -->
+    <!-- Brand Logo(temporary) for Browser Tab -->
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='sunGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23F59E0B'/%3E%3Cstop offset='100%25' stop-color='%23EA580C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M6 20 A10 10 0 0 1 26 20 Z' fill='url(%23sunGlow)'/%3E%3Crect x='3' y='21' width='26' height='2.5' rx='1.25' fill='url(%23sunGlow)'/%3E%3Cline x1='16' y1='4' x2='16' y2='8' stroke='url(%23sunGlow)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='6' y1='8' x2='9' y2='11' stroke='url(%23sunGlow)' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='26' y1='8' x2='23' y2='11' stroke='url(%23sunGlow)' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
@@ -141,12 +141,15 @@
                 <!-- Mobile & Tablet Menu Button (Visible on all screens < 1280px, including iPad Mini/Tablets) -->
                 <button id="mobileMenuBtn" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu"
                     aria-expanded="false"
-                    class="xl:hidden w-11 h-11 rounded-xl bg-white/70 hover:bg-white border border-slate-200/80 text-[#0F172A] flex items-center justify-center shadow-xs transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
-                    <span class="sr-only">Open navigation menu</span>
-                    <!-- Clearly visible 24px Menu Icon (Closed State) -->
-                    <i data-lucide="menu" id="menuIconClosed" class="w-6 h-6 text-[#0F172A] stroke-[2.4]"></i>
-                    <!-- Clearly visible 24px X Icon (Open State) -->
-                    <i data-lucide="x" id="menuIconOpen" class="w-6 h-6 text-[#0F172A] stroke-[2.4] hidden"></i>
+                    class="xl:hidden w-11 h-11 rounded-xl bg-white/70 hover:bg-white border border-slate-200/80 text-[#0F172A] flex flex-col items-center justify-center gap-[4.5px] shadow-xs transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
+                    <span class="sr-only">Toggle navigation menu</span>
+                    <!-- 3 Horizontal Bars: '☰' to 'X' -->
+                    <span id="burgerLine1"
+                        class="w-5 h-[2px] bg-[#0F172A] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
+                    <span id="burgerLine2"
+                        class="w-5 h-[2px] bg-[#0F172A] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
+                    <span id="burgerLine3"
+                        class="w-5 h-[2px] bg-[#0F172A] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
                 </button>
             </div>
         </header>
@@ -1569,8 +1572,9 @@
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
             const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
-            const menuIconClosed = document.getElementById('menuIconClosed');
-            const menuIconOpen = document.getElementById('menuIconOpen');
+            const burgerLine1 = document.getElementById('burgerLine1');
+            const burgerLine2 = document.getElementById('burgerLine2');
+            const burgerLine3 = document.getElementById('burgerLine3');
             let isMobileMenuOpen = false;
 
             function toggleMobileMenu(forceState) {
@@ -1593,9 +1597,13 @@
                     mobileMenu.classList.remove('pointer-events-none', '-translate-y-4', 'scale-98', 'opacity-0');
                     mobileMenu.classList.add('translate-y-0', 'scale-100', 'opacity-100');
 
-                    // Switch icon to X
-                    if (menuIconClosed) menuIconClosed.classList.add('hidden');
-                    if (menuIconOpen) menuIconOpen.classList.remove('hidden');
+                    // Morph 3-bar '☰' into 'X'
+                    if (burgerLine1) burgerLine1.style.transform = 'translateY(6.5px) rotate(45deg)';
+                    if (burgerLine2) {
+                        burgerLine2.style.opacity = '0';
+                        burgerLine2.style.transform = 'scaleX(0)';
+                    }
+                    if (burgerLine3) burgerLine3.style.transform = 'translateY(-6.5px) rotate(-45deg)';
                 } else {
                     // Restore body scroll safely
                     document.body.style.overflow = '';
@@ -1610,11 +1618,14 @@
                     mobileMenu.classList.add('pointer-events-none', '-translate-y-4', 'scale-98', 'opacity-0');
                     mobileMenu.classList.remove('translate-y-0', 'scale-100', 'opacity-100');
 
-                    // Switch icon back to Hamburger
-                    if (menuIconClosed) menuIconClosed.classList.remove('hidden');
-                    if (menuIconOpen) menuIconOpen.classList.add('hidden');
+                    // Morph 'X' back into 3-bar '☰'
+                    if (burgerLine1) burgerLine1.style.transform = 'translateY(0px) rotate(0deg)';
+                    if (burgerLine2) {
+                        burgerLine2.style.opacity = '1';
+                        burgerLine2.style.transform = 'scaleX(1)';
+                    }
+                    if (burgerLine3) burgerLine3.style.transform = 'translateY(0px) rotate(0deg)';
                 }
-                lucide.createIcons();
             }
 
             if (mobileMenuBtn) {
