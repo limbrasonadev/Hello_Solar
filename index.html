@@ -50,6 +50,72 @@
             will-change: transform;
         }
 
+        /* Option Card Selection Glow & Smooth Transitions */
+        .option-card {
+            transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms ease, border-color 300ms ease;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .option-card.is-selected {
+            border-color: #F59E0B !important;
+            border-width: 2px !important;
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2), 0 16px 36px rgba(245, 158, 11, 0.22) !important;
+            transform: translateY(-6px);
+        }
+
+        .option-card:not(.is-selected):hover {
+            transform: translateY(-4px);
+            border-color: #F59E0B;
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.15);
+        }
+
+        .option-card.is-selected:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.28), 0 20px 40px rgba(245, 158, 11, 0.28) !important;
+        }
+
+        /* Carousel Track & Slide Transitions */
+        .options-carousel-viewport {
+            overflow: hidden;
+            width: 100%;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
+
+        .options-carousel-track {
+            display: flex;
+            width: 100%;
+            transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
+        .options-slide-page {
+            min-width: 100%;
+            flex-shrink: 0;
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 1.5rem;
+            align-items: stretch;
+            padding: 0.25rem;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .options-slide-page {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1536px) {
+            .options-slide-page {
+                gap: 2rem;
+            }
+        }
+
         /* Accessibility: Respect Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
 
@@ -292,7 +358,7 @@
                     <h2 class="text-4xl 2xl:text-5xl font-black text-[#0F172A] tracking-tight">HS 6 <span
                             class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">LITE</span>
                     </h2>
-                    <p class="text-xs 2xl:text-sm font-bold text-slate-500">Smart. Reliable. Built for Everyday Savings.
+                    <p class="text-xs 2xl:text-sm font-bold text-black">Smart. Reliable. Built for Everyday Savings.
                     </p>
 
                     <div class="grid grid-cols-3 gap-3 2xl:gap-4 pt-2">
@@ -300,22 +366,22 @@
                             class="border border-slate-100 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-slate-50/60">
                             <i data-lucide="sun-medium"
                                 class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-amber-500 stroke-[2]"></i>
-                            <div class="text-sm 2xl:text-base font-black text-slate-900">4.96kW</div>
-                            <div class="text-[10px] 2xl:text-xs text-slate-400 font-bold uppercase">Panels</div>
+                            <div class="text-sm 2xl:text-base font-black text-black">4.96kW</div>
+                            <div class="text-[10px] 2xl:text-xs text-black font-bold uppercase">Panels</div>
                         </div>
                         <div
                             class="border border-slate-100 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-slate-50/60">
                             <i data-lucide="zap"
                                 class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-amber-500 stroke-[2]"></i>
-                            <div class="text-sm 2xl:text-base font-black text-slate-900">6kW</div>
-                            <div class="text-[10px] 2xl:text-xs text-slate-400 font-bold uppercase">Inverter</div>
+                            <div class="text-sm 2xl:text-base font-black text-black">6kW</div>
+                            <div class="text-[10px] 2xl:text-xs text-black font-bold uppercase">Inverter</div>
                         </div>
                         <div
                             class="border border-slate-100 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-slate-50/60">
                             <i data-lucide="battery"
                                 class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-emerald-500 stroke-[2]"></i>
-                            <div class="text-sm 2xl:text-base font-black text-slate-900">4.8kWh</div>
-                            <div class="text-[10px] 2xl:text-xs text-slate-400 font-bold uppercase">Battery</div>
+                            <div class="text-sm 2xl:text-base font-black text-black">4.8kWh</div>
+                            <div class="text-[10px] 2xl:text-xs text-black font-bold uppercase">Battery</div>
                         </div>
                     </div>
                 </div>
@@ -323,16 +389,20 @@
                 <!-- Pricing Column -->
                 <div
                     class="lg:col-span-4 border-y lg:border-y-0 lg:border-x border-slate-100 py-6 lg:py-0 lg:px-10 2xl:px-14 space-y-3">
-                    <div class="text-xs 2xl:text-sm font-bold text-slate-400">Pay as low as</div>
+                    <div class="text-xs 2xl:text-sm font-bold text-black">Pay as low as</div>
                     <div class="text-4xl sm:text-5xl 2xl:text-6xl font-black text-amber-500 tracking-tight">
-                        ₱7,650<span class="text-sm 2xl:text-lg font-bold text-slate-500">/month</span>
+                        ₱7,650<span class="text-sm 2xl:text-lg font-bold text-black">/month</span>
                     </div>
-                    <div class="text-xs 2xl:text-sm font-extrabold text-slate-700">for 5 years, with 10% DP</div>
-                    <div class="text-xs 2xl:text-sm text-slate-500 font-semibold pt-1">Cash Price: <span
-                            class="font-extrabold text-[#0F172A]">₱270,000</span></div>
+                    <div class="text-xs 2xl:text-sm font-extrabold text-black">for 5 years, with 10% DP</div>
+                    <div class="text-xs 2xl:text-sm text-black font-semibold pt-1">Cash Price: <span
+                            class="font-extrabold text-black">₱270,000</span></div>
                     <button data-product="hs6-lite" data-action="choose"
-                        class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 2xl:py-4 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs 2xl:text-sm mt-3 shadow-sm hover:shadow">
+                        class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 2xl:py-4 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs 2xl:text-sm mt-3 shadow-sm hover:shadow cursor-pointer">
                         Choose HS 6 Lite &rarr;
+                    </button>
+                    <button type="button" id="featuredExploreOptionsBtn"
+                        class="w-full text-center text-xs 2xl:text-sm font-bold text-black hover:text-amber-600 transition flex items-center justify-center gap-1.5 pt-2 cursor-pointer">
+                        <span>or explore other options</span>
                     </button>
                 </div>
 
@@ -342,19 +412,19 @@
                     <div class="flex items-start gap-2.5">
                         <i data-lucide="check-circle"
                             class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-500 shrink-0 mt-0.5 stroke-[2.5]"></i>
-                        <span class="text-xs 2xl:text-sm font-bold text-slate-800 leading-snug">Lower your electric bill
+                        <span class="text-xs 2xl:text-sm font-bold text-black leading-snug">Lower your electric bill
                             every month</span>
                     </div>
                     <div class="flex items-start gap-2.5">
                         <i data-lucide="check-circle"
                             class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-500 shrink-0 mt-0.5 stroke-[2.5]"></i>
-                        <span class="text-xs 2xl:text-sm font-bold text-slate-800 leading-snug">Keep your lights, fans
+                        <span class="text-xs 2xl:text-sm font-bold text-black leading-snug">Keep your lights, fans
                             and Wi-Fi running during brownouts</span>
                     </div>
                     <div class="flex items-start gap-2.5">
                         <i data-lucide="check-circle"
                             class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-500 shrink-0 mt-0.5 stroke-[2.5]"></i>
-                        <span class="text-xs 2xl:text-sm font-bold text-slate-800 leading-snug">Lowest upfront
+                        <span class="text-xs 2xl:text-sm font-bold text-black leading-snug">Lowest upfront
                             investment</span>
                     </div>
                 </div>
@@ -364,105 +434,227 @@
         <!-- 3-TIER OPTIONS SECTION -->
         <section id="solar-systems" class="w-full space-y-6">
             <div class="text-center space-y-1">
-                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#0F172A]">Or explore other options</h2>
-                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-slate-500">Find the best fit for your home.
-                </p>
+                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#0F172A]">
+                    or explore other options
+                </h2>
+                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-black">Find the best fit for your home.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 2xl:gap-8 items-stretch pt-2">
-                <!-- Card 1 -->
-                <div
-                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 shadow-xs hover:-translate-y-1 hover:border-amber-500 hover:shadow-[0_12px_30px_rgba(245,158,11,0.15)] transition-all duration-300 ease-out">
-                    <div class="space-y-4">
-                        <div class="text-center space-y-0.5">
-                            <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 6 <span
-                                    class="text-amber-500">LITE</span>
-                            </h3>
-                            <p class="text-xs 2xl:text-sm text-slate-400 font-bold">Essential coverage</p>
+            <div class="relative w-full">
+                <!-- Left Slide Arrow Button (Visible on Page 2 to slide back to Page 1) -->
+                <button type="button" id="slidePrevOptionBtn" aria-label="Previous options"
+                    title="View previous options"
+                    class="hidden absolute -left-3 lg:-left-5 xl:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 2xl:w-13 2xl:h-13 rounded-full bg-white/95 backdrop-blur-xs border-2 border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white shadow-[0_4px_16px_rgba(245,158,11,0.22)] hover:shadow-[0_8px_24px_rgba(245,158,11,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 items-center justify-center cursor-pointer group">
+                    <svg class="w-5 h-5 2xl:w-6 2xl:h-6 transition-transform duration-300 group-hover:-translate-x-0.5 stroke-[3]"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <!-- Carousel Viewport & Track -->
+                <div class="options-carousel-viewport">
+                    <div id="optionsCarouselTrack" class="options-carousel-track">
+                        <!-- PAGE 1: HS 6 Lite, HS 6 Pro (Most Popular), HS 8 Pro -->
+                        <div class="options-slide-page">
+                            <!-- Card 1: HS 6 Lite -->
+                            <div id="card-hs6-lite" data-product-card="hs6-lite" role="button" tabindex="0"
+                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
+                                <div class="space-y-4">
+                                    <div class="text-center space-y-0.5">
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 6 <span
+                                                class="text-amber-500">LITE</span>
+                                        </h3>
+                                        <p class="text-xs 2xl:text-sm text-black font-bold">Essential coverage</p>
+                                    </div>
+                                    <div
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-black bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
+                                        <span>4.96kW</span><span class="text-slate-300">|</span><span>6kW</span><span
+                                            class="text-slate-300">|</span><span>4.8kWh</span>
+                                    </div>
+                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
+                                        Ideal for bills: <span class="font-extrabold text-black">₱5,000–₱8,000</span>
+                                    </div>
+                                    <div class="text-center pt-1">
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱7,650 <span
+                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                    </div>
+                                </div>
+                                <button data-product="hs6-lite" data-action="details"
+                                    class="w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                    View Details
+                                </button>
+                            </div>
+
+                            <!-- Card 2: HS 6 Pro (Most Popular) -->
+                            <div id="card-hs6-pro" data-product-card="hs6-pro" role="button" tabindex="0"
+                                class="option-card is-selected bg-white rounded-[24px] 2xl:rounded-[32px] border-2 border-amber-500 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-[0_0_0_2px_rgba(245,158,11,0.2),0_16px_36px_rgba(245,158,11,0.22)] -translate-y-1.5">
+                                <div id="badge-most-popular"
+                                    class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] 2xl:text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-xs pointer-events-none z-10">
+                                    Most Popular
+                                </div>
+                                <div class="space-y-4 pt-1">
+                                    <div class="text-center space-y-0.5">
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 6 <span
+                                                class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">PRO</span>
+                                        </h3>
+                                        <p class="text-xs 2xl:text-sm text-black font-bold">More power, more backup</p>
+                                    </div>
+                                    <div
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-amber-800 bg-amber-50 py-1.5 2xl:py-2 rounded-lg border border-amber-200/50">
+                                        <span>6.2kW</span><span class="text-amber-300">|</span><span>6kW</span><span
+                                            class="text-amber-300">|</span><span>9.6kWh</span>
+                                    </div>
+                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
+                                        Ideal for bills: <span class="font-extrabold text-black">₱5,000–₱8,000</span>
+                                    </div>
+                                    <div class="text-center pt-1">
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱9,067 <span
+                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                    </div>
+                                </div>
+                                <button data-product="hs6-pro" data-action="details"
+                                    class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition shadow-sm hover:shadow flex items-center justify-center gap-1.5 cursor-pointer">
+                                    View Details
+                                </button>
+                            </div>
+
+                            <!-- Card 3: HS 8 Pro -->
+                            <div id="card-hs8-pro" data-product-card="hs8-pro" role="button" tabindex="0"
+                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
+                                <div class="space-y-4">
+                                    <div class="text-center space-y-0.5">
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 8 <span
+                                                class="text-orange-500">PRO</span>
+                                        </h3>
+                                        <p class="text-xs 2xl:text-sm text-black font-bold">For bigger homes</p>
+                                    </div>
+                                    <div
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-black bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
+                                        <span>8.27kW</span><span class="text-slate-300">|</span><span>8kW</span><span
+                                            class="text-slate-300">|</span><span>9.6kWh</span>
+                                    </div>
+                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
+                                        Ideal for bills: <span class="font-extrabold text-black">₱8,000–₱12,000</span>
+                                    </div>
+                                    <div class="text-center pt-1">
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱11,750 <span
+                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                    </div>
+                                </div>
+                                <button data-product="hs8-pro" data-action="details"
+                                    class="w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                    View Details
+                                </button>
+                            </div>
                         </div>
-                        <div
-                            class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-slate-700 bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
-                            <span>4.96kW</span><span class="text-slate-300">|</span><span>6kW</span><span
-                                class="text-slate-300">|</span><span>4.8kWh</span>
-                        </div>
-                        <div class="text-center text-xs 2xl:text-sm text-slate-500 font-semibold">
-                            Ideal for bills: <span class="font-extrabold text-slate-800">₱5,000–₱8,000</span>
-                        </div>
-                        <div class="text-center pt-1">
-                            <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱7,650 <span
-                                    class="text-xs 2xl:text-sm font-bold text-slate-400">/month</span></div>
-                            <div class="text-xs 2xl:text-sm text-slate-400 font-bold">5 years, 10% DP</div>
+
+                        <!-- PAGE 2: HS 10 Pro, HS 12 Pro, HS 15 Pro (The other options) -->
+                        <div class="options-slide-page">
+                            <!-- Card 4: HS 10 Pro -->
+                            <div id="card-hs10-pro" data-product-card="hs10-pro" role="button" tabindex="0"
+                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
+                                <div class="space-y-4">
+                                    <div class="text-center space-y-0.5">
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 10 <span
+                                                class="text-amber-500">PRO</span>
+                                        </h3>
+                                        <p class="text-xs 2xl:text-sm text-black font-bold">Expanded residential</p>
+                                    </div>
+                                    <div
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-black bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
+                                        <span>10.3kW</span><span class="text-slate-300">|</span><span>10kW</span><span
+                                            class="text-slate-300">|</span><span>14.4kWh</span>
+                                    </div>
+                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
+                                        Ideal for bills: <span class="font-extrabold text-black">₱12,000–₱18,000</span>
+                                    </div>
+                                    <div class="text-center pt-1">
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱14,850 <span
+                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                    </div>
+                                </div>
+                                <button data-product="hs10-pro" data-action="details"
+                                    class="w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                    View Details
+                                </button>
+                            </div>
+
+                            <!-- Card 5: HS 12 Pro -->
+                            <div id="card-hs12-pro" data-product-card="hs12-pro" role="button" tabindex="0"
+                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
+                                <div class="space-y-4">
+                                    <div class="text-center space-y-0.5">
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 12 <span
+                                                class="text-orange-500">PRO</span>
+                                        </h3>
+                                        <p class="text-xs 2xl:text-sm text-black font-bold">Commercial & villa</p>
+                                    </div>
+                                    <div
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-black bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
+                                        <span>12.4kW</span><span class="text-slate-300">|</span><span>12kW</span><span
+                                            class="text-slate-300">|</span><span>19.2kWh</span>
+                                    </div>
+                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
+                                        Ideal for bills: <span class="font-extrabold text-black">₱18,000–₱25,000</span>
+                                    </div>
+                                    <div class="text-center pt-1">
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱18,200 <span
+                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                    </div>
+                                </div>
+                                <button data-product="hs12-pro" data-action="details"
+                                    class="w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                    View Details
+                                </button>
+                            </div>
+
+                            <!-- Card 6: HS 15 Pro -->
+                            <div id="card-hs15-pro" data-product-card="hs15-pro" role="button" tabindex="0"
+                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
+                                <div class="space-y-4">
+                                    <div class="text-center space-y-0.5">
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 15 <span
+                                                class="text-orange-600">PRO</span>
+                                        </h3>
+                                        <p class="text-xs 2xl:text-sm text-black font-bold">Enterprise & business</p>
+                                    </div>
+                                    <div
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-black bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
+                                        <span>15.5kW</span><span class="text-slate-300">|</span><span>15kW</span><span
+                                            class="text-slate-300">|</span><span>28.8kWh</span>
+                                    </div>
+                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
+                                        Ideal for bills: <span class="font-extrabold text-black">₱25,000+</span>
+                                    </div>
+                                    <div class="text-center pt-1">
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱23,500 <span
+                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                    </div>
+                                </div>
+                                <button data-product="hs15-pro" data-action="details"
+                                    class="w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                    View Details
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <button data-product="hs6-lite" data-action="details"
-                        class="w-full border border-slate-300 hover:bg-slate-50 text-slate-700 font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition">
-                        View Details
-                    </button>
                 </div>
 
-                <!-- Card 2 (Most Popular Highlighted) -->
-                <div
-                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border-2 border-amber-500 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-[0_12px_36px_-10px_rgba(245,158,11,0.22)] hover:-translate-y-1.5 hover:border-amber-500 hover:shadow-[0_0_0_2px_rgba(245,158,11,0.18),0_16px_36px_rgba(245,158,11,0.22)] transition-all duration-300 ease-out">
-                    <div
-                        class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] 2xl:text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-xs">
-                        Most Popular
-                    </div>
-                    <div class="space-y-4 pt-1">
-                        <div class="text-center space-y-0.5">
-                            <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 6 <span
-                                    class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">PRO</span>
-                            </h3>
-                            <p class="text-xs 2xl:text-sm text-slate-400 font-bold">More power, more backup</p>
-                        </div>
-                        <div
-                            class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-amber-800 bg-amber-50 py-1.5 2xl:py-2 rounded-lg border border-amber-200/50">
-                            <span>6.2kW</span><span class="text-amber-300">|</span><span>6kW</span><span
-                                class="text-amber-300">|</span><span>9.6kWh</span>
-                        </div>
-                        <div class="text-center text-xs 2xl:text-sm text-slate-500 font-semibold">
-                            Ideal for bills: <span class="font-extrabold text-slate-800">₱5,000–₱8,000</span>
-                        </div>
-                        <div class="text-center pt-1">
-                            <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱9,067 <span
-                                    class="text-xs 2xl:text-sm font-bold text-slate-400">/month</span></div>
-                            <div class="text-xs 2xl:text-sm text-slate-400 font-bold">5 years, 10% DP</div>
-                        </div>
-                    </div>
-                    <button data-product="hs6-pro" data-action="details"
-                        class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition shadow-sm hover:shadow">
-                        View Details
-                    </button>
-                </div>
-
-                <!-- Card 3 -->
-                <div
-                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 shadow-xs hover:-translate-y-1 hover:border-amber-500 hover:shadow-[0_12px_30px_rgba(245,158,11,0.15)] transition-all duration-300 ease-out">
-                    <div class="space-y-4">
-                        <div class="text-center space-y-0.5">
-                            <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 8 <span
-                                    class="text-orange-500">PRO</span>
-                            </h3>
-                            <p class="text-xs 2xl:text-sm text-slate-400 font-bold">For bigger homes</p>
-                        </div>
-                        <div
-                            class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-slate-700 bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
-                            <span>8.27kW</span><span class="text-slate-300">|</span><span>8kW</span><span
-                                class="text-slate-300">|</span><span>9.6kWh</span>
-                        </div>
-                        <div class="text-center text-xs 2xl:text-sm text-slate-500 font-semibold">
-                            Ideal for bills: <span class="font-extrabold text-slate-800">₱8,000–₱12,000</span>
-                        </div>
-                        <div class="text-center pt-1">
-                            <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱11,750 <span
-                                    class="text-xs 2xl:text-sm font-bold text-slate-400">/month</span></div>
-                            <div class="text-xs 2xl:text-sm text-slate-400 font-bold">5 years, 10% DP</div>
-                        </div>
-                    </div>
-                    <button data-product="hs8-pro" data-action="details"
-                        class="w-full border border-slate-300 hover:bg-slate-50 text-slate-700 font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition">
-                        View Details
-                    </button>
-                </div>
+                <!-- Right Slide Arrow Button (Visible on Page 1 beside HS 8 Pro; hidden when on Page 2) -->
+                <button type="button" id="slideNextOptionBtn" aria-label="Slide to see the other options"
+                    title="View more options"
+                    class="flex absolute -right-3 lg:-right-5 xl:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 2xl:w-13 2xl:h-13 rounded-full bg-white/95 backdrop-blur-xs border-2 border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white shadow-[0_4px_16px_rgba(245,158,11,0.22)] hover:shadow-[0_8px_24px_rgba(245,158,11,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 items-center justify-center cursor-pointer group">
+                    <svg class="w-5 h-5 2xl:w-6 2xl:h-6 transition-transform duration-300 group-hover:translate-x-0.5 stroke-[3]"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </div>
         </section>
 
@@ -931,8 +1123,159 @@
                     '25-Year Panel Warranty + Premium Rapid Maintenance Support',
                     'Complete Engineering Permit and Utility Grid Interconnection'
                 ]
+            },
+            'hs10-pro': {
+                id: 'hs10-pro',
+                name: 'HS 10 PRO',
+                tag: 'EXPANDED RESIDENTIAL / ESTATE',
+                tagline: 'High-yield whole-day solar with expanded battery storage.',
+                badge: 'Expanded residential',
+                panels: '10.3kW',
+                inverter: '10kW',
+                battery: '14.4kWh',
+                idealBills: '₱12,000–₱18,000',
+                monthly: '₱14,850',
+                cashPrice: '₱525,000',
+                estSavings: '₱10,500 – ₱16,000',
+                features: [
+                    '10.3kW Tier-1 High-Efficiency Half-Cut Solar Panels',
+                    '10kW Smart Heavy-Duty Hybrid Inverter with UPS mode (<10ms)',
+                    '14.4kWh Triple-Capacity LiFePO4 Energy Storage Bank',
+                    'Whole-Home Automatic Backup Switch & EV-Ready Integration',
+                    'Real-time Cloud Solar Production & Consumption Analytics',
+                    '25-Year Solar Panel Warranty & 10-Year Battery Warranty',
+                    'Full Utility Interconnection & Net-Metering Processing'
+                ]
+            },
+            'hs12-pro': {
+                id: 'hs12-pro',
+                name: 'HS 12 PRO',
+                tag: 'COMMERCIAL & VILLA',
+                tagline: 'Built for multi-story villas, resorts, and commercial hubs.',
+                badge: 'Commercial & villa',
+                panels: '12.4kW',
+                inverter: '12kW',
+                battery: '19.2kWh',
+                idealBills: '₱18,000–₱25,000',
+                monthly: '₱18,200',
+                cashPrice: '₱640,000',
+                estSavings: '₱15,000 – ₱22,000',
+                features: [
+                    '12.4kW High-Yield Monocrystalline PV Generation Array',
+                    '12kW Commercial-Grade Dual MPPT Hybrid Inverter',
+                    '19.2kWh Scalable Modular Lithium LiFePO4 Storage Bank',
+                    'Full Heavy-Duty Surge & Industrial Lightning Protection Kit',
+                    'Multi-Split AC and EV Fast-Charging Power Distribution',
+                    '25-Year Panel Warranty + Premium Rapid Maintenance Support',
+                    'Turnkey Rooftop Installation & Net-Metering Processing'
+                ]
+            },
+            'hs15-pro': {
+                id: 'hs15-pro',
+                name: 'HS 15 PRO',
+                tag: 'ENTERPRISE / BUSINESS',
+                tagline: 'Maximum generation capacity for intensive daytime power.',
+                badge: 'Enterprise & business',
+                panels: '15.5kW',
+                inverter: '15kW',
+                battery: '28.8kWh',
+                idealBills: '₱25,000+',
+                monthly: '₱23,500',
+                cashPrice: '₱820,000',
+                estSavings: '₱21,000 – ₱30,000+',
+                features: [
+                    '15.5kW Heavy Industrial Solar Generation Array',
+                    '15kW Enterprise Smart Hybrid Inverter with Dual MPPT',
+                    '28.8kWh High-Capacity LiFePO4 Battery Bank Storage',
+                    'Seamless Enterprise Automatic Transfer Switch System',
+                    'Continuous Cloud Energy Analytics & Diagnostic Alerts',
+                    '25-Year Solar Panel Warranty & 10-Year Battery Warranty',
+                    'Complete Engineering Processing and Net-Metering Permit'
+                ]
             }
         };
+
+        // PRICING / OPTION SELECTION & CAROUSEL ENGINE
+        let selectedOption = 'hs6-pro';
+        let currentOptionsPage = 1;
+
+        function updateOptionsUI() {
+            const productIds = ['hs6-lite', 'hs6-pro', 'hs8-pro', 'hs10-pro', 'hs12-pro', 'hs15-pro'];
+
+            productIds.forEach(id => {
+                const card = document.querySelector(`[data-product-card="${id}"]`);
+                if (!card) return;
+
+                const isSelected = (id === selectedOption);
+                const actionBtn = card.querySelector('[data-action="details"]');
+
+                if (isSelected) {
+                    card.classList.add('is-selected');
+                    card.classList.remove('border-slate-200/90', 'shadow-xs');
+
+                    if (actionBtn) {
+                        actionBtn.className = 'w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition shadow-sm hover:shadow flex items-center justify-center gap-1.5 cursor-pointer';
+                    }
+                } else {
+                    card.classList.remove('is-selected');
+                    card.classList.add('border-slate-200/90', 'shadow-xs');
+
+                    if (actionBtn) {
+                        actionBtn.className = 'w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer';
+                    }
+                }
+            });
+
+            // IMPORTANT: "Most Popular" is permanent and independent on HS 6 PRO
+            const popularBadge = document.getElementById('badge-most-popular');
+            if (popularBadge) {
+                popularBadge.style.display = 'block';
+            }
+        }
+
+        function selectOption(productId) {
+            if (!PRODUCTS[productId]) return;
+            selectedOption = productId;
+            updateOptionsUI();
+        }
+
+        function setOptionsPage(pageNumber) {
+            const track = document.getElementById('optionsCarouselTrack');
+            const prevBtn = document.getElementById('slidePrevOptionBtn');
+            const nextBtn = document.getElementById('slideNextOptionBtn');
+
+            currentOptionsPage = pageNumber;
+
+            if (track) {
+                if (currentOptionsPage === 2) {
+                    track.style.transform = 'translateX(-100%)';
+                } else {
+                    track.style.transform = 'translateX(0%)';
+                }
+            }
+
+            if (currentOptionsPage === 2) {
+                // Showing Page 2: Hide right arrow, Show left arrow
+                if (nextBtn) {
+                    nextBtn.classList.add('hidden');
+                    nextBtn.classList.remove('flex');
+                }
+                if (prevBtn) {
+                    prevBtn.classList.remove('hidden');
+                    prevBtn.classList.add('flex');
+                }
+            } else {
+                // Showing Page 1: Show right arrow, Hide left arrow
+                if (prevBtn) {
+                    prevBtn.classList.add('hidden');
+                    prevBtn.classList.remove('flex');
+                }
+                if (nextBtn) {
+                    nextBtn.classList.remove('hidden');
+                    nextBtn.classList.add('flex');
+                }
+            }
+        }
 
         // RECOMMENDATION WIZARD STATE
         const wizardState = {
@@ -950,7 +1293,6 @@
             requestAnimationFrame(() => {
                 modal.classList.remove('opacity-0');
             });
-            document.body.style.overflow = 'hidden';
             lucide.createIcons();
         }
 
@@ -960,7 +1302,6 @@
             modal.classList.add('opacity-0');
             setTimeout(() => {
                 modal.classList.add('hidden');
-                document.body.style.overflow = '';
             }, 200);
         }
 
@@ -990,9 +1331,9 @@
                     <div class="space-y-6">
                         <!-- Progress Header -->
                         <div class="space-y-3">
-                            <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2.5 pr-14 flex-wrap">
                                 <span class="text-[11px] font-black text-amber-600 uppercase tracking-wider">Step 1 of 3 &bull; Electric Bill</span>
-                                <span class="text-[11px] font-bold text-slate-400">~30 sec match</span>
+                                <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200/60">~30 sec match</span>
                             </div>
                             <!-- 3-Step Visual Progress Track -->
                             <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
@@ -1056,11 +1397,11 @@
                     <div class="space-y-6">
                         <!-- Progress Header -->
                         <div class="space-y-3">
-                            <div class="flex items-center justify-between">
-                                <span class="text-[11px] font-black text-amber-600 uppercase tracking-wider">Step 2 of 3 &bull; Power Habits</span>
-                                <button onclick="wizardState.step = 1; renderWizard();" class="text-xs font-bold text-slate-500 hover:text-[#0F172A] flex items-center gap-1 transition">
+                            <div class="flex items-center gap-2.5 pr-14">
+                                <button onclick="wizardState.step = 1; renderWizard();" class="text-xs font-bold text-slate-500 hover:text-[#0F172A] flex items-center gap-1 transition bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg cursor-pointer">
                                     &larr; Back
                                 </button>
+                                <span class="text-[11px] font-black text-amber-600 uppercase tracking-wider">Step 2 of 3 &bull; Power Habits</span>
                             </div>
                             <!-- Progress Track -->
                             <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
@@ -1118,11 +1459,11 @@
                     <div class="space-y-6">
                         <!-- Progress Header -->
                         <div class="space-y-3">
-                            <div class="flex items-center justify-between">
-                                <span class="text-[11px] font-black text-amber-600 uppercase tracking-wider">Step 3 of 3 &bull; Primary Goal</span>
-                                <button onclick="wizardState.step = 2; renderWizard();" class="text-xs font-bold text-slate-500 hover:text-[#0F172A] flex items-center gap-1 transition">
+                            <div class="flex items-center gap-2.5 pr-14">
+                                <button onclick="wizardState.step = 2; renderWizard();" class="text-xs font-bold text-slate-500 hover:text-[#0F172A] flex items-center gap-1 transition bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg cursor-pointer">
                                     &larr; Back
                                 </button>
+                                <span class="text-[11px] font-black text-amber-600 uppercase tracking-wider">Step 3 of 3 &bull; Primary Goal</span>
                             </div>
                             <!-- Progress Track -->
                             <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
@@ -1474,16 +1815,68 @@
                 });
             });
 
-            // 3. "View Details" product buttons
+            // 3. Option Card Selection (Click anywhere on card or keyboard Enter/Space)
+            document.querySelectorAll('[data-product-card]').forEach(card => {
+                const productId = card.getAttribute('data-product-card');
+
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('[data-action="details"]')) return;
+                    selectOption(productId);
+                });
+
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        selectOption(productId);
+                    }
+                });
+            });
+
+            // 4. "View Details" product buttons (also selects the option)
             document.querySelectorAll('[data-action="details"]').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
                     const productId = btn.getAttribute('data-product') || 'hs6-lite';
+                    selectOption(productId);
                     viewProductDetails(productId);
                 });
             });
 
-            // 4. Desktop Navigation Hover Underline & Active State Controller
+            // 5. Slide Next (Right Arrow clicked): Shows the other options, hides right arrow, shows left arrow
+            const nextBtn = document.getElementById('slideNextOptionBtn');
+            if (nextBtn) {
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    setOptionsPage(2);
+                });
+            }
+
+            // 6. Slide Prev (Left Arrow clicked): Slides back to initial options, hides left arrow, shows right arrow
+            const prevBtn = document.getElementById('slidePrevOptionBtn');
+            if (prevBtn) {
+                prevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    setOptionsPage(1);
+                });
+            }
+
+            // 7. Featured recommendation "or explore other options" note
+            const featuredExploreBtn = document.getElementById('featuredExploreOptionsBtn');
+            if (featuredExploreBtn) {
+                featuredExploreBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetSec = document.getElementById('solar-systems');
+                    if (targetSec) {
+                        targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+
+            // 8. Initial option selection UI sync
+            updateOptionsUI();
+            setOptionsPage(1);
+
+            // 9. Desktop Navigation Hover Underline & Active State Controller
             const desktopNav = document.getElementById('desktopNav');
             const desktopNavLinks = desktopNav ? desktopNav.querySelectorAll('a.nav-link') : [];
             let currentActiveSection = 'home';
@@ -1523,7 +1916,7 @@
                 });
             }
 
-            // 5. Intelligent Section Detection (Scrollspy)
+            // 10. Intelligent Section Detection (Scrollspy)
             const sectionKeys = ['home', 'solar-systems', 'how-it-works', 'about-us'];
             function onScrollDetectSection() {
                 const scrollPos = window.scrollY + 200;
@@ -1551,7 +1944,7 @@
             window.addEventListener('scroll', onScrollDetectSection, { passive: true });
             onScrollDetectSection();
 
-            // 6. Mobile & Tablet Navigation Drawer Controller
+            // 11. Mobile & Tablet Navigation Drawer Controller
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
             const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
