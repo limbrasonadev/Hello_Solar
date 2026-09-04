@@ -25,7 +25,8 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #FAFAFB;
+            background-color: #FAF7F2;
+            color: #1C1917;
             overflow-x: hidden;
         }
 
@@ -60,7 +61,7 @@
         .option-card.is-selected {
             border-color: #F59E0B !important;
             border-width: 2px !important;
-            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2), 0 16px 36px rgba(245, 158, 11, 0.22) !important;
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.22), 0 16px 36px rgba(245, 158, 11, 0.22) !important;
             transform: translateY(-6px);
         }
 
@@ -131,7 +132,20 @@
     </style>
 </head>
 
-<body class="text-[#0F172A] selection:bg-amber-500/20">
+<body class="text-[#1C1917] selection:bg-amber-500/25 selection:text-amber-950 bg-[#FAF7F2] min-h-screen">
+
+    <!-- SUBTLE WARM ATMOSPHERIC AMBIENT GLOWS -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div
+            class="absolute -top-32 left-1/4 w-[650px] h-[500px] bg-gradient-to-br from-amber-200/25 via-orange-100/15 to-transparent rounded-full blur-3xl opacity-70">
+        </div>
+        <div
+            class="absolute top-[850px] -left-32 w-[550px] h-[550px] bg-gradient-to-tr from-amber-100/20 via-orange-50/15 to-transparent rounded-full blur-3xl opacity-60">
+        </div>
+        <div
+            class="absolute top-[1750px] -right-32 w-[600px] h-[600px] bg-gradient-to-bl from-amber-200/20 via-orange-100/15 to-transparent rounded-full blur-3xl opacity-60">
+        </div>
+    </div>
 
     <!-- UNIFIED HERO & BANNER WRAPPER -->
     <div class="relative w-full overflow-hidden">
@@ -140,19 +154,19 @@
         <div
             class="absolute right-0 top-0 w-full lg:w-[80%] xl:w-[70%] 2xl:w-[72%] h-[820px] lg:h-[880px] 2xl:h-[850px] pointer-events-none select-none z-0">
             <div class="w-full h-full hero-seamless-mask relative">
-                <img src="assets/images/hello_solar_pic.jpg" alt="Solar House & Rock Pathway" fetchpriority="high"
+                <img src="assets/images/hellosolar_.png" alt="Solar House & Rock Pathway" fetchpriority="high"
                     decoding="async" class="w-full h-full object-cover object-[78%_55%] lg:object-[80%_65%] render-4k"
                     onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=3840&q=95'" />
                 <!-- Mobile Ambient Readability Scrim -->
                 <div
-                    class="absolute inset-0 bg-gradient-to-b from-[#FAFAFB]/95 via-[#FAFAFB]/70 to-[#FAFAFB] lg:hidden">
+                    class="absolute inset-0 bg-gradient-to-b from-[#FAF7F2]/95 via-[#FAF7F2]/75 to-[#FAF7F2] lg:hidden">
                 </div>
                 <!-- 4K Ambient Directional Feathers -->
                 <div
-                    class="absolute inset-y-0 left-0 w-48 2xl:w-64 bg-gradient-to-r from-[#FAFAFB] via-[#FAFAFB]/60 to-transparent hidden lg:block">
+                    class="absolute inset-y-0 left-0 w-48 2xl:w-64 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/65 to-transparent hidden lg:block">
                 </div>
                 <div
-                    class="absolute inset-x-0 bottom-0 h-32 2xl:h-44 bg-gradient-to-t from-[#FAFAFB] via-[#FAFAFB]/40 to-transparent">
+                    class="absolute inset-x-0 bottom-0 h-32 2xl:h-44 bg-gradient-to-t from-[#FAF7F2] via-[#FAF7F2]/45 to-transparent">
                 </div>
             </div>
         </div>
@@ -161,23 +175,23 @@
         <header
             class="w-full max-w-[2000px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-24 py-5 sm:py-6 flex items-center justify-between relative z-30 bg-transparent">
             <a href="#home" class="flex items-center focus:outline-none shrink-0">
-                <img src="assets/images/hellosolar logo.png" alt="Hello Solar Logo"
+                <img src="assets/images/hello_solar.png" alt="Hello Solar Logo"
                     class="h-8 sm:h-9 2xl:h-11 w-auto object-contain" />
             </a>
 
             <!-- DESKTOP NAVBAR (Visible ONLY on xl / 1280px+ displays where ample space exists) -->
             <nav id="desktopNav"
-                class="hidden xl:flex items-center gap-8 2xl:gap-12 text-[14px] 2xl:text-[16px] font-bold text-[#0F172A]">
+                class="hidden xl:flex items-center gap-8 2xl:gap-12 text-[14px] 2xl:text-[16px] font-bold text-[#1C1917]">
                 <a href="#home" data-nav="home"
-                    class="text-[#0F172A] border-b-2 border-amber-500 pb-0.5 font-black nav-link transition-colors">Home</a>
+                    class="text-[#1C1917] border-b-2 border-amber-500 pb-0.5 font-black nav-link transition-colors">Home</a>
                 <a href="#solar-systems" data-nav="solar-systems"
-                    class="text-[#0F172A]/80 hover:text-[#0F172A] pb-0.5 font-bold transition-colors nav-link">Solar
+                    class="text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link">Solar
                     Systems</a>
                 <a href="#how-it-works" data-nav="how-it-works"
-                    class="text-[#0F172A]/80 hover:text-[#0F172A] pb-0.5 font-bold transition-colors nav-link">How It
+                    class="text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link">How It
                     Works</a>
                 <a href="#about-us" data-nav="about-us"
-                    class="text-[#0F172A]/80 hover:text-[#0F172A] pb-0.5 font-bold transition-colors nav-link">About
+                    class="text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link">About
                     Us</a>
             </nav>
 
@@ -190,60 +204,60 @@
                 <!-- Mobile & Tablet Menu Button (Visible on all screens < 1280px, including iPad Mini/Tablets) -->
                 <button id="mobileMenuBtn" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu"
                     aria-expanded="false"
-                    class="xl:hidden w-11 h-11 rounded-xl bg-white/70 hover:bg-white border border-slate-200/80 text-[#0F172A] flex flex-col items-center justify-center gap-[4.5px] shadow-xs transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
+                    class="xl:hidden w-11 h-11 rounded-xl bg-white/80 hover:bg-white border border-[#E7E2D7] text-[#1C1917] flex flex-col items-center justify-center gap-[4.5px] shadow-xs transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
                     <span class="sr-only">Toggle navigation menu</span>
                     <!-- 3 Horizontal Bars: '☰' to 'X' -->
                     <span id="burgerLine1"
-                        class="w-5 h-[2px] bg-[#0F172A] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
+                        class="w-5 h-[2px] bg-[#1C1917] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
                     <span id="burgerLine2"
-                        class="w-5 h-[2px] bg-[#0F172A] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
+                        class="w-5 h-[2px] bg-[#1C1917] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
                     <span id="burgerLine3"
-                        class="w-5 h-[2px] bg-[#0F172A] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
+                        class="w-5 h-[2px] bg-[#1C1917] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
                 </button>
             </div>
         </header>
 
         <!-- MOBILE & TABLET NAVIGATION BACKDROP OVERLAY -->
         <div id="mobileMenuBackdrop"
-            class="xl:hidden fixed inset-0 z-40 bg-slate-900/35 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none">
+            class="xl:hidden fixed inset-0 z-40 bg-stone-900/40 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none">
         </div>
 
         <!-- MOBILE & TABLET NAVIGATION DRAWER -->
         <div id="mobileMenu"
-            class="xl:hidden fixed inset-x-4 sm:inset-x-8 md:inset-x-auto md:w-[480px] md:right-8 top-[74px] sm:top-[84px] z-50 bg-white/98 backdrop-blur-xl border border-slate-200/90 rounded-[28px] shadow-[0_24px_55px_-12px_rgba(15,23,42,0.22)] p-6 space-y-4 transition-all duration-300 transform -translate-y-4 scale-98 opacity-0 pointer-events-none max-w-md md:max-w-lg mx-auto">
-            <div class="flex items-center justify-between px-1 pb-1 border-b border-slate-100">
-                <span class="text-[11px] font-black text-slate-400 uppercase tracking-wider">Navigation</span>
+            class="xl:hidden fixed inset-x-4 sm:inset-x-8 md:inset-x-auto md:w-[480px] md:right-8 top-[74px] sm:top-[84px] z-50 bg-[#FCFAF7]/98 backdrop-blur-xl border border-[#E7E2D7] rounded-[28px] shadow-[0_24px_55px_-12px_rgba(28,25,23,0.18)] p-6 space-y-4 transition-all duration-300 transform -translate-y-4 scale-98 opacity-0 pointer-events-none max-w-md md:max-w-lg mx-auto">
+            <div class="flex items-center justify-between px-1 pb-1 border-b border-stone-100">
+                <span class="text-[11px] font-black text-stone-400 uppercase tracking-wider">Navigation</span>
                 <span
-                    class="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/60">
+                    class="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/80">
                     <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
                     Smart Solar Matching
                 </span>
             </div>
 
-            <nav class="flex flex-col space-y-1.5 text-[15px] font-bold text-slate-700">
+            <nav class="flex flex-col space-y-1.5 text-[15px] font-bold text-stone-700">
                 <a href="#home" data-nav="home"
-                    class="py-3 px-4 rounded-xl hover:bg-slate-50 hover:text-amber-600 transition flex items-center justify-between mobile-nav-link text-[#0F172A]">
+                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link text-[#1C1917]">
                     <span>Home</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-stone-400"></i>
                 </a>
                 <a href="#solar-systems" data-nav="solar-systems"
-                    class="py-3 px-4 rounded-xl hover:bg-slate-50 hover:text-amber-600 transition flex items-center justify-between mobile-nav-link">
+                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link">
                     <span>Solar Systems</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-stone-400"></i>
                 </a>
                 <a href="#how-it-works" data-nav="how-it-works"
-                    class="py-3 px-4 rounded-xl hover:bg-slate-50 hover:text-amber-600 transition flex items-center justify-between mobile-nav-link">
+                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link">
                     <span>How It Works</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-stone-400"></i>
                 </a>
                 <a href="#about-us" data-nav="about-us"
-                    class="py-3 px-4 rounded-xl hover:bg-slate-50 hover:text-amber-600 transition flex items-center justify-between mobile-nav-link">
+                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link">
                     <span>About Us</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-stone-400"></i>
                 </a>
             </nav>
 
-            <div class="pt-2 border-t border-slate-100">
+            <div class="pt-2 border-t border-stone-100">
                 <button data-action="recommend"
                     class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white text-xs sm:text-sm font-extrabold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-sm transition">
                     Get My Recommendation &rarr;
@@ -255,51 +269,64 @@
         <section id="home"
             class="w-full max-w-[2000px] mx-auto px-6 sm:px-12 lg:px-16 2xl:px-24 relative z-10 pt-8 sm:pt-14 pb-20 lg:pb-28 2xl:pb-36">
             <div class="max-w-xl 2xl:max-w-2xl space-y-7 2xl:space-y-9">
-                <h1
-                    class="text-4xl sm:text-5xl md:text-[56px] lg:text-[62px] 2xl:text-[76px] font-black tracking-tight leading-[1.1] sm:leading-[1.05] text-[#0F172A]">
-                    Power your home.<br />
-                    <span
-                        class="bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 bg-clip-text text-transparent">Lower
-                        your bills.</span>
-                </h1>
-                <p class="text-[15px] sm:text-[16px] 2xl:text-[20px] font-semibold text-slate-600">
+                <div class="space-y-4">
+                    <!-- <div
+                        class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-800 text-[10.5px] 2xl:text-xs font-black tracking-wider uppercase">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                        Clean Energy &bull; Lower Bills &bull; Brighter Future
+                    </div> -->
+                    <h1
+                        class="text-4xl sm:text-5xl md:text-[56px] lg:text-[62px] 2xl:text-[76px] font-black tracking-tight leading-[1.1] sm:leading-[1.05] text-[#1C1917]">
+                        Power your home.<br />
+                        <span
+                            class="bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 bg-clip-text text-transparent">Lower
+                            your bills.</span>
+                    </h1>
+                </div>
+                <p class="text-[15px] sm:text-[16px] 2xl:text-[20px] font-semibold text-stone-600">
                     Own your energy. Live more, worry less.
                 </p>
 
-                <!-- 3 Dynamic Multi-Tone Badges -->
+                <!-- 3 Brand Identity Badges (Aligned with Official Brand Reference Icons) -->
                 <div
                     class="grid grid-cols-3 gap-2.5 sm:gap-3 2xl:gap-4 pt-3 text-center max-w-[440px] 2xl:max-w-[520px]">
+                    <!-- Badge 1: Lower Bills, More Savings (Philippine Peso ₱ Coin) -->
                     <div class="flex flex-col items-center">
                         <div
-                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-indigo-100 flex items-center justify-center bg-indigo-50/80 text-indigo-600 shadow-xs mb-2.5 backdrop-blur-xs">
-                            <i data-lucide="piggy-bank" class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2]"></i>
+                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-amber-300 flex items-center justify-center bg-amber-50/90 text-amber-600 shadow-xs mb-2.5 backdrop-blur-xs">
+                            <svg class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2.2]" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="9.5"></circle>
+                                <path d="M9 7.5h4.5a3 3 0 0 1 0 6H9v4"></path>
+                                <line x1="7" y1="9.5" x2="15" y2="9.5"></line>
+                                <line x1="7" y1="11.5" x2="15" y2="11.5"></line>
+                            </svg>
                         </div>
                         <p
-                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-slate-900">
-                            Save<br />every month</p>
+                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-stone-900">
+                            Lower bills,<br />more savings</p>
                     </div>
 
+                    <!-- Badge 2: Quality Systems, Built to Last (Shield / Reliable) -->
                     <div class="flex flex-col items-center">
                         <div
-                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-amber-200 flex items-center justify-center bg-amber-50/90 text-amber-600 shadow-xs mb-2.5 backdrop-blur-xs">
-                            <i data-lucide="zap" class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2.2]"></i>
+                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-amber-300 flex items-center justify-center bg-gradient-to-br from-amber-100/90 to-orange-100/80 text-amber-700 shadow-xs mb-2.5 backdrop-blur-xs">
+                            <i data-lucide="shield-check" class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2.2]"></i>
                         </div>
                         <p
-                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-slate-900">
-                            Stay
-                            powered<br />during
-                            brownouts</p>
+                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-stone-900">
+                            Quality systems,<br />built to last</p>
                     </div>
 
+                    <!-- Badge 3: Clean, Renewable Energy (Solar Sun) -->
                     <div class="flex flex-col items-center">
                         <div
-                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-emerald-100 flex items-center justify-center bg-emerald-50/90 text-emerald-600 shadow-xs mb-2.5 backdrop-blur-xs">
-                            <i data-lucide="leaf" class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2]"></i>
+                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-amber-200/90 flex items-center justify-center bg-amber-50/90 text-amber-600 shadow-xs mb-2.5 backdrop-blur-xs">
+                            <i data-lucide="sun" class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2.2]"></i>
                         </div>
                         <p
-                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-slate-900">
-                            Build
-                            a<br />cleaner future
+                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-stone-900">
+                            Clean, renewable<br />energy
                         </p>
                     </div>
                 </div>
@@ -309,7 +336,7 @@
         <!-- CALCULATOR BANNER (Fixed Sunburst Layering) -->
         <div class="w-full max-w-[2000px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-24 relative z-20">
             <section
-                class="relative w-full bg-gradient-to-r from-[#FFFDF7]/95 via-[#FEF3C7]/90 to-[#FED7AA]/85 backdrop-blur-md border border-amber-200/80 p-8 sm:p-10 2xl:p-12 rounded-[32px] 2xl:rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_16px_40px_-12px_rgba(245,158,11,0.15)]">
+                class="relative w-full bg-gradient-to-r from-[#FFFDF8] via-[#FEF3C7] to-[#FED7AA]/90 backdrop-blur-md border border-amber-300/80 p-8 sm:p-10 2xl:p-12 rounded-[32px] 2xl:rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_16px_40px_-12px_rgba(245,158,11,0.2)]">
 
                 <!-- PROPERLY LAYERED SUNBURST / ACCENT RAYS (z-30 & anchored to top right) -->
                 <div class="absolute -top-3 sm:-top-4 right-8 sm:right-12 z-30 select-none pointer-events-none">
@@ -322,9 +349,9 @@
                 </div>
 
                 <div class="space-y-1.5 text-center md:text-left relative z-10">
-                    <h2 class="text-2xl sm:text-[28px] 2xl:text-[36px] font-black text-[#0F172A] leading-tight">Find the
+                    <h2 class="text-2xl sm:text-[28px] 2xl:text-[36px] font-black text-[#1C1917] leading-tight">Find the
                         right<br class="hidden sm:inline" /> solar system for your home.</h2>
-                    <p class="text-xs sm:text-[14px] 2xl:text-[16px] font-semibold text-slate-600">Answer a few
+                    <p class="text-xs sm:text-[14px] 2xl:text-[16px] font-semibold text-stone-600">Answer a few
                         questions and get a personalized recommendation in 1 minute.</p>
                 </div>
 
@@ -333,7 +360,7 @@
                         class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold px-8 2xl:px-10 py-3.5 2xl:py-4 rounded-full flex items-center gap-2 shadow-sm hover:shadow-md transition text-xs 2xl:text-sm tracking-wide">
                         Get My Recommendation &rarr;
                     </button>
-                    <span class="text-[10.5px] 2xl:text-[12px] font-bold text-slate-500 mt-2">No obligation. Takes less
+                    <span class="text-[10.5px] 2xl:text-[12px] font-bold text-stone-500 mt-2">No obligation. Takes less
                         than 60 seconds.</span>
                 </div>
             </section>
@@ -347,7 +374,7 @@
 
         <!-- MAIN RECOMMENDATION CARD -->
         <section id="featured-recommendation"
-            class="w-full bg-white rounded-[28px] 2xl:rounded-[36px] border border-slate-200/80 p-8 sm:p-10 2xl:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+            class="w-full bg-white rounded-[28px] 2xl:rounded-[36px] border border-[#E7E2D7] p-8 sm:p-10 2xl:p-14 shadow-[0_12px_36px_-8px_rgba(217,119,6,0.08),0_2px_8px_rgba(28,25,23,0.02)]">
             <div class="grid lg:grid-cols-12 gap-8 2xl:gap-12 items-center">
                 <!-- Specs Column -->
                 <div class="lg:col-span-5 space-y-4 2xl:space-y-6">
@@ -355,76 +382,76 @@
                         class="inline-block bg-amber-500/10 border border-amber-500/20 text-amber-700 text-[10px] 2xl:text-[12px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
                         ⭐ OUR RECOMMENDATION
                     </span>
-                    <h2 class="text-4xl 2xl:text-5xl font-black text-[#0F172A] tracking-tight">HS 6 <span
+                    <h2 class="text-4xl 2xl:text-5xl font-black text-[#1C1917] tracking-tight">HS 6 <span
                             class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">LITE</span>
                     </h2>
-                    <p class="text-xs 2xl:text-sm font-bold text-black">Smart. Reliable. Built for Everyday Savings.
+                    <p class="text-xs 2xl:text-sm font-bold text-[#1C1917]">Smart. Reliable. Built for Everyday Savings.
                     </p>
 
                     <div class="grid grid-cols-3 gap-3 2xl:gap-4 pt-2">
                         <div
-                            class="border border-slate-100 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-slate-50/60">
+                            class="border border-amber-200/60 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-amber-50/40">
                             <i data-lucide="sun-medium"
                                 class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-amber-500 stroke-[2]"></i>
-                            <div class="text-sm 2xl:text-base font-black text-black">4.96kW</div>
-                            <div class="text-[10px] 2xl:text-xs text-black font-bold uppercase">Panels</div>
+                            <div class="text-sm 2xl:text-base font-black text-[#1C1917]">4.96kW</div>
+                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase">Panels</div>
                         </div>
                         <div
-                            class="border border-slate-100 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-slate-50/60">
+                            class="border border-amber-200/60 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-amber-50/40">
                             <i data-lucide="zap"
                                 class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-amber-500 stroke-[2]"></i>
-                            <div class="text-sm 2xl:text-base font-black text-black">6kW</div>
-                            <div class="text-[10px] 2xl:text-xs text-black font-bold uppercase">Inverter</div>
+                            <div class="text-sm 2xl:text-base font-black text-[#1C1917]">6kW</div>
+                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase">Inverter</div>
                         </div>
                         <div
-                            class="border border-slate-100 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-slate-50/60">
-                            <i data-lucide="battery"
-                                class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-emerald-500 stroke-[2]"></i>
-                            <div class="text-sm 2xl:text-base font-black text-black">4.8kWh</div>
-                            <div class="text-[10px] 2xl:text-xs text-black font-bold uppercase">Battery</div>
+                            class="border border-amber-200/60 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-amber-50/40">
+                            <i data-lucide="battery-charging"
+                                class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-emerald-600 stroke-[2]"></i>
+                            <div class="text-sm 2xl:text-base font-black text-[#1C1917]">4.8kWh</div>
+                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase">Battery</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Pricing Column -->
                 <div
-                    class="lg:col-span-4 border-y lg:border-y-0 lg:border-x border-slate-100 py-6 lg:py-0 lg:px-10 2xl:px-14 space-y-3">
-                    <div class="text-xs 2xl:text-sm font-bold text-black">Pay as low as</div>
-                    <div class="text-4xl sm:text-5xl 2xl:text-6xl font-black text-amber-500 tracking-tight">
-                        ₱7,650<span class="text-sm 2xl:text-lg font-bold text-black">/month</span>
+                    class="lg:col-span-4 border-y lg:border-y-0 lg:border-x border-[#EFEBE4] py-6 lg:py-0 lg:px-10 2xl:px-14 space-y-3">
+                    <div class="text-xs 2xl:text-sm font-bold text-stone-600">Pay as low as</div>
+                    <div class="text-4xl sm:text-5xl 2xl:text-6xl font-black text-amber-600 tracking-tight">
+                        ₱7,650<span class="text-sm 2xl:text-lg font-bold text-stone-700">/month</span>
                     </div>
-                    <div class="text-xs 2xl:text-sm font-extrabold text-black">for 5 years, with 10% DP</div>
-                    <div class="text-xs 2xl:text-sm text-black font-semibold pt-1">Cash Price: <span
-                            class="font-extrabold text-black">₱270,000</span></div>
+                    <div class="text-xs 2xl:text-sm font-extrabold text-[#1C1917]">for 5 years, with 10% DP</div>
+                    <div class="text-xs 2xl:text-sm text-stone-600 font-semibold pt-1">Cash Price: <span
+                            class="font-extrabold text-[#1C1917]">₱270,000</span></div>
                     <button data-product="hs6-lite" data-action="choose"
                         class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 2xl:py-4 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs 2xl:text-sm mt-3 shadow-sm hover:shadow cursor-pointer">
                         Choose HS 6 Lite &rarr;
                     </button>
                     <button type="button" id="featuredExploreOptionsBtn"
-                        class="w-full text-center text-xs 2xl:text-sm font-bold text-black hover:text-amber-600 transition flex items-center justify-center gap-1.5 pt-2 cursor-pointer">
+                        class="w-full text-center text-xs 2xl:text-sm font-bold text-stone-700 hover:text-amber-600 transition flex items-center justify-center gap-1.5 pt-2 cursor-pointer">
                         <span>or explore other options</span>
                     </button>
                 </div>
 
                 <!-- Checklist Column -->
                 <div
-                    class="lg:col-span-3 bg-gradient-to-br from-amber-50/80 to-orange-50/40 rounded-2xl 2xl:rounded-3xl p-6 2xl:p-8 space-y-4 border border-amber-200/50">
+                    class="lg:col-span-3 bg-gradient-to-br from-amber-50/90 to-orange-50/50 rounded-2xl 2xl:rounded-3xl p-6 2xl:p-8 space-y-4 border border-amber-200/70">
                     <div class="flex items-start gap-2.5">
                         <i data-lucide="check-circle"
-                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-500 shrink-0 mt-0.5 stroke-[2.5]"></i>
-                        <span class="text-xs 2xl:text-sm font-bold text-black leading-snug">Lower your electric bill
+                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-600 shrink-0 mt-0.5 stroke-[2.5]"></i>
+                        <span class="text-xs 2xl:text-sm font-bold text-[#1C1917] leading-snug">Lower your electric bill
                             every month</span>
                     </div>
                     <div class="flex items-start gap-2.5">
                         <i data-lucide="check-circle"
-                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-500 shrink-0 mt-0.5 stroke-[2.5]"></i>
-                        <span class="text-xs 2xl:text-sm font-bold text-black leading-snug">Keep your lights, fans
+                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-600 shrink-0 mt-0.5 stroke-[2.5]"></i>
+                        <span class="text-xs 2xl:text-sm font-bold text-[#1C1917] leading-snug">Keep your lights, fans
                             and Wi-Fi running during brownouts</span>
                     </div>
                     <div class="flex items-start gap-2.5">
                         <i data-lucide="check-circle"
-                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-500 shrink-0 mt-0.5 stroke-[2.5]"></i>
-                        <span class="text-xs 2xl:text-sm font-bold text-black leading-snug">Lowest upfront
+                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-600 shrink-0 mt-0.5 stroke-[2.5]"></i>
+                        <span class="text-xs 2xl:text-sm font-bold text-[#1C1917] leading-snug">Lowest upfront
                             investment</span>
                     </div>
                 </div>
@@ -434,10 +461,11 @@
         <!-- 3-TIER OPTIONS SECTION -->
         <section id="solar-systems" class="w-full space-y-6">
             <div class="text-center space-y-1">
-                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#0F172A]">
+                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#1C1917]">
                     or explore other options
                 </h2>
-                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-black">Find the best fit for your home.</p>
+                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">Find the best fit for your home.
+                </p>
             </div>
 
             <div class="relative w-full">
@@ -458,30 +486,31 @@
                         <div class="options-slide-page">
                             <!-- Card 1: HS 6 Lite -->
                             <div id="card-hs6-lite" data-product-card="hs6-lite" role="button" tabindex="0"
-                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
+                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
                                 <div class="space-y-4">
                                     <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 6 <span
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 6 <span
                                                 class="text-amber-500">LITE</span>
                                         </h3>
-                                        <p class="text-xs 2xl:text-sm text-black font-bold">Essential coverage</p>
+                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">Essential coverage</p>
                                     </div>
                                     <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-black bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
-                                        <span>4.96kW</span><span class="text-slate-300">|</span><span>6kW</span><span
-                                            class="text-slate-300">|</span><span>4.8kWh</span>
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-1.5 2xl:py-2 rounded-lg">
+                                        <span>4.96kW</span><span class="text-stone-300">|</span><span>6kW</span><span
+                                            class="text-stone-300">|</span><span>4.8kWh</span>
                                     </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
-                                        Ideal for bills: <span class="font-extrabold text-black">₱5,000–₱8,000</span>
+                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
+                                        Ideal for bills: <span
+                                            class="font-extrabold text-[#1C1917]">₱5,000–₱8,000</span>
                                     </div>
                                     <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱7,650 <span
-                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱7,650 <span
+                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
                                     </div>
                                 </div>
                                 <button data-product="hs6-lite" data-action="details"
-                                    class="w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                    class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
                                     View Details
                                 </button>
                             </div>
@@ -495,23 +524,25 @@
                                 </div>
                                 <div class="space-y-4 pt-1">
                                     <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 6 <span
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 6 <span
                                                 class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">PRO</span>
                                         </h3>
-                                        <p class="text-xs 2xl:text-sm text-black font-bold">More power, more backup</p>
+                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">More power, more backup
+                                        </p>
                                     </div>
                                     <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-amber-800 bg-amber-50 py-1.5 2xl:py-2 rounded-lg border border-amber-200/50">
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-amber-900 bg-amber-50 py-1.5 2xl:py-2 rounded-lg border border-amber-200/60">
                                         <span>6.2kW</span><span class="text-amber-300">|</span><span>6kW</span><span
                                             class="text-amber-300">|</span><span>9.6kWh</span>
                                     </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
-                                        Ideal for bills: <span class="font-extrabold text-black">₱5,000–₱8,000</span>
+                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
+                                        Ideal for bills: <span
+                                            class="font-extrabold text-[#1C1917]">₱5,000–₱8,000</span>
                                     </div>
                                     <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱9,067 <span
-                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱9,067 <span
+                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
                                     </div>
                                 </div>
                                 <button data-product="hs6-pro" data-action="details"
@@ -522,30 +553,31 @@
 
                             <!-- Card 3: HS 8 Pro -->
                             <div id="card-hs8-pro" data-product-card="hs8-pro" role="button" tabindex="0"
-                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
+                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
                                 <div class="space-y-4">
                                     <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 8 <span
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 8 <span
                                                 class="text-orange-500">PRO</span>
                                         </h3>
-                                        <p class="text-xs 2xl:text-sm text-black font-bold">For bigger homes</p>
+                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">For bigger homes</p>
                                     </div>
                                     <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-black bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
-                                        <span>8.27kW</span><span class="text-slate-300">|</span><span>8kW</span><span
-                                            class="text-slate-300">|</span><span>9.6kWh</span>
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-1.5 2xl:py-2 rounded-lg">
+                                        <span>8.27kW</span><span class="text-stone-300">|</span><span>8kW</span><span
+                                            class="text-stone-300">|</span><span>9.6kWh</span>
                                     </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
-                                        Ideal for bills: <span class="font-extrabold text-black">₱8,000–₱12,000</span>
+                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
+                                        Ideal for bills: <span
+                                            class="font-extrabold text-[#1C1917]">₱8,000–₱12,000</span>
                                     </div>
                                     <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱11,750 <span
-                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱11,750 <span
+                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
                                     </div>
                                 </div>
                                 <button data-product="hs8-pro" data-action="details"
-                                    class="w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                    class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
                                     View Details
                                 </button>
                             </div>
@@ -555,90 +587,93 @@
                         <div class="options-slide-page">
                             <!-- Card 4: HS 10 Pro -->
                             <div id="card-hs10-pro" data-product-card="hs10-pro" role="button" tabindex="0"
-                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
+                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
                                 <div class="space-y-4">
                                     <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 10 <span
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 10 <span
                                                 class="text-amber-500">PRO</span>
                                         </h3>
-                                        <p class="text-xs 2xl:text-sm text-black font-bold">Expanded residential</p>
+                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">Expanded residential</p>
                                     </div>
                                     <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-black bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
-                                        <span>10.3kW</span><span class="text-slate-300">|</span><span>10kW</span><span
-                                            class="text-slate-300">|</span><span>14.4kWh</span>
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-1.5 2xl:py-2 rounded-lg">
+                                        <span>10.3kW</span><span class="text-stone-300">|</span><span>10kW</span><span
+                                            class="text-stone-300">|</span><span>14.4kWh</span>
                                     </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
-                                        Ideal for bills: <span class="font-extrabold text-black">₱12,000–₱18,000</span>
+                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
+                                        Ideal for bills: <span
+                                            class="font-extrabold text-[#1C1917]">₱12,000–₱18,000</span>
                                     </div>
                                     <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱14,850 <span
-                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱14,850 <span
+                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
                                     </div>
                                 </div>
                                 <button data-product="hs10-pro" data-action="details"
-                                    class="w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                    class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
                                     View Details
                                 </button>
                             </div>
 
                             <!-- Card 5: HS 12 Pro -->
                             <div id="card-hs12-pro" data-product-card="hs12-pro" role="button" tabindex="0"
-                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
+                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
                                 <div class="space-y-4">
                                     <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 12 <span
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 12 <span
                                                 class="text-orange-500">PRO</span>
                                         </h3>
-                                        <p class="text-xs 2xl:text-sm text-black font-bold">Commercial & villa</p>
+                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">Commercial & villa</p>
                                     </div>
                                     <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-black bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
-                                        <span>12.4kW</span><span class="text-slate-300">|</span><span>12kW</span><span
-                                            class="text-slate-300">|</span><span>19.2kWh</span>
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-1.5 2xl:py-2 rounded-lg">
+                                        <span>12.4kW</span><span class="text-stone-300">|</span><span>12kW</span><span
+                                            class="text-stone-300">|</span><span>19.2kWh</span>
                                     </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
-                                        Ideal for bills: <span class="font-extrabold text-black">₱18,000–₱25,000</span>
+                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
+                                        Ideal for bills: <span
+                                            class="font-extrabold text-[#1C1917]">₱18,000–₱25,000</span>
                                     </div>
                                     <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱18,200 <span
-                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱18,200 <span
+                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
                                     </div>
                                 </div>
                                 <button data-product="hs12-pro" data-action="details"
-                                    class="w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                    class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
                                     View Details
                                 </button>
                             </div>
 
                             <!-- Card 6: HS 15 Pro -->
                             <div id="card-hs15-pro" data-product-card="hs15-pro" role="button" tabindex="0"
-                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
+                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
                                 <div class="space-y-4">
                                     <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#0F172A]">HS 15 <span
+                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 15 <span
                                                 class="text-orange-600">PRO</span>
                                         </h3>
-                                        <p class="text-xs 2xl:text-sm text-black font-bold">Enterprise & business</p>
+                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">Enterprise & business
+                                        </p>
                                     </div>
                                     <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-black bg-slate-50 py-1.5 2xl:py-2 rounded-lg">
-                                        <span>15.5kW</span><span class="text-slate-300">|</span><span>15kW</span><span
-                                            class="text-slate-300">|</span><span>28.8kWh</span>
+                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-1.5 2xl:py-2 rounded-lg">
+                                        <span>15.5kW</span><span class="text-stone-300">|</span><span>15kW</span><span
+                                            class="text-stone-300">|</span><span>28.8kWh</span>
                                     </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-black font-semibold">
-                                        Ideal for bills: <span class="font-extrabold text-black">₱25,000+</span>
+                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
+                                        Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱25,000+</span>
                                     </div>
                                     <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#0F172A]">₱23,500 <span
-                                                class="text-xs 2xl:text-sm font-bold text-black">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-black font-bold">5 years, 10% DP</div>
+                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱23,500 <span
+                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
+                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
                                     </div>
                                 </div>
                                 <button data-product="hs15-pro" data-action="details"
-                                    class="w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                    class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
                                     View Details
                                 </button>
                             </div>
@@ -661,28 +696,28 @@
         <!-- HOW IT WORKS SECTION -->
         <section id="how-it-works" class="w-full space-y-6 pt-6">
             <div class="text-center space-y-1">
-                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#0F172A]">How it works</h2>
-                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-slate-500">Your simple 4-step journey to clean
+                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#1C1917]">How it works</h2>
+                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">Your simple 4-step journey to clean
                     solar energy.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 2xl:gap-8 items-stretch pt-2">
                 <!-- Step 1 -->
                 <div
-                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs">
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <div
-                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-500">
+                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-amber-600">
                                 <i data-lucide="clipboard-list" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
                             </div>
                             <span
-                                class="text-xs 2xl:text-sm font-black text-amber-600 bg-amber-50 border border-amber-200/50 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                class="text-xs 2xl:text-sm font-black text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
                                 1</span>
                         </div>
                         <div class="space-y-1.5">
-                            <h3 class="text-lg 2xl:text-xl font-black text-[#0F172A]">Tell Us About Your Home</h3>
-                            <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Tell Us About Your Home</h3>
+                            <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
                                 Share basic details about your average electricity usage, monthly electric bill, and
                                 household power requirements.
                             </p>
@@ -692,20 +727,20 @@
 
                 <!-- Step 2 -->
                 <div
-                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs">
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <div
-                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-orange-50 border border-orange-200/80 flex items-center justify-center text-orange-600">
                                 <i data-lucide="sparkles" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
                             </div>
                             <span
-                                class="text-xs 2xl:text-sm font-black text-indigo-600 bg-indigo-50 border border-indigo-100 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                class="text-xs 2xl:text-sm font-black text-orange-700 bg-orange-50 border border-orange-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
                                 2</span>
                         </div>
                         <div class="space-y-1.5">
-                            <h3 class="text-lg 2xl:text-xl font-black text-[#0F172A]">Get Your Recommendation</h3>
-                            <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Get Your Recommendation</h3>
+                            <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
                                 Hello Solar evaluates your consumption profile and recommends the ideal panel, inverter,
                                 and battery setup for your needs.
                             </p>
@@ -715,20 +750,20 @@
 
                 <!-- Step 3 -->
                 <div
-                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs">
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <div
-                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600">
+                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-amber-100/70 border border-amber-300/80 flex items-center justify-center text-amber-700">
                                 <i data-lucide="check-square" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
                             </div>
                             <span
-                                class="text-xs 2xl:text-sm font-black text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                class="text-xs 2xl:text-sm font-black text-amber-800 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
                                 3</span>
                         </div>
                         <div class="space-y-1.5">
-                            <h3 class="text-lg 2xl:text-xl font-black text-[#0F172A]">Choose Your Solar System</h3>
-                            <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Choose Your Solar System</h3>
+                            <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
                                 Compare available solar packages and choose the system and financing plan that best fits
                                 your home and budget.
                             </p>
@@ -738,20 +773,20 @@
 
                 <!-- Step 4 -->
                 <div
-                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-slate-200/90 p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs">
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <div
-                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600">
+                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center text-emerald-700">
                                 <i data-lucide="sun" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
                             </div>
                             <span
-                                class="text-xs 2xl:text-sm font-black text-emerald-600 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                class="text-xs 2xl:text-sm font-black text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
                                 4</span>
                         </div>
                         <div class="space-y-1.5">
-                            <h3 class="text-lg 2xl:text-xl font-black text-[#0F172A]">Start Saving</h3>
-                            <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Start Saving</h3>
+                            <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
                                 After turnkey installation, enjoy substantially lower electric bills every month and
                                 reliable backup power when applicable.
                             </p>
@@ -761,45 +796,96 @@
             </div>
         </section>
 
-        <!-- WHY CHOOSE US SECTION -->
-        <section id="why-choose-us" class="w-full space-y-6 pt-6">
-            <h2 class="text-center text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#0F172A]">Why choose Hello Solar?
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 2xl:gap-8 text-center">
-                <div class="space-y-2 flex flex-col items-center">
+        <!-- WHY CHOOSE US SECTION (6 Official Brand Pillars from Brand Reference Sheet) -->
+        <section id="why-choose-us" class="w-full space-y-8 pt-6">
+            <div class="text-center space-y-2">
+                <span
+                    class="inline-block bg-amber-500/10 border border-amber-500/20 text-amber-700 text-[10px] 2xl:text-[12px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
+                    Our Core Pillars
+                </span>
+                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#1C1917]">Why choose Hello Solar?</h2>
+                <p class="text-xs sm:text-sm 2xl:text-base font-semibold text-stone-600 max-w-xl mx-auto">
+                    Built on certified quality, transparent savings, and continuous homeowner care.
+                </p>
+            </div>
+
+            <!-- 6 Brand Pillars Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 2xl:gap-6 text-center">
+                <!-- Pillar 1: Clean, Renewable Energy -->
+                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
                     <div
-                        class="w-14 h-14 2xl:w-18 2xl:h-18 rounded-2xl bg-indigo-50/80 border border-indigo-100/80 shadow-xs flex items-center justify-center mb-1 text-indigo-600">
-                        <i data-lucide="piggy-bank" class="w-6 h-6 2xl:w-8 2xl:h-8 stroke-[2]"></i>
+                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-amber-50 border border-amber-200/80 shadow-xs flex items-center justify-center mb-1 text-amber-600">
+                        <i data-lucide="sun" class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]"></i>
                     </div>
-                    <h4 class="text-sm 2xl:text-base font-black text-[#0F172A]">Lower Electric Bills</h4>
-                    <p class="text-xs 2xl:text-sm text-slate-500 font-bold">Save for the long term</p>
+                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">Clean, Renewable Energy</h4>
+                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Zero emissions, 100%
+                        natural solar power</p>
                 </div>
 
-                <div class="space-y-2 flex flex-col items-center">
+                <!-- Pillar 2: Lower Bills, More Savings (Philippine Peso ₱ Coin) -->
+                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
                     <div
-                        class="w-14 h-14 2xl:w-18 2xl:h-18 rounded-2xl bg-amber-50/80 border border-amber-100/80 shadow-xs flex items-center justify-center mb-1 text-amber-500">
-                        <i data-lucide="zap" class="w-6 h-6 2xl:w-8 2xl:h-8 stroke-[2.2]"></i>
+                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-amber-50 border border-amber-200/80 shadow-xs flex items-center justify-center mb-1 text-amber-600">
+                        <svg class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9.5"></circle>
+                            <path d="M9 7.5h4.5a3 3 0 0 1 0 6H9v4"></path>
+                            <line x1="7" y1="9.5" x2="15" y2="9.5"></line>
+                            <line x1="7" y1="11.5" x2="15" y2="11.5"></line>
+                        </svg>
                     </div>
-                    <h4 class="text-sm 2xl:text-base font-black text-[#0F172A]">Reliable Backup Power</h4>
-                    <p class="text-xs 2xl:text-sm text-slate-500 font-bold">Stay powered when it matters</p>
+                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">Lower Bills, More Savings
+                    </h4>
+                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Cut monthly electric
+                        costs substantially</p>
                 </div>
 
-                <div class="space-y-2 flex flex-col items-center">
+                <!-- Pillar 3: Quality Systems, Built to Last -->
+                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
                     <div
-                        class="w-14 h-14 2xl:w-18 2xl:h-18 rounded-2xl bg-sky-50/80 border border-sky-100/80 shadow-xs flex items-center justify-center mb-1 text-sky-600">
-                        <i data-lucide="home" class="w-6 h-6 2xl:w-8 2xl:h-8 stroke-[2]"></i>
+                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-amber-100/70 border border-amber-300/80 shadow-xs flex items-center justify-center mb-1 text-amber-700">
+                        <i data-lucide="shield-check" class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]"></i>
                     </div>
-                    <h4 class="text-sm 2xl:text-base font-black text-[#0F172A]">Increase Home Value</h4>
-                    <p class="text-xs 2xl:text-sm text-slate-500 font-bold">A smarter investment</p>
+                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">Quality Systems, Built to
+                        Last</h4>
+                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Tier-1 panels &
+                        25-yr linear warranty</p>
                 </div>
 
-                <div class="space-y-2 flex flex-col items-center">
+                <!-- Pillar 4: Expert Installation, Professional Service -->
+                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
                     <div
-                        class="w-14 h-14 2xl:w-18 2xl:h-18 rounded-2xl bg-emerald-50/80 border border-emerald-100/80 shadow-xs flex items-center justify-center mb-1 text-emerald-500">
-                        <i data-lucide="sun" class="w-6 h-6 2xl:w-8 2xl:h-8 stroke-[2]"></i>
+                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-orange-50 border border-orange-200/80 shadow-xs flex items-center justify-center mb-1 text-orange-600">
+                        <i data-lucide="wrench" class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]"></i>
                     </div>
-                    <h4 class="text-sm 2xl:text-base font-black text-[#0F172A]">Cleaner, Greener Energy</h4>
-                    <p class="text-xs 2xl:text-sm text-slate-500 font-bold">For you and the next generation</p>
+                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">Expert Installation,
+                        Professional Service</h4>
+                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Turnkey engineering
+                        & net-metering filing</p>
+                </div>
+
+                <!-- Pillar 5: After-Sales Support, Always Here -->
+                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
+                    <div
+                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-amber-50 border border-amber-200/80 shadow-xs flex items-center justify-center mb-1 text-amber-600">
+                        <i data-lucide="headset" class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]"></i>
+                    </div>
+                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">After-Sales Support, Always
+                        Here</h4>
+                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Real-time mobile
+                        Wi-Fi solar monitoring</p>
+                </div>
+
+                <!-- Pillar 6: Brighter Future for Every Home -->
+                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
+                    <div
+                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-emerald-50 border border-emerald-200/80 shadow-xs flex items-center justify-center mb-1 text-emerald-700">
+                        <i data-lucide="sparkles" class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]"></i>
+                    </div>
+                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">Brighter Future for Every
+                        Home</h4>
+                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Long-term energy
+                        independence & value</p>
                 </div>
             </div>
         </section>
@@ -807,24 +893,24 @@
         <!-- ABOUT US SECTION -->
         <section id="about-us" class="w-full space-y-6 pt-6">
             <div
-                class="bg-white rounded-[28px] 2xl:rounded-[36px] border border-slate-200/80 p-8 sm:p-10 2xl:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)] space-y-10">
+                class="bg-white rounded-[28px] 2xl:rounded-[36px] border border-[#E5E0D8] p-8 sm:p-10 2xl:p-14 shadow-[0_8px_30px_rgba(28,25,23,0.03)] space-y-10">
                 <div class="max-w-3xl mx-auto text-center space-y-4">
                     <span
                         class="inline-block bg-amber-500/10 border border-amber-500/20 text-amber-700 text-[10px] 2xl:text-[12px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
                         About Hello Solar
                     </span>
-                    <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#0F172A] tracking-tight">
+                    <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#1C1917] tracking-tight">
                         Powering Filipino homes with cleaner, smarter energy.
                     </h2>
-                    <p class="text-xs sm:text-sm 2xl:text-base font-semibold text-slate-600 leading-relaxed">
+                    <p class="text-xs sm:text-sm 2xl:text-base font-semibold text-stone-600 leading-relaxed">
                         Hello Solar helps Filipino homeowners make the transition to cleaner, more reliable, and more
                         affordable energy. We make solar easier to understand by helping homeowners find a system that
                         matches their electricity needs, lifestyle, and budget.
                     </p>
                     <div class="pt-2">
                         <div
-                            class="inline-block bg-gradient-to-r from-amber-50/80 via-amber-50/40 to-orange-50/60 border border-amber-200/70 rounded-2xl px-6 py-3.5">
-                            <p class="text-xs sm:text-sm 2xl:text-base font-extrabold text-[#0F172A]">
+                            class="inline-block bg-gradient-to-r from-amber-50 via-amber-50/60 to-orange-50/60 border border-amber-200/80 rounded-2xl px-6 py-3.5">
+                            <p class="text-xs sm:text-sm 2xl:text-base font-extrabold text-[#1C1917]">
                                 Our goal is simple: <span
                                     class="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Help
                                     homeowners take control of their energy and reduce their electricity costs.</span>
@@ -834,14 +920,14 @@
                 </div>
 
                 <!-- 3 Supporting Values -->
-                <div class="grid md:grid-cols-3 gap-6 2xl:gap-8 pt-8 border-t border-slate-100">
+                <div class="grid md:grid-cols-3 gap-6 2xl:gap-8 pt-8 border-t border-stone-100">
                     <div class="space-y-3 text-center md:text-left flex flex-col items-center md:items-start">
                         <div
-                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-500 flex items-center justify-center">
+                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center">
                             <i data-lucide="zap" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2.2]"></i>
                         </div>
-                        <h3 class="text-base 2xl:text-lg font-black text-[#0F172A]">Smart Energy</h3>
-                        <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                        <h3 class="text-base 2xl:text-lg font-black text-[#1C1917]">Smart Energy</h3>
+                        <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
                             Solar solutions designed around the customer's actual energy needs, maximizing daily savings
                             and efficiency.
                         </p>
@@ -849,22 +935,22 @@
 
                     <div class="space-y-3 text-center md:text-left flex flex-col items-center md:items-start">
                         <div
-                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center">
+                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-orange-50 border border-orange-200/80 text-orange-600 flex items-center justify-center">
                             <i data-lucide="shield-check" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2.2]"></i>
                         </div>
-                        <h3 class="text-base 2xl:text-lg font-black text-[#0F172A]">Reliable Power</h3>
-                        <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                        <h3 class="text-base 2xl:text-lg font-black text-[#1C1917]">Reliable Power</h3>
+                        <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
                             Systems designed to help homeowners stay powered when electricity reliability matters.
                         </p>
                     </div>
 
                     <div class="space-y-3 text-center md:text-left flex flex-col items-center md:items-start">
                         <div
-                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-500 flex items-center justify-center">
+                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-emerald-700 flex items-center justify-center">
                             <i data-lucide="leaf" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2.2]"></i>
                         </div>
-                        <h3 class="text-base 2xl:text-lg font-black text-[#0F172A]">Sustainable Future</h3>
-                        <p class="text-xs 2xl:text-sm text-slate-500 font-semibold leading-relaxed">
+                        <h3 class="text-base 2xl:text-lg font-black text-[#1C1917]">Sustainable Future</h3>
+                        <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
                             Helping households move toward cleaner and more sustainable energy for the next generation.
                         </p>
                     </div>
@@ -874,7 +960,7 @@
 
         <!-- FOOTER CTA BANNER -->
         <section
-            class="w-full bg-gradient-to-r from-amber-500 via-amber-500 to-orange-600 p-8 sm:p-12 2xl:p-16 rounded-[32px] 2xl:rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_20px_50px_-15px_rgba(234,88,12,0.3)]">
+            class="w-full bg-gradient-to-r from-amber-500 via-amber-500 to-orange-600 p-8 sm:p-12 2xl:p-16 rounded-[32px] 2xl:rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_20px_50px_-15px_rgba(234,88,12,0.32)]">
             <div class="space-y-1.5 text-center md:text-left">
                 <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-white">Start saving on electricity today.
                 </h2>
@@ -883,10 +969,48 @@
                 </p>
             </div>
             <button data-action="recommend"
-                class="bg-[#0F172A] hover:bg-black text-white text-xs sm:text-sm 2xl:text-base font-black px-8 2xl:px-10 py-4 2xl:py-5 rounded-full flex items-center gap-2 shadow-xl hover:scale-[1.02] transition whitespace-nowrap">
+                class="bg-[#1C1917] hover:bg-black text-white text-xs sm:text-sm 2xl:text-base font-black px-8 2xl:px-10 py-4 2xl:py-5 rounded-full flex items-center gap-2 shadow-xl hover:scale-[1.02] transition whitespace-nowrap cursor-pointer">
                 Get My Recommendation &rarr;
             </button>
         </section>
+
+        <!-- FINALIZED BRAND FOOTER
+        <footer class="pt-10 pb-4 border-t border-[#E7E2D7] text-stone-600 space-y-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex flex-col items-center md:items-start space-y-2">
+                    <a href="#home" class="flex items-center focus:outline-none">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar Logo"
+                            class="h-8 2xl:h-9 w-auto object-contain" />
+                    </a>
+                    <p class="text-xs 2xl:text-sm font-semibold text-stone-500 text-center md:text-left max-w-sm">
+                        Smart, reliable residential and commercial solar systems tailored for Philippine households.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-6 2xl:gap-8 text-xs 2xl:text-sm font-bold text-stone-700">
+                    <a href="#home" class="hover:text-amber-600 transition-colors">Home</a>
+                    <a href="#solar-systems" class="hover:text-amber-600 transition-colors">Solar Systems</a>
+                    <a href="#how-it-works" class="hover:text-amber-600 transition-colors">How It Works</a>
+                    <a href="#about-us" class="hover:text-amber-600 transition-colors">About Us</a>
+                </div>
+
+                <div class="text-center md:text-right space-y-1">
+                    <div class="text-xs 2xl:text-sm font-black text-[#1C1917]">Philippines</div>
+                    <div class="text-xs font-semibold text-stone-500">Tier-1 Monocrystalline PV & Hybrid Storage</div>
+                </div>
+            </div>
+
+            <div
+                class="pt-6 border-t border-stone-200/70 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] 2xl:text-xs font-semibold text-stone-500">
+                <p>&copy; 2026 Hello Solar. All rights reserved.</p>
+                <div class="flex items-center gap-4">
+                    <span class="inline-flex items-center gap-1.5 text-amber-700 font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        Net-Metering Assistance Included
+                    </span>
+                </div>
+            </div>
+        </footer> -->
 
     </main>
 
@@ -896,12 +1020,12 @@
 
     <!-- 1. RECOMMENDATION QUESTIONNAIRE MODAL -->
     <div id="recommendationModal" role="dialog" aria-modal="true" aria-label="Personalized Solar Recommendation Wizard"
-        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
         <div
-            class="relative w-full max-w-lg bg-white rounded-[28px] 2xl:rounded-[36px] border border-slate-200/90 shadow-2xl p-6 sm:p-8 2xl:p-10 max-h-[90vh] overflow-y-auto">
+            class="relative w-full max-w-lg bg-[#FCFAF8] rounded-[28px] 2xl:rounded-[36px] border border-[#E7E2D7] shadow-2xl p-6 sm:p-8 2xl:p-10 max-h-[90vh] overflow-y-auto">
             <!-- Accessible Close Button -->
             <button onclick="closeModal('recommendationModal')" aria-label="Close recommendation wizard"
-                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
+                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-stone-100/90 hover:bg-amber-100 text-stone-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
@@ -914,12 +1038,12 @@
 
     <!-- 2. PRODUCT DETAILS MODAL -->
     <div id="productDetailModal" role="dialog" aria-modal="true" aria-label="Product Technical Specifications"
-        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
         <div
-            class="relative w-full max-w-xl bg-white rounded-[28px] 2xl:rounded-[36px] border border-slate-200/90 shadow-2xl p-6 sm:p-8 2xl:p-10 max-h-[90vh] overflow-y-auto">
+            class="relative w-full max-w-xl bg-[#FCFAF8] rounded-[28px] 2xl:rounded-[36px] border border-[#E7E2D7] shadow-2xl p-6 sm:p-8 2xl:p-10 max-h-[90vh] overflow-y-auto">
             <!-- Accessible Close Button -->
             <button onclick="closeModal('productDetailModal')" aria-label="Close details modal"
-                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
+                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-stone-100/90 hover:bg-amber-100 text-stone-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
@@ -932,12 +1056,12 @@
 
     <!-- 3. INQUIRY / LEAD CAPTURE MODAL -->
     <div id="inquiryModal" role="dialog" aria-modal="true" aria-label="Free Solar Assessment Request"
-        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
         <div
-            class="relative w-full max-w-lg bg-white rounded-[28px] 2xl:rounded-[36px] border border-slate-200/90 shadow-2xl p-6 sm:p-8 2xl:p-10 max-h-[90vh] overflow-y-auto">
+            class="relative w-full max-w-lg bg-[#FCFAF8] rounded-[28px] 2xl:rounded-[36px] border border-[#E7E2D7] shadow-2xl p-6 sm:p-8 2xl:p-10 max-h-[90vh] overflow-y-auto">
             <!-- Accessible Close Button -->
             <button onclick="closeModal('inquiryModal')" aria-label="Close inquiry modal"
-                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50">
+                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-stone-100/90 hover:bg-amber-100 text-stone-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
@@ -947,18 +1071,18 @@
                         class="inline-block bg-amber-500/10 text-amber-700 text-[10px] 2xl:text-xs font-black px-3 py-0.5 rounded-full uppercase tracking-wider">
                         Free Consultation & Site Assessment
                     </span>
-                    <h3 id="inquiryTitle" class="text-2xl 2xl:text-3xl font-black text-[#0F172A] tracking-tight">Request
+                    <h3 id="inquiryTitle" class="text-2xl 2xl:text-3xl font-black text-[#1C1917] tracking-tight">Request
                         Solar Proposal</h3>
-                    <p class="text-xs 2xl:text-sm text-slate-500 font-semibold">Get customized savings estimates & roof
+                    <p class="text-xs 2xl:text-sm text-stone-500 font-semibold">Get customized savings estimates & roof
                         engineering review in 24 hours.</p>
                 </div>
 
                 <form id="leadForm" onsubmit="handleLeadSubmit(event)" class="space-y-4">
                     <div>
-                        <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">Selected
+                        <label class="block text-xs font-black text-stone-700 uppercase tracking-wider mb-1.5">Selected
                             System</label>
                         <select id="leadPackage"
-                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-extrabold text-[#0F172A] focus:outline-none focus:border-amber-500 transition">
+                            class="w-full bg-white border border-[#E5E0D8] rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-extrabold text-[#1C1917] focus:outline-none focus:border-amber-500 transition">
                             <option value="hs6-lite">HS 6 LITE (4.96kW | 6kW | 4.8kWh) — ₱7,650/mo</option>
                             <option value="hs6-pro">HS 6 PRO (6.2kW | 6kW | 9.6kWh) — ₱9,067/mo</option>
                             <option value="hs8-pro">HS 8 PRO (8.27kW | 8kW | 9.6kWh) — ₱11,750/mo</option>
@@ -967,40 +1091,40 @@
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                         <div>
-                            <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">Full
+                            <label class="block text-xs font-black text-stone-700 uppercase tracking-wider mb-1.5">Full
                                 Name *</label>
                             <input type="text" id="leadName" required placeholder="Juan Dela Cruz"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:border-amber-500 transition" />
+                                class="w-full bg-white border border-[#E5E0D8] rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#1C1917] placeholder:text-stone-400 focus:outline-none focus:border-amber-500 transition" />
                         </div>
                         <div>
                             <label
-                                class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">Mobile
+                                class="block text-xs font-black text-stone-700 uppercase tracking-wider mb-1.5">Mobile
                                 Number *</label>
                             <input type="tel" id="leadPhone" required placeholder="0917 123 4567"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:border-amber-500 transition" />
+                                class="w-full bg-white border border-[#E5E0D8] rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#1C1917] placeholder:text-stone-400 focus:outline-none focus:border-amber-500 transition" />
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                         <div>
-                            <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">Email
+                            <label class="block text-xs font-black text-stone-700 uppercase tracking-wider mb-1.5">Email
                                 Address</label>
                             <input type="email" id="leadEmail" placeholder="juan@example.com"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:border-amber-500 transition" />
+                                class="w-full bg-white border border-[#E5E0D8] rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#1C1917] placeholder:text-stone-400 focus:outline-none focus:border-amber-500 transition" />
                         </div>
                         <div>
-                            <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">City
+                            <label class="block text-xs font-black text-stone-700 uppercase tracking-wider mb-1.5">City
                                 / Municipality *</label>
                             <input type="text" id="leadLocation" required placeholder="e.g. Quezon City, Cebu"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#0F172A] placeholder:text-slate-400 focus:outline-none focus:border-amber-500 transition" />
+                                class="w-full bg-white border border-[#E5E0D8] rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#1C1917] placeholder:text-stone-400 focus:outline-none focus:border-amber-500 transition" />
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">Average
+                        <label class="block text-xs font-black text-stone-700 uppercase tracking-wider mb-1.5">Average
                             Monthly Electric Bill</label>
                         <select id="leadBill"
-                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-amber-500 transition">
+                            class="w-full bg-white border border-[#E5E0D8] rounded-xl px-3.5 py-2.5 text-xs 2xl:text-sm font-semibold text-[#1C1917] focus:outline-none focus:border-amber-500 transition">
                             <option value="₱3,000 – ₱5,000">₱3,000 – ₱5,000 / month</option>
                             <option value="₱5,000 – ₱8,000" selected>₱5,000 – ₱8,000 / month</option>
                             <option value="₱8,000 – ₱12,000">₱8,000 – ₱12,000 / month</option>
@@ -1009,38 +1133,38 @@
                     </div>
 
                     <button type="submit" id="submitLeadBtn"
-                        class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 2xl:py-4 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs 2xl:text-sm shadow-sm hover:shadow mt-4">
+                        class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 2xl:py-4 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs 2xl:text-sm shadow-sm hover:shadow mt-4 cursor-pointer">
                         <span>Submit Free Assessment Request</span> &rarr;
                     </button>
-                    <p class="text-[11px] text-center text-slate-400 font-medium">100% confidential. No spam or
+                    <p class="text-[11px] text-center text-stone-400 font-medium">100% confidential. No spam or
                         marketing calls.</p>
                 </form>
 
                 <!-- Success Screen (Replaces Form on submission) -->
                 <div id="leadSuccessScreen" class="hidden text-center py-6 space-y-4">
                     <div
-                        class="w-16 h-16 bg-emerald-50 border border-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mx-auto">
+                        class="w-16 h-16 bg-emerald-50 border border-emerald-200 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
                         <i data-lucide="check" class="w-8 h-8 stroke-[2.5]"></i>
                     </div>
                     <div class="space-y-1">
-                        <h4 class="text-2xl font-black text-[#0F172A]">Request Submitted!</h4>
-                        <p class="text-xs sm:text-sm font-bold text-slate-500 max-w-sm mx-auto">
-                            Thank you, <span id="successUserName" class="text-slate-900"></span>. A Hello Solar
+                        <h4 class="text-2xl font-black text-[#1C1917]">Request Submitted!</h4>
+                        <p class="text-xs sm:text-sm font-bold text-stone-500 max-w-sm mx-auto">
+                            Thank you, <span id="successUserName" class="text-stone-900"></span>. A Hello Solar
                             consultant will review your energy profile and reach out within 24 hours.
                         </p>
                     </div>
                     <div
-                        class="bg-amber-50/80 border border-amber-200/70 rounded-2xl p-4 text-left max-w-sm mx-auto space-y-2">
-                        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Confirmed Package
+                        class="bg-amber-50/90 border border-amber-200/80 rounded-2xl p-4 text-left max-w-sm mx-auto space-y-2">
+                        <div class="text-[11px] font-bold text-stone-500 uppercase tracking-wider">Confirmed Package
                         </div>
-                        <div id="successPackageName" class="text-sm font-black text-slate-900"></div>
+                        <div id="successPackageName" class="text-sm font-black text-stone-900"></div>
                         <div class="text-xs text-amber-800 font-semibold flex items-center gap-1.5">
                             <i data-lucide="shield-check" class="w-4 h-4 text-amber-600"></i>
                             Complimentary rooftop solar irradiance scan included.
                         </div>
                     </div>
                     <button onclick="closeModal('inquiryModal')"
-                        class="bg-[#0F172A] hover:bg-black text-white text-xs font-black px-6 py-3 rounded-full transition">
+                        class="bg-[#1C1917] hover:bg-black text-white text-xs font-black px-6 py-3 rounded-full transition cursor-pointer">
                         Done
                     </button>
                 </div>
@@ -1211,17 +1335,17 @@
 
                 if (isSelected) {
                     card.classList.add('is-selected');
-                    card.classList.remove('border-slate-200/90', 'shadow-xs');
+                    card.classList.remove('border-[#E5E0D8]', 'shadow-xs');
 
                     if (actionBtn) {
                         actionBtn.className = 'w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition shadow-sm hover:shadow flex items-center justify-center gap-1.5 cursor-pointer';
                     }
                 } else {
                     card.classList.remove('is-selected');
-                    card.classList.add('border-slate-200/90', 'shadow-xs');
+                    card.classList.add('border-[#E5E0D8]', 'shadow-xs');
 
                     if (actionBtn) {
-                        actionBtn.className = 'w-full border border-slate-300 hover:bg-slate-50 text-black font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer';
+                        actionBtn.className = 'w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer';
                     }
                 }
             });
@@ -1332,16 +1456,16 @@
                         <!-- Progress Header -->
                         <div class="space-y-3">
                             <div class="flex items-center gap-2.5 pr-14 flex-wrap">
-                                <span class="text-[11px] font-black text-amber-600 uppercase tracking-wider">Step 1 of 3 &bull; Electric Bill</span>
-                                <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200/60">~30 sec match</span>
+                                <span class="text-[11px] font-black text-amber-700 uppercase tracking-wider">Step 1 of 3 &bull; Electric Bill</span>
+                                <span class="text-[11px] font-semibold text-stone-600 bg-stone-100 px-2.5 py-0.5 rounded-full border border-stone-200">~30 sec match</span>
                             </div>
                             <!-- 3-Step Visual Progress Track -->
-                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                            <div class="w-full bg-stone-200/70 h-1.5 rounded-full overflow-hidden">
                                 <div class="bg-gradient-to-r from-amber-500 to-orange-500 h-full rounded-full transition-all duration-300 w-1/3"></div>
                             </div>
                             <div class="pt-1">
-                                <h3 class="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">What is your average monthly electric bill?</h3>
-                                <p class="text-xs sm:text-sm text-slate-500 font-semibold mt-1">This helps us size the solar capacity required to offset your consumption.</p>
+                                <h3 class="text-2xl sm:text-3xl font-black text-[#1C1917] tracking-tight">What is your average monthly electric bill?</h3>
+                                <p class="text-xs sm:text-sm text-stone-500 font-semibold mt-1">This helps us size the solar capacity required to offset your consumption.</p>
                             </div>
                         </div>
 
@@ -1349,45 +1473,45 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1" role="radiogroup">
                             <button type="button" role="radio" aria-checked="${wizardState.bill === '₱3,000–₱5,000'}"
                                 onclick="selectWizardCard('bill', '₱3,000–₱5,000', 2, this)"
-                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱3,000–₱5,000' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white shadow-2xs'}">
+                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱3,000–₱5,000' ? 'border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30' : 'border-[#E5E0D8] hover:border-amber-400 bg-white shadow-2xs'}">
                                 <div class="flex items-center justify-between">
-                                    <span class="text-lg sm:text-xl font-black text-[#0F172A]">₱3,000 – ₱5,000</span>
-                                    <span class="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱3,000–₱5,000' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                    <span class="text-lg sm:text-xl font-black text-[#1C1917]">₱3,000 – ₱5,000</span>
+                                    <span class="w-5 h-5 rounded-full border border-stone-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱3,000–₱5,000' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
                                 </div>
-                                <div class="text-[11px] sm:text-xs font-bold text-slate-400 mt-2">Light household usage (1-2 ACs)</div>
+                                <div class="text-[11px] sm:text-xs font-bold text-stone-500 mt-2">Light household usage (1-2 ACs)</div>
                             </button>
 
                             <button type="button" role="radio" aria-checked="${wizardState.bill === '₱5,000–₱8,000'}"
                                 onclick="selectWizardCard('bill', '₱5,000–₱8,000', 2, this)"
-                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱5,000–₱8,000' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white shadow-2xs'}">
+                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱5,000–₱8,000' ? 'border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30' : 'border-[#E5E0D8] hover:border-amber-400 bg-white shadow-2xs'}">
                                 <div class="flex items-center justify-between">
-                                    <span class="text-lg sm:text-xl font-black text-[#0F172A]">₱5,000 – ₱8,000</span>
-                                    <span class="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱5,000–₱8,000' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                    <span class="text-lg sm:text-xl font-black text-[#1C1917]">₱5,000 – ₱8,000</span>
+                                    <span class="w-5 h-5 rounded-full border border-stone-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱5,000–₱8,000' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
                                 </div>
-                                <div class="flex items-center gap-1 text-[11px] sm:text-xs font-black text-amber-600 mt-2">
+                                <div class="flex items-center gap-1 text-[11px] sm:text-xs font-black text-amber-700 mt-2">
                                     <span>⭐ Most Common</span>
-                                    <span class="text-slate-400 font-normal">&bull; Average family home</span>
+                                    <span class="text-stone-500 font-normal">&bull; Average family home</span>
                                 </div>
                             </button>
 
                             <button type="button" role="radio" aria-checked="${wizardState.bill === '₱8,000–₱12,000'}"
                                 onclick="selectWizardCard('bill', '₱8,000–₱12,000', 2, this)"
-                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱8,000–₱12,000' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white shadow-2xs'}">
+                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱8,000–₱12,000' ? 'border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30' : 'border-[#E5E0D8] hover:border-amber-400 bg-white shadow-2xs'}">
                                 <div class="flex items-center justify-between">
-                                    <span class="text-lg sm:text-xl font-black text-[#0F172A]">₱8,000 – ₱12,000</span>
-                                    <span class="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱8,000–₱12,000' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                    <span class="text-lg sm:text-xl font-black text-[#1C1917]">₱8,000 – ₱12,000</span>
+                                    <span class="w-5 h-5 rounded-full border border-stone-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱8,000–₱12,000' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
                                 </div>
-                                <div class="text-[11px] sm:text-xs font-bold text-slate-400 mt-2">Higher usage (2-3 Inverter ACs)</div>
+                                <div class="text-[11px] sm:text-xs font-bold text-stone-500 mt-2">Higher usage (2-3 Inverter ACs)</div>
                             </button>
 
                             <button type="button" role="radio" aria-checked="${wizardState.bill === '₱12,000+'}"
                                 onclick="selectWizardCard('bill', '₱12,000+', 2, this)"
-                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱12,000+' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white shadow-2xs'}">
+                                class="wizard-card p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 flex flex-col justify-between relative group cursor-pointer ${wizardState.bill === '₱12,000+' ? 'border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30' : 'border-[#E5E0D8] hover:border-amber-400 bg-white shadow-2xs'}">
                                 <div class="flex items-center justify-between">
-                                    <span class="text-lg sm:text-xl font-black text-[#0F172A]">₱12,000+</span>
-                                    <span class="w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱12,000+' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                    <span class="text-lg sm:text-xl font-black text-[#1C1917]">₱12,000+</span>
+                                    <span class="w-5 h-5 rounded-full border border-stone-300 flex items-center justify-center text-xs checkmark-circle ${wizardState.bill === '₱12,000+' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
                                 </div>
-                                <div class="text-[11px] sm:text-xs font-bold text-slate-400 mt-2">Large home / Commercial load</div>
+                                <div class="text-[11px] sm:text-xs font-bold text-stone-500 mt-2">Large home / Commercial load</div>
                             </button>
                         </div>
                     </div>
@@ -1398,18 +1522,18 @@
                         <!-- Progress Header -->
                         <div class="space-y-3">
                             <div class="flex items-center gap-2.5 pr-14">
-                                <button onclick="wizardState.step = 1; renderWizard();" class="text-xs font-bold text-slate-500 hover:text-[#0F172A] flex items-center gap-1 transition bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg cursor-pointer">
+                                <button onclick="wizardState.step = 1; renderWizard();" class="text-xs font-bold text-stone-600 hover:text-[#1C1917] flex items-center gap-1 transition bg-stone-100 hover:bg-amber-100/60 px-2.5 py-1 rounded-lg cursor-pointer">
                                     &larr; Back
                                 </button>
-                                <span class="text-[11px] font-black text-amber-600 uppercase tracking-wider">Step 2 of 3 &bull; Power Habits</span>
+                                <span class="text-[11px] font-black text-amber-700 uppercase tracking-wider">Step 2 of 3 &bull; Power Habits</span>
                             </div>
                             <!-- Progress Track -->
-                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                            <div class="w-full bg-stone-200/70 h-1.5 rounded-full overflow-hidden">
                                 <div class="bg-gradient-to-r from-amber-500 to-orange-500 h-full rounded-full transition-all duration-300 w-2/3"></div>
                             </div>
                             <div class="pt-1">
-                                <h3 class="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">When does your home use the most power?</h3>
-                                <p class="text-xs sm:text-sm text-slate-500 font-semibold mt-1">Determines if you need higher daytime solar output or larger battery storage.</p>
+                                <h3 class="text-2xl sm:text-3xl font-black text-[#1C1917] tracking-tight">When does your home use the most power?</h3>
+                                <p class="text-xs sm:text-sm text-stone-500 font-semibold mt-1">Determines if you need higher daytime solar output or larger battery storage.</p>
                             </div>
                         </div>
 
@@ -1417,39 +1541,39 @@
                         <div class="space-y-3 pt-1" role="radiogroup">
                             <button type="button" role="radio" aria-checked="${wizardState.timeUsage === 'day'}"
                                 onclick="selectWizardCard('timeUsage', 'day', 3, this)"
-                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.timeUsage === 'day' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.timeUsage === 'day' ? 'border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30' : 'border-[#E5E0D8] hover:border-amber-400 bg-white'}">
                                 <div>
-                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                    <div class="text-sm sm:text-base font-black text-[#1C1917] flex items-center gap-1.5">
                                         <span>☀️ Daytime Heavy</span>
                                     </div>
-                                    <div class="text-xs text-slate-500 font-semibold mt-1">Work-from-home, daytime ACs, pool pumps, daytime laundry</div>
+                                    <div class="text-xs text-stone-500 font-semibold mt-1">Work-from-home, daytime ACs, pool pumps, daytime laundry</div>
                                 </div>
-                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.timeUsage === 'day' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                <span class="w-5 h-5 rounded-full border border-stone-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.timeUsage === 'day' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
                             </button>
 
                             <button type="button" role="radio" aria-checked="${wizardState.timeUsage === 'night'}"
                                 onclick="selectWizardCard('timeUsage', 'night', 3, this)"
-                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.timeUsage === 'night' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.timeUsage === 'night' ? 'border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30' : 'border-[#E5E0D8] hover:border-amber-400 bg-white'}">
                                 <div>
-                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                    <div class="text-sm sm:text-base font-black text-[#1C1917] flex items-center gap-1.5">
                                         <span>🌙 Evening & Night Heavy</span>
-                                        <span class="text-[10px] font-black text-amber-600 bg-amber-100/70 px-2 py-0.5 rounded-full">⭐ Most Common</span>
+                                        <span class="text-[10px] font-black text-amber-700 bg-amber-100/80 px-2 py-0.5 rounded-full">⭐ Most Common</span>
                                     </div>
-                                    <div class="text-xs text-slate-500 font-semibold mt-1">Family is away daytime, multiple ACs run throughout the night</div>
+                                    <div class="text-xs text-stone-500 font-semibold mt-1">Family is away daytime, multiple ACs run throughout the night</div>
                                 </div>
-                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.timeUsage === 'night' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                <span class="w-5 h-5 rounded-full border border-stone-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.timeUsage === 'night' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
                             </button>
 
                             <button type="button" role="radio" aria-checked="${wizardState.timeUsage === 'balanced'}"
                                 onclick="selectWizardCard('timeUsage', 'balanced', 3, this)"
-                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.timeUsage === 'balanced' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.timeUsage === 'balanced' ? 'border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30' : 'border-[#E5E0D8] hover:border-amber-400 bg-white'}">
                                 <div>
-                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                    <div class="text-sm sm:text-base font-black text-[#1C1917] flex items-center gap-1.5">
                                         <span>⚡ Balanced 24/7 Steady</span>
                                     </div>
-                                    <div class="text-xs text-slate-500 font-semibold mt-1">Consistent high power consumption throughout day and night</div>
+                                    <div class="text-xs text-stone-500 font-semibold mt-1">Consistent high power consumption throughout day and night</div>
                                 </div>
-                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.timeUsage === 'balanced' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                <span class="w-5 h-5 rounded-full border border-stone-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.timeUsage === 'balanced' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
                             </button>
                         </div>
                     </div>
@@ -1460,18 +1584,18 @@
                         <!-- Progress Header -->
                         <div class="space-y-3">
                             <div class="flex items-center gap-2.5 pr-14">
-                                <button onclick="wizardState.step = 2; renderWizard();" class="text-xs font-bold text-slate-500 hover:text-[#0F172A] flex items-center gap-1 transition bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg cursor-pointer">
+                                <button onclick="wizardState.step = 2; renderWizard();" class="text-xs font-bold text-stone-600 hover:text-[#1C1917] flex items-center gap-1 transition bg-stone-100 hover:bg-amber-100/60 px-2.5 py-1 rounded-lg cursor-pointer">
                                     &larr; Back
                                 </button>
-                                <span class="text-[11px] font-black text-amber-600 uppercase tracking-wider">Step 3 of 3 &bull; Primary Goal</span>
+                                <span class="text-[11px] font-black text-amber-700 uppercase tracking-wider">Step 3 of 3 &bull; Primary Goal</span>
                             </div>
                             <!-- Progress Track -->
-                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                            <div class="w-full bg-stone-200/70 h-1.5 rounded-full overflow-hidden">
                                 <div class="bg-gradient-to-r from-amber-500 to-orange-500 h-full rounded-full transition-all duration-300 w-full"></div>
                             </div>
                             <div class="pt-1">
-                                <h3 class="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">What is your primary goal with solar?</h3>
-                                <p class="text-xs sm:text-sm text-slate-500 font-semibold mt-1">We customize your proposal to deliver exactly what matters most.</p>
+                                <h3 class="text-2xl sm:text-3xl font-black text-[#1C1917] tracking-tight">What is your primary goal with solar?</h3>
+                                <p class="text-xs sm:text-sm text-stone-500 font-semibold mt-1">We customize your proposal to deliver exactly what matters most.</p>
                             </div>
                         </div>
 
@@ -1479,39 +1603,39 @@
                         <div class="space-y-3 pt-1" role="radiogroup">
                             <button type="button" role="radio" aria-checked="${wizardState.priority === 'savings'}"
                                 onclick="selectWizardCard('priority', 'savings', 4, this)"
-                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.priority === 'savings' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.priority === 'savings' ? 'border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30' : 'border-[#E5E0D8] hover:border-amber-400 bg-white'}">
                                 <div>
-                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                    <div class="text-sm sm:text-base font-black text-[#1C1917] flex items-center gap-1.5">
                                         <span>💰 Maximum Bill Savings</span>
                                     </div>
-                                    <div class="text-xs text-slate-500 font-semibold mt-1">Focus on fastest ROI and cutting monthly electricity expenses</div>
+                                    <div class="text-xs text-stone-500 font-semibold mt-1">Focus on fastest ROI and cutting monthly electricity expenses</div>
                                 </div>
-                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.priority === 'savings' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                <span class="w-5 h-5 rounded-full border border-stone-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.priority === 'savings' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
                             </button>
 
                             <button type="button" role="radio" aria-checked="${wizardState.priority === 'maximum'}"
                                 onclick="selectWizardCard('priority', 'maximum', 4, this)"
-                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.priority === 'maximum' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.priority === 'maximum' ? 'border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30' : 'border-[#E5E0D8] hover:border-amber-400 bg-white'}">
                                 <div>
-                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                    <div class="text-sm sm:text-base font-black text-[#1C1917] flex items-center gap-1.5">
                                         <span>🔋 Outage & Brownout Protection</span>
-                                        <span class="text-[10px] font-black text-amber-600 bg-amber-100/70 px-2 py-0.5 rounded-full">⭐ Most Common</span>
+                                        <span class="text-[10px] font-black text-amber-700 bg-amber-100/80 px-2 py-0.5 rounded-full">⭐ Most Common</span>
                                     </div>
-                                    <div class="text-xs text-slate-500 font-semibold mt-1">Keep ACs, lights, refrigerator, and Wi-Fi running seamlessly in outages</div>
+                                    <div class="text-xs text-stone-500 font-semibold mt-1">Keep ACs, lights, refrigerator, and Wi-Fi running seamlessly in outages</div>
                                 </div>
-                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.priority === 'maximum' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                <span class="w-5 h-5 rounded-full border border-stone-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.priority === 'maximum' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
                             </button>
 
                             <button type="button" role="radio" aria-checked="${wizardState.priority === 'essential'}"
                                 onclick="selectWizardCard('priority', 'essential', 4, this)"
-                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.priority === 'essential' ? 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30' : 'border-slate-200 hover:border-amber-400 bg-white'}">
+                                class="wizard-card w-full p-4 sm:p-4.5 rounded-2xl border-2 text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${wizardState.priority === 'essential' ? 'border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30' : 'border-[#E5E0D8] hover:border-amber-400 bg-white'}">
                                 <div>
-                                    <div class="text-sm sm:text-base font-black text-[#0F172A] flex items-center gap-1.5">
+                                    <div class="text-sm sm:text-base font-black text-[#1C1917] flex items-center gap-1.5">
                                         <span>🌿 Future-Proof Clean Energy</span>
                                     </div>
-                                    <div class="text-xs text-slate-500 font-semibold mt-1">Energy independence and sustainable living for your family</div>
+                                    <div class="text-xs text-stone-500 font-semibold mt-1">Energy independence and sustainable living for your family</div>
                                 </div>
-                                <span class="w-5 h-5 rounded-full border border-slate-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.priority === 'essential' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
+                                <span class="w-5 h-5 rounded-full border border-stone-300 shrink-0 ml-3 flex items-center justify-center text-xs checkmark-circle ${wizardState.priority === 'essential' ? 'bg-amber-500 border-amber-500 text-white font-bold' : 'text-transparent'}">✓</span>
                             </button>
                         </div>
                     </div>
@@ -1536,54 +1660,54 @@
                             <span class="inline-block bg-amber-500/10 text-amber-700 border border-amber-500/20 text-[11px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
                                 ⭐ Your Tailored Solar Match
                             </span>
-                            <h3 class="text-3xl sm:text-4xl font-black text-[#0F172A] tracking-tight">${rec.name}</h3>
-                            <p class="text-xs sm:text-sm text-slate-500 font-bold">${rec.tagline}</p>
+                            <h3 class="text-3xl sm:text-4xl font-black text-[#1C1917] tracking-tight">${rec.name}</h3>
+                            <p class="text-xs sm:text-sm text-stone-600 font-bold">${rec.tagline}</p>
                         </div>
 
                         <!-- System Specs & Estimated Savings -->
-                        <div class="bg-gradient-to-br from-amber-50/80 via-amber-50/40 to-orange-50/50 rounded-2xl p-5 sm:p-6 border border-amber-200/70 space-y-4 shadow-xs">
+                        <div class="bg-gradient-to-br from-amber-50/90 via-amber-50/50 to-orange-50/60 rounded-2xl p-5 sm:p-6 border border-amber-200/80 space-y-4 shadow-xs">
                             <div class="grid grid-cols-3 gap-2.5 text-center">
-                                <div class="bg-white rounded-xl p-3 border border-amber-100 shadow-2xs">
-                                    <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Solar Panels</div>
-                                    <div class="text-sm sm:text-base font-black text-[#0F172A] mt-0.5">${rec.panels}</div>
+                                <div class="bg-white rounded-xl p-3 border border-amber-200/70 shadow-2xs">
+                                    <div class="text-[10px] font-black text-stone-500 uppercase tracking-wider">Solar Panels</div>
+                                    <div class="text-sm sm:text-base font-black text-[#1C1917] mt-0.5">${rec.panels}</div>
                                 </div>
-                                <div class="bg-white rounded-xl p-3 border border-amber-100 shadow-2xs">
-                                    <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Inverter</div>
-                                    <div class="text-sm sm:text-base font-black text-[#0F172A] mt-0.5">${rec.inverter}</div>
+                                <div class="bg-white rounded-xl p-3 border border-amber-200/70 shadow-2xs">
+                                    <div class="text-[10px] font-black text-stone-500 uppercase tracking-wider">Inverter</div>
+                                    <div class="text-sm sm:text-base font-black text-[#1C1917] mt-0.5">${rec.inverter}</div>
                                 </div>
-                                <div class="bg-white rounded-xl p-3 border border-amber-100 shadow-2xs">
-                                    <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Battery Storage</div>
-                                    <div class="text-sm sm:text-base font-black text-[#0F172A] mt-0.5">${rec.battery}</div>
+                                <div class="bg-white rounded-xl p-3 border border-amber-200/70 shadow-2xs">
+                                    <div class="text-[10px] font-black text-stone-500 uppercase tracking-wider">Battery Storage</div>
+                                    <div class="text-sm sm:text-base font-black text-[#1C1917] mt-0.5">${rec.battery}</div>
                                 </div>
                             </div>
 
                             <!-- Financial Breakdown -->
-                            <div class="pt-3 flex items-center justify-between border-t border-amber-200/60">
+                            <div class="pt-3 flex items-center justify-between border-t border-amber-200/70">
                                 <div>
-                                    <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">Est. Monthly Savings</div>
-                                    <div class="text-base sm:text-lg font-black text-emerald-600">${rec.estSavings} <span class="text-xs font-bold text-slate-400">/mo</span></div>
+                                    <div class="text-[10px] font-black uppercase tracking-wider text-stone-500">Est. Monthly Savings</div>
+                                    <div class="text-base sm:text-lg font-black text-emerald-700">${rec.estSavings} <span class="text-xs font-bold text-stone-500">/mo</span></div>
                                 </div>
                                 <div class="text-right">
-                                    <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">Financing Option</div>
-                                    <div class="text-base sm:text-lg font-black text-amber-600">${rec.monthly} <span class="text-xs font-bold text-slate-400">/mo</span></div>
+                                    <div class="text-[10px] font-black uppercase tracking-wider text-stone-500">Financing Option</div>
+                                    <div class="text-base sm:text-lg font-black text-amber-700">${rec.monthly} <span class="text-xs font-bold text-stone-500">/mo</span></div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Why We Recommend It -->
-                        <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 sm:p-5 space-y-2">
-                            <h4 class="text-xs font-black text-[#0F172A] uppercase tracking-wider">Why we recommend this system:</h4>
-                            <ul class="space-y-1.5 text-xs text-slate-600 font-semibold">
+                        <div class="bg-stone-50/90 border border-[#E5E0D8] rounded-2xl p-4 sm:p-5 space-y-2">
+                            <h4 class="text-xs font-black text-[#1C1917] uppercase tracking-wider">Why we recommend this system:</h4>
+                            <ul class="space-y-1.5 text-xs text-stone-600 font-semibold">
                                 <li class="flex items-start gap-2">
-                                    <span class="text-emerald-500 font-black mt-0.5">✓</span>
+                                    <span class="text-emerald-600 font-black mt-0.5">✓</span>
                                     <span>Precision-sized to offset your estimated <strong>${wizardState.bill}</strong> monthly electricity bill.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <span class="text-emerald-500 font-black mt-0.5">✓</span>
+                                    <span class="text-emerald-600 font-black mt-0.5">✓</span>
                                     <span>High-efficiency LiFePO4 battery storage engineered for your <strong>${wizardState.timeUsage === 'night' ? 'Evening & Night' : (wizardState.timeUsage === 'day' ? 'Daytime' : '24/7 Steady')}</strong> usage pattern.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <span class="text-emerald-500 font-black mt-0.5">✓</span>
+                                    <span class="text-emerald-600 font-black mt-0.5">✓</span>
                                     <span>Automatic switchover ensures dependable power protection during grid brownouts.</span>
                                 </li>
                             </ul>
@@ -1592,15 +1716,15 @@
                         <!-- Action Buttons -->
                         <div class="space-y-2.5 pt-1">
                             <button onclick="startInquiry('${rec.id}')"
-                                class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-4 px-6 rounded-full flex items-center justify-center gap-2 transition text-xs sm:text-sm shadow-sm hover:shadow-md active:scale-98">
+                                class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-4 px-6 rounded-full flex items-center justify-center gap-2 transition text-xs sm:text-sm shadow-sm hover:shadow-md active:scale-98 cursor-pointer">
                                 Choose ${rec.name} & Request Free Assessment &rarr;
                             </button>
                             <button onclick="viewProductDetails('${rec.id}')"
-                                class="w-full border border-slate-200 hover:bg-slate-50 text-slate-700 font-extrabold py-3 px-4 rounded-xl text-xs transition">
+                                class="w-full border border-stone-300 hover:bg-amber-50/50 text-stone-700 font-extrabold py-3 px-4 rounded-xl text-xs transition cursor-pointer">
                                 View Technical Specifications
                             </button>
                             <button onclick="wizardState.step = 1; renderWizard();"
-                                class="w-full text-center text-xs font-bold text-slate-400 hover:text-slate-700 py-1 transition flex items-center justify-center gap-1">
+                                class="w-full text-center text-xs font-bold text-stone-400 hover:text-stone-700 py-1 transition flex items-center justify-center gap-1 cursor-pointer">
                                 &larr; Change Answers / Start Over
                             </button>
                         </div>
@@ -1619,14 +1743,14 @@
                 const parent = element.parentElement;
                 if (parent) {
                     parent.querySelectorAll('.wizard-card').forEach(card => {
-                        card.className = card.className.replace('border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30', 'border-slate-200 bg-white');
+                        card.className = card.className.replace('border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30', 'border-[#E5E0D8] bg-white');
                         const checkmark = card.querySelector('.checkmark-circle');
                         if (checkmark) {
-                            checkmark.className = 'w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center text-xs checkmark-circle text-transparent';
+                            checkmark.className = 'w-5 h-5 rounded-full border border-stone-300 flex items-center justify-center text-xs checkmark-circle text-transparent';
                         }
                     });
                 }
-                element.className = element.className.replace('border-slate-200 bg-white', 'border-amber-500 bg-amber-50/50 shadow-sm ring-1 ring-amber-500/30');
+                element.className = element.className.replace('border-[#E5E0D8] bg-white', 'border-amber-500 bg-amber-50/60 shadow-sm ring-1 ring-amber-500/30');
                 const activeCheck = element.querySelector('.checkmark-circle');
                 if (activeCheck) {
                     activeCheck.className = 'w-5 h-5 rounded-full border border-amber-500 bg-amber-500 text-white font-bold flex items-center justify-center text-xs checkmark-circle';
@@ -1653,47 +1777,47 @@
                         <span class="inline-block bg-amber-500/10 text-amber-700 text-[10px] 2xl:text-xs font-black px-3 py-0.5 rounded-full uppercase tracking-wider">
                             ${product.tag}
                         </span>
-                        <h3 class="text-3xl font-black text-[#0F172A] tracking-tight">${product.name}</h3>
-                        <p class="text-xs 2xl:text-sm text-slate-500 font-semibold">${product.tagline}</p>
+                        <h3 class="text-3xl font-black text-[#1C1917] tracking-tight">${product.name}</h3>
+                        <p class="text-xs 2xl:text-sm text-stone-500 font-semibold">${product.tagline}</p>
                     </div>
 
                     <!-- Specs Row -->
                     <div class="grid grid-cols-3 gap-3 text-center">
-                        <div class="border border-slate-100 rounded-2xl p-3 bg-slate-50">
-                            <div class="text-xs font-bold text-slate-400 uppercase">Solar Panels</div>
-                            <div class="text-sm 2xl:text-base font-black text-slate-900 mt-0.5">${product.panels}</div>
+                        <div class="border border-amber-200/60 rounded-2xl p-3 bg-amber-50/30">
+                            <div class="text-xs font-bold text-stone-500 uppercase">Solar Panels</div>
+                            <div class="text-sm 2xl:text-base font-black text-[#1C1917] mt-0.5">${product.panels}</div>
                         </div>
-                        <div class="border border-slate-100 rounded-2xl p-3 bg-slate-50">
-                            <div class="text-xs font-bold text-slate-400 uppercase">Inverter</div>
-                            <div class="text-sm 2xl:text-base font-black text-slate-900 mt-0.5">${product.inverter}</div>
+                        <div class="border border-amber-200/60 rounded-2xl p-3 bg-amber-50/30">
+                            <div class="text-xs font-bold text-stone-500 uppercase">Inverter</div>
+                            <div class="text-sm 2xl:text-base font-black text-[#1C1917] mt-0.5">${product.inverter}</div>
                         </div>
-                        <div class="border border-slate-100 rounded-2xl p-3 bg-slate-50">
-                            <div class="text-xs font-bold text-slate-400 uppercase">Battery Storage</div>
-                            <div class="text-sm 2xl:text-base font-black text-slate-900 mt-0.5">${product.battery}</div>
+                        <div class="border border-amber-200/60 rounded-2xl p-3 bg-amber-50/30">
+                            <div class="text-xs font-bold text-stone-500 uppercase">Battery Storage</div>
+                            <div class="text-sm 2xl:text-base font-black text-[#1C1917] mt-0.5">${product.battery}</div>
                         </div>
                     </div>
 
                     <!-- Pricing Summary -->
-                    <div class="bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-200/60 rounded-2xl p-4 sm:p-5 flex items-center justify-between">
+                    <div class="bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-200/70 rounded-2xl p-4 sm:p-5 flex items-center justify-between">
                         <div>
-                            <div class="text-xs font-bold text-slate-400">Monthly Installment</div>
-                            <div class="text-2xl font-black text-amber-600">${product.monthly}<span class="text-xs font-bold text-slate-500">/mo</span></div>
-                            <div class="text-[11px] font-bold text-slate-500">5 yrs with 10% DP</div>
+                            <div class="text-xs font-bold text-stone-500">Monthly Installment</div>
+                            <div class="text-2xl font-black text-amber-600">${product.monthly}<span class="text-xs font-bold text-stone-500">/mo</span></div>
+                            <div class="text-[11px] font-bold text-stone-500">5 yrs with 10% DP</div>
                         </div>
                         <div class="text-right">
-                            <div class="text-xs font-bold text-slate-400">Cash Discount Price</div>
-                            <div class="text-xl font-black text-[#0F172A]">${product.cashPrice}</div>
-                            <div class="text-[11px] font-bold text-emerald-600">Save ~${product.estSavings}/mo</div>
+                            <div class="text-xs font-bold text-stone-500">Cash Discount Price</div>
+                            <div class="text-xl font-black text-[#1C1917]">${product.cashPrice}</div>
+                            <div class="text-[11px] font-bold text-emerald-700">Save ~${product.estSavings}/mo</div>
                         </div>
                     </div>
 
                     <!-- Inclusions List -->
                     <div class="space-y-2.5">
-                        <div class="text-xs font-black text-slate-700 uppercase tracking-wider">Package Inclusions</div>
+                        <div class="text-xs font-black text-stone-800 uppercase tracking-wider">Package Inclusions</div>
                         <div class="space-y-2">
                             ${product.features.map(f => `
-                                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-slate-700">
-                                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5 stroke-[2.5]"></i>
+                                <div class="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-stone-700">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5 stroke-[2.5]"></i>
                                     <span>${f}</span>
                                 </div>
                             `).join('')}
@@ -1702,7 +1826,7 @@
 
                     <!-- Action Buttons -->
                     <div class="space-y-2 pt-2">
-                        <button onclick="startInquiry('${product.id}')" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs 2xl:text-sm shadow-sm hover:shadow">
+                        <button onclick="startInquiry('${product.id}')" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs 2xl:text-sm shadow-sm hover:shadow cursor-pointer">
                             Inquire & Select ${product.name} &rarr;
                         </button>
                     </div>
@@ -1881,8 +2005,8 @@
             const desktopNavLinks = desktopNav ? desktopNav.querySelectorAll('a.nav-link') : [];
             let currentActiveSection = 'home';
 
-            const activeStyles = 'text-[#0F172A] border-b-2 border-amber-500 pb-0.5 font-black nav-link transition-colors';
-            const inactiveStyles = 'text-[#0F172A]/80 hover:text-[#0F172A] pb-0.5 font-bold transition-colors nav-link';
+            const activeStyles = 'text-[#1C1917] border-b-2 border-amber-500 pb-0.5 font-black nav-link transition-colors';
+            const inactiveStyles = 'text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link';
 
             function renderNavUnderline(activeKey) {
                 desktopNavLinks.forEach(link => {
