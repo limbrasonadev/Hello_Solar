@@ -58,17 +58,24 @@
             user-select: none;
         }
 
+        .option-card:not(.is-selected) {
+            border-color: #FCD34D !important;
+            border-width: 1.5px !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+            transform: translateY(0);
+        }
+
+        .option-card:not(.is-selected):hover {
+            transform: translateY(-4px);
+            border-color: #F59E0B !important;
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.15) !important;
+        }
+
         .option-card.is-selected {
             border-color: #F59E0B !important;
             border-width: 2px !important;
             box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.22), 0 16px 36px rgba(245, 158, 11, 0.22) !important;
             transform: translateY(-6px);
-        }
-
-        .option-card:not(.is-selected):hover {
-            transform: translateY(-4px);
-            border-color: #F59E0B;
-            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.15);
         }
 
         .option-card.is-selected:hover {
@@ -88,32 +95,36 @@
 
         .options-carousel-track {
             display: flex;
+            gap: 1.5rem;
             width: 100%;
             transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
             will-change: transform;
+            align-items: stretch;
         }
 
-        .options-slide-page {
+        .option-card {
+            flex: 0 0 100%;
             min-width: 100%;
-            flex-shrink: 0;
-            display: grid;
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-            gap: 1.5rem;
-            align-items: stretch;
-            padding: 0.25rem;
+            min-height: 440px;
             box-sizing: border-box;
         }
 
         @media (min-width: 768px) {
-            .options-slide-page {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 1.5rem;
+            .option-card {
+                flex: 0 0 calc((100% - 2 * 1.5rem) / 3);
+                min-width: calc((100% - 2 * 1.5rem) / 3);
             }
         }
 
         @media (min-width: 1536px) {
-            .options-slide-page {
+            .options-carousel-track {
                 gap: 2rem;
+            }
+
+            .option-card {
+                flex: 0 0 calc((100% - 2 * 2rem) / 3);
+                min-width: calc((100% - 2 * 2rem) / 3);
+                min-height: 490px;
             }
         }
 
@@ -154,19 +165,19 @@
         <div
             class="absolute right-0 top-0 w-full lg:w-[80%] xl:w-[70%] 2xl:w-[72%] h-[820px] lg:h-[880px] 2xl:h-[850px] pointer-events-none select-none z-0">
             <div class="w-full h-full hero-seamless-mask relative">
-                <img src="assets/images/hellosolar_.png" alt="Solar House & Rock Pathway" fetchpriority="high"
+                <img src="assets/images/hello_solar_pic.jpg" alt="Solar House & Rock Pathway" fetchpriority="high"
                     decoding="async" class="w-full h-full object-cover object-[78%_55%] lg:object-[80%_65%] render-4k"
                     onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=3840&q=95'" />
                 <!-- Mobile Ambient Readability Scrim -->
                 <div
-                    class="absolute inset-0 bg-gradient-to-b from-[#FAF7F2]/95 via-[#FAF7F2]/75 to-[#FAF7F2] lg:hidden">
+                    class="absolute inset-0 bg-gradient-to-b from-[#FAFAFB]/95 via-[#FAFAFB]/70 to-[#FAFAFB] lg:hidden">
                 </div>
                 <!-- 4K Ambient Directional Feathers -->
                 <div
-                    class="absolute inset-y-0 left-0 w-48 2xl:w-64 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/65 to-transparent hidden lg:block">
+                    class="absolute inset-y-0 left-0 w-48 2xl:w-64 bg-gradient-to-r from-[#FAFAFB] via-[#FAFAFB]/60 to-transparent hidden lg:block">
                 </div>
                 <div
-                    class="absolute inset-x-0 bottom-0 h-32 2xl:h-44 bg-gradient-to-t from-[#FAF7F2] via-[#FAF7F2]/45 to-transparent">
+                    class="absolute inset-x-0 bottom-0 h-32 2xl:h-44 bg-gradient-to-t from-[#FAFAFB] via-[#FAFAFB]/40 to-transparent">
                 </div>
             </div>
         </div>
@@ -181,7 +192,7 @@
 
             <!-- DESKTOP NAVBAR (Visible ONLY on xl / 1280px+ displays where ample space exists) -->
             <nav id="desktopNav"
-                class="hidden xl:flex items-center gap-8 2xl:gap-12 text-[14px] 2xl:text-[16px] font-bold text-[#1C1917]">
+                class="hidden xl:flex items-center gap-8 2xl:gap-12 text-[15px] 2xl:text-[16px] font-bold text-[#1C1917]">
                 <a href="#home" data-nav="home"
                     class="text-[#1C1917] border-b-2 border-amber-500 pb-0.5 font-black nav-link transition-colors">Home</a>
                 <a href="#solar-systems" data-nav="solar-systems"
@@ -190,15 +201,16 @@
                 <a href="#how-it-works" data-nav="how-it-works"
                     class="text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link">How It
                     Works</a>
-                <a href="#about-us" data-nav="about-us"
-                    class="text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link">About
-                    Us</a>
             </nav>
 
             <div class="flex items-center gap-3">
                 <button data-action="recommend"
-                    class="hidden sm:flex bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white text-xs 2xl:text-sm font-extrabold px-5 sm:px-6 2xl:px-8 py-2.5 2xl:py-3.5 rounded-full items-center gap-2 shadow-sm hover:shadow-md transition">
-                    Get My Recommendation &rarr;
+                    class="hidden sm:flex bg-[#FDC400] hover:bg-[#eab300] active:scale-95 text-[#1C1917] text-xs sm:text-sm 2xl:text-base font-extrabold px-6 2xl:px-8 py-2.5 2xl:py-3.5 rounded-full items-center gap-2 shadow-xs hover:shadow-md transition cursor-pointer">
+                    <span>Get My Recommendation</span>
+                    <svg class="w-4 h-4 2xl:w-4.5 2xl:h-4.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                    </svg>
                 </button>
 
                 <!-- Mobile & Tablet Menu Button (Visible on all screens < 1280px, including iPad Mini/Tablets) -->
@@ -250,17 +262,15 @@
                     <span>How It Works</span>
                     <i data-lucide="arrow-right" class="w-4 h-4 text-stone-400"></i>
                 </a>
-                <a href="#about-us" data-nav="about-us"
-                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link">
-                    <span>About Us</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4 text-stone-400"></i>
-                </a>
             </nav>
 
             <div class="pt-2 border-t border-stone-100">
                 <button data-action="recommend"
-                    class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white text-xs sm:text-sm font-extrabold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-sm transition">
-                    Get My Recommendation &rarr;
+                    class="w-full bg-[#FDC400] hover:bg-[#eab300] active:scale-95 text-[#1C1917] text-xs sm:text-sm font-extrabold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-xs transition cursor-pointer">
+                    <span>Get My Recommendation</span>
+                    <svg class="w-4 h-4 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                    </svg>
                 </button>
             </div>
         </div>
@@ -268,100 +278,107 @@
         <!-- HERO TEXT & BADGES -->
         <section id="home"
             class="w-full max-w-[2000px] mx-auto px-6 sm:px-12 lg:px-16 2xl:px-24 relative z-10 pt-8 sm:pt-14 pb-20 lg:pb-28 2xl:pb-36">
-            <div class="max-w-xl 2xl:max-w-2xl space-y-7 2xl:space-y-9">
+            <div class="max-w-xl lg:max-w-2xl 2xl:max-w-3xl space-y-7 2xl:space-y-9">
                 <div class="space-y-4">
-                    <!-- <div
-                        class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-800 text-[10.5px] 2xl:text-xs font-black tracking-wider uppercase">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                        Clean Energy &bull; Lower Bills &bull; Brighter Future
-                    </div> -->
                     <h1
-                        class="text-4xl sm:text-5xl md:text-[56px] lg:text-[62px] 2xl:text-[76px] font-black tracking-tight leading-[1.1] sm:leading-[1.05] text-[#1C1917]">
-                        Power your home.<br />
-                        <span
-                            class="bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 bg-clip-text text-transparent">Lower
-                            your bills.</span>
+                        class="text-4xl sm:text-5xl lg:text-[54px] 2xl:text-[68px] font-black tracking-tight leading-[1.12] sm:leading-[1.08] text-[#1C1917]">
+                        Cheaper Electricity for<br class="hidden sm:inline" />
+                        <span class="text-[#FDC400]">
+                            Every Filipino Home.
+                        </span>
                     </h1>
                 </div>
-                <p class="text-[15px] sm:text-[16px] 2xl:text-[20px] font-semibold text-stone-600">
-                    Own your energy. Live more, worry less.
+                <p
+                    class="text-[10px] sm:text-xs 2xl:text-sm font-medium text-stone-600 leading-relaxed max-w-lg 2xl:max-w-xl">
+                    Because power shouldn't be expensive & living without it shouldn't be an option.
                 </p>
 
-                <!-- 3 Brand Identity Badges (Aligned with Official Brand Reference Icons) -->
-                <div
-                    class="grid grid-cols-3 gap-2.5 sm:gap-3 2xl:gap-4 pt-3 text-center max-w-[440px] 2xl:max-w-[520px]">
-                    <!-- Badge 1: Lower Bills, More Savings (Philippine Peso ₱ Coin) -->
-                    <div class="flex flex-col items-center">
-                        <div
-                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-amber-300 flex items-center justify-center bg-amber-50/90 text-amber-600 shadow-xs mb-2.5 backdrop-blur-xs">
-                            <svg class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2.2]" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="9.5"></circle>
-                                <path d="M9 7.5h4.5a3 3 0 0 1 0 6H9v4"></path>
-                                <line x1="7" y1="9.5" x2="15" y2="9.5"></line>
-                                <line x1="7" y1="11.5" x2="15" y2="11.5"></line>
-                            </svg>
-                        </div>
-                        <p
-                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-stone-900">
-                            Lower bills,<br />more savings</p>
+                <!-- 3 Brand Identity Stats (Boxless, Clean, Large Animated Numbers) -->
+                <div id="featureBadgesContainer"
+                    class="grid grid-cols-3 gap-2 sm:gap-6 2xl:gap-8 pt-4 text-center max-w-[440px] sm:max-w-[480px] 2xl:max-w-[540px]">
+                    <!-- Stat 1: Down Payment -->
+                    <div class="flex flex-col items-center justify-center text-center select-none">
+                        <span id="badgeDpVal"
+                            class="inline-block font-black bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 bg-clip-text text-transparent tracking-tight text-xl sm:text-2xl md:text-3xl 2xl:text-4xl tabular-nums leading-none">
+                            ₱10,000
+                        </span>
+                        <p class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-700 mt-2">
+                            Down Payment
+                        </p>
                     </div>
 
-                    <!-- Badge 2: Quality Systems, Built to Last (Shield / Reliable) -->
-                    <div class="flex flex-col items-center">
-                        <div
-                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-amber-300 flex items-center justify-center bg-gradient-to-br from-amber-100/90 to-orange-100/80 text-amber-700 shadow-xs mb-2.5 backdrop-blur-xs">
-                            <i data-lucide="shield-check" class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2.2]"></i>
-                        </div>
-                        <p
-                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-stone-900">
-                            Quality systems,<br />built to last</p>
+                    <!-- Stat 2: Monthly Bills -->
+                    <div class="flex flex-col items-center justify-center text-center select-none">
+                        <span id="badgeBillsVal"
+                            class="inline-block font-black bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 bg-clip-text text-transparent tracking-tight text-xl sm:text-2xl md:text-3xl 2xl:text-4xl leading-none transition-all duration-150">
+                            5 Years
+                        </span>
+                        <p class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-700 mt-2">
+                            Monthly Bills
+                        </p>
                     </div>
 
-                    <!-- Badge 3: Clean, Renewable Energy (Solar Sun) -->
-                    <div class="flex flex-col items-center">
-                        <div
-                            class="w-12 h-12 2xl:w-16 2xl:h-16 rounded-2xl border border-amber-200/90 flex items-center justify-center bg-amber-50/90 text-amber-600 shadow-xs mb-2.5 backdrop-blur-xs">
-                            <i data-lucide="sun" class="w-5 h-5 2xl:w-7 2xl:h-7 stroke-[2.2]"></i>
-                        </div>
-                        <p
-                            class="text-[10px] sm:text-[11px] 2xl:text-[13px] font-extrabold leading-tight text-stone-900">
-                            Clean, renewable<br />energy
+                    <!-- Stat 3: Brownouts -->
+                    <div class="flex flex-col items-center justify-center text-center select-none">
+                        <span id="badgeBrownoutVal"
+                            class="inline-block font-black bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 bg-clip-text text-transparent tracking-tight text-xl sm:text-2xl md:text-3xl 2xl:text-4xl tabular-nums leading-none">
+                            0%
+                        </span>
+                        <p class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-700 mt-2">
+                            Brownouts
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CALCULATOR BANNER (Fixed Sunburst Layering) -->
+        <!-- CALCULATOR BANNER (Enhanced Solar Ambient Banner) -->
         <div class="w-full max-w-[2000px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-24 relative z-20">
             <section
-                class="relative w-full bg-gradient-to-r from-[#FFFDF8] via-[#FEF3C7] to-[#FED7AA]/90 backdrop-blur-md border border-amber-300/80 p-8 sm:p-10 2xl:p-12 rounded-[32px] 2xl:rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_16px_40px_-12px_rgba(245,158,11,0.2)]">
+                class="relative w-full bg-gradient-to-r from-[#FFFDF5] via-[#FFF4D4] to-[#FFE59E] p-8 sm:p-10 2xl:p-12 rounded-[28px] sm:rounded-[36px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_16px_40px_-12px_rgba(245,158,11,0.22),0_2px_8px_rgba(28,25,23,0.02)] overflow-hidden">
 
-                <!-- PROPERLY LAYERED SUNBURST / ACCENT RAYS (z-30 & anchored to top right) -->
-                <div class="absolute -top-3 sm:-top-4 right-8 sm:right-12 z-30 select-none pointer-events-none">
-                    <svg class="w-7 h-7 sm:w-8 sm:h-8 text-amber-500 drop-shadow-xs" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="3" stroke-linecap="round">
-                        <line x1="6" y1="6" x2="9.5" y2="9.5"></line>
-                        <line x1="12" y1="3" x2="12" y2="8"></line>
-                        <line x1="18" y1="6" x2="14.5" y2="9.5"></line>
-                    </svg>
+                <!-- Ambient Solar Radial Flare (Behind CTA on right) -->
+                <div
+                    class="absolute -right-8 -top-8 w-72 h-72 bg-gradient-to-br from-[#FDC400]/30 to-amber-400/10 rounded-full blur-2xl pointer-events-none select-none">
                 </div>
 
-                <div class="space-y-1.5 text-center md:text-left relative z-10">
-                    <h2 class="text-2xl sm:text-[28px] 2xl:text-[36px] font-black text-[#1C1917] leading-tight">Find the
-                        right<br class="hidden sm:inline" /> solar system for your home.</h2>
-                    <p class="text-xs sm:text-[14px] 2xl:text-[16px] font-semibold text-stone-600">Answer a few
-                        questions and get a personalized recommendation in 1 minute.</p>
+                <!-- Left Content: Headline & Subtitle -->
+                <div class="space-y-2 text-center md:text-left relative z-10 max-w-xl">
+                    <h2
+                        class="text-2xl sm:text-[28px] lg:text-[32px] font-black text-[#101a2e] leading-tight tracking-tight">
+                        Find the right<br class="hidden sm:inline" /> solar system for your home.
+                    </h2>
+                    <p class="text-xs sm:text-[14px] 2xl:text-[15.5px] font-semibold text-stone-600/95 leading-relaxed">
+                        Answer a few questions and get a personalized recommendation in 1 minute.
+                    </p>
                 </div>
 
+                <!-- Right Content: CTA Button & Micro-Guarantee -->
                 <div class="flex flex-col items-center shrink-0 relative z-10">
-                    <button data-action="recommend"
-                        class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold px-8 2xl:px-10 py-3.5 2xl:py-4 rounded-full flex items-center gap-2 shadow-sm hover:shadow-md transition text-xs 2xl:text-sm tracking-wide">
-                        Get My Recommendation &rarr;
-                    </button>
-                    <span class="text-[10.5px] 2xl:text-[12px] font-bold text-stone-500 mt-2">No obligation. Takes less
-                        than 60 seconds.</span>
+                    <div class="relative inline-block">
+                        <!-- SUNBURST / SOLAR RAYS ACCENT (Positioned outside top-right of button) -->
+                        <div
+                            class="absolute -top-3.5 -right-3 sm:-top-4 sm:-right-3.5 z-20 pointer-events-none select-none">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-[#F59E0B] drop-shadow-[0_2px_4px_rgba(245,158,11,0.35)]"
+                                viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3.5"
+                                stroke-linecap="round">
+                                <line x1="14" y1="5" x2="14" y2="13"></line>
+                                <line x1="22" y1="8" x2="16" y2="14"></line>
+                                <line x1="27" y1="17" x2="19" y2="17"></line>
+                            </svg>
+                        </div>
+                        <button data-action="recommend"
+                            class="bg-[#FDC400] hover:bg-[#f5bc00] active:scale-95 text-[#101a2e] font-extrabold px-8 sm:px-10 py-3.5 sm:py-4 rounded-full flex items-center gap-2.5 shadow-[0_8px_24px_-4px_rgba(253,196,0,0.5)] hover:shadow-[0_12px_28px_-4px_rgba(253,196,0,0.65)] hover:scale-[1.02] transition-all text-xs sm:text-sm 2xl:text-base tracking-wide cursor-pointer">
+                            <span>Get My Recommendation</span>
+                            <svg class="w-4 h-4 2xl:w-4.5 2xl:h-4.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                            </svg>
+                        </button>
+                    </div>
+                    <span class="text-[11px] sm:text-xs font-semibold text-stone-500 mt-2.5">
+                        No obligation. Takes less than 60 seconds.
+                    </span>
                 </div>
             </section>
         </div>
@@ -374,41 +391,46 @@
 
         <!-- MAIN RECOMMENDATION CARD -->
         <section id="featured-recommendation"
-            class="w-full bg-white rounded-[28px] 2xl:rounded-[36px] border border-[#E7E2D7] p-8 sm:p-10 2xl:p-14 shadow-[0_12px_36px_-8px_rgba(217,119,6,0.08),0_2px_8px_rgba(28,25,23,0.02)]">
+            class="w-full bg-white rounded-[28px] 2xl:rounded-[36px] border-[1.5px] border-[#FCD34D] p-8 sm:p-10 2xl:p-14 shadow-[0_12px_36px_-8px_rgba(217,119,6,0.08),0_2px_8px_rgba(28,25,23,0.02)]">
             <div class="grid lg:grid-cols-12 gap-8 2xl:gap-12 items-center">
                 <!-- Specs Column -->
                 <div class="lg:col-span-5 space-y-4 2xl:space-y-6">
                     <span
-                        class="inline-block bg-amber-500/10 border border-amber-500/20 text-amber-700 text-[10px] 2xl:text-[12px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
-                        ⭐ OUR RECOMMENDATION
+                        class="inline-block bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[10px] 2xl:text-[12px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                        OUR RECOMMENDATION
                     </span>
                     <h2 class="text-4xl 2xl:text-5xl font-black text-[#1C1917] tracking-tight">HS 6 <span
                             class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">LITE</span>
                     </h2>
                     <p class="text-xs 2xl:text-sm font-bold text-[#1C1917]">Smart. Reliable. Built for Everyday Savings.
                     </p>
-
-                    <div class="grid grid-cols-3 gap-3 2xl:gap-4 pt-2">
-                        <div
-                            class="border border-amber-200/60 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-amber-50/40">
-                            <i data-lucide="sun-medium"
-                                class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-amber-500 stroke-[2]"></i>
-                            <div class="text-sm 2xl:text-base font-black text-[#1C1917]">4.96kW</div>
-                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase">Panels</div>
+                    <div class="grid grid-cols-3 gap-3 2xl:gap-4 pt-3">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="h-12 sm:h-14 2xl:h-16 flex items-center justify-center mb-2">
+                                <img src="assets/images/panels.png" alt="Panels"
+                                    class="max-h-full max-w-full object-contain" />
+                            </div>
+                            <div class="text-sm sm:text-base 2xl:text-lg font-black text-[#1C1917]">4.96kW</div>
+                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase tracking-wider">
+                                Panels</div>
                         </div>
-                        <div
-                            class="border border-amber-200/60 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-amber-50/40">
-                            <i data-lucide="zap"
-                                class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-amber-500 stroke-[2]"></i>
-                            <div class="text-sm 2xl:text-base font-black text-[#1C1917]">6kW</div>
-                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase">Inverter</div>
+                        <div class="flex flex-col items-center text-center">
+                            <div class="h-12 sm:h-14 2xl:h-16 flex items-center justify-center mb-2">
+                                <img src="assets/images/inverter.png" alt="Inverter"
+                                    class="max-h-full max-w-full object-contain" />
+                            </div>
+                            <div class="text-sm sm:text-base 2xl:text-lg font-black text-[#1C1917]">6kW</div>
+                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase tracking-wider">
+                                Inverter</div>
                         </div>
-                        <div
-                            class="border border-amber-200/60 rounded-2xl 2xl:rounded-3xl p-3 2xl:p-4 text-center bg-amber-50/40">
-                            <i data-lucide="battery-charging"
-                                class="w-5 h-5 2xl:w-6 2xl:h-6 mx-auto mb-1 text-emerald-600 stroke-[2]"></i>
-                            <div class="text-sm 2xl:text-base font-black text-[#1C1917]">4.8kWh</div>
-                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase">Battery</div>
+                        <div class="flex flex-col items-center text-center">
+                            <div class="h-12 sm:h-14 2xl:h-16 flex items-center justify-center mb-2">
+                                <img src="assets/images/battery.png" alt="Battery"
+                                    class="max-h-full max-w-full object-contain" />
+                            </div>
+                            <div class="text-sm sm:text-base 2xl:text-lg font-black text-[#1C1917]">4.8kWh</div>
+                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase tracking-wider">
+                                Battery</div>
                         </div>
                     </div>
                 </div>
@@ -420,7 +442,7 @@
                     <div class="text-4xl sm:text-5xl 2xl:text-6xl font-black text-amber-600 tracking-tight">
                         ₱7,650<span class="text-sm 2xl:text-lg font-bold text-stone-700">/month</span>
                     </div>
-                    <div class="text-xs 2xl:text-sm font-extrabold text-[#1C1917]">for 5 years, with 10% DP</div>
+                    <div class="text-xs 2xl:text-sm font-extrabold text-[#1C1917]">for 5 years, with 10k DP</div>
                     <div class="text-xs 2xl:text-sm text-stone-600 font-semibold pt-1">Cash Price: <span
                             class="font-extrabold text-[#1C1917]">₱270,000</span></div>
                     <button data-product="hs6-lite" data-action="choose"
@@ -429,7 +451,6 @@
                     </button>
                     <button type="button" id="featuredExploreOptionsBtn"
                         class="w-full text-center text-xs 2xl:text-sm font-bold text-stone-700 hover:text-amber-600 transition flex items-center justify-center gap-1.5 pt-2 cursor-pointer">
-                        <span>or explore other options</span>
                     </button>
                 </div>
 
@@ -438,19 +459,19 @@
                     class="lg:col-span-3 bg-gradient-to-br from-amber-50/90 to-orange-50/50 rounded-2xl 2xl:rounded-3xl p-6 2xl:p-8 space-y-4 border border-amber-200/70">
                     <div class="flex items-start gap-2.5">
                         <i data-lucide="check-circle"
-                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-600 shrink-0 mt-0.5 stroke-[2.5]"></i>
+                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-[#FDC400] shrink-0 mt-0.5 stroke-[2.5]"></i>
                         <span class="text-xs 2xl:text-sm font-bold text-[#1C1917] leading-snug">Lower your electric bill
                             every month</span>
                     </div>
                     <div class="flex items-start gap-2.5">
                         <i data-lucide="check-circle"
-                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-600 shrink-0 mt-0.5 stroke-[2.5]"></i>
+                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-[#FDC400] shrink-0 mt-0.5 stroke-[2.5]"></i>
                         <span class="text-xs 2xl:text-sm font-bold text-[#1C1917] leading-snug">Keep your lights, fans
                             and Wi-Fi running during brownouts</span>
                     </div>
                     <div class="flex items-start gap-2.5">
                         <i data-lucide="check-circle"
-                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-emerald-600 shrink-0 mt-0.5 stroke-[2.5]"></i>
+                            class="w-4 h-4 2xl:w-5 2xl:h-5 text-[#FDC400] shrink-0 mt-0.5 stroke-[2.5]"></i>
                         <span class="text-xs 2xl:text-sm font-bold text-[#1C1917] leading-snug">Lowest upfront
                             investment</span>
                     </div>
@@ -462,17 +483,17 @@
         <section id="solar-systems" class="w-full space-y-6">
             <div class="text-center space-y-1">
                 <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#1C1917]">
-                    or explore other options
+                    explore other options
                 </h2>
                 <p class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">Find the best fit for your home.
                 </p>
             </div>
 
             <div class="relative w-full">
-                <!-- Left Slide Arrow Button (Visible on Page 2 to slide back to Page 1) -->
+                <!-- Left Slide Arrow Button (Circular continuous carousel) -->
                 <button type="button" id="slidePrevOptionBtn" aria-label="Previous options"
                     title="View previous options"
-                    class="hidden absolute -left-3 lg:-left-5 xl:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 2xl:w-13 2xl:h-13 rounded-full bg-white/95 backdrop-blur-xs border-2 border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white shadow-[0_4px_16px_rgba(245,158,11,0.22)] hover:shadow-[0_8px_24px_rgba(245,158,11,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 items-center justify-center cursor-pointer group">
+                    class="flex absolute -left-3 lg:-left-5 xl:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 2xl:w-13 2xl:h-13 rounded-full bg-white/95 backdrop-blur-xs border-2 border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white shadow-[0_4px_16px_rgba(245,158,11,0.22)] hover:shadow-[0_8px_24px_rgba(245,158,11,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 items-center justify-center cursor-pointer group">
                     <svg class="w-5 h-5 2xl:w-6 2xl:h-6 transition-transform duration-300 group-hover:-translate-x-0.5 stroke-[3]"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -482,206 +503,258 @@
                 <!-- Carousel Viewport & Track -->
                 <div class="options-carousel-viewport">
                     <div id="optionsCarouselTrack" class="options-carousel-track">
-                        <!-- PAGE 1: HS 6 Lite, HS 6 Pro (Most Popular), HS 8 Pro -->
-                        <div class="options-slide-page">
-                            <!-- Card 1: HS 6 Lite -->
-                            <div id="card-hs6-lite" data-product-card="hs6-lite" role="button" tabindex="0"
-                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
-                                <div class="space-y-4">
-                                    <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 6 <span
-                                                class="text-amber-500">LITE</span>
-                                        </h3>
-                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">Essential coverage</p>
-                                    </div>
-                                    <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-1.5 2xl:py-2 rounded-lg">
-                                        <span>4.96kW</span><span class="text-stone-300">|</span><span>6kW</span><span
-                                            class="text-stone-300">|</span><span>4.8kWh</span>
-                                    </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
-                                        Ideal for bills: <span
-                                            class="font-extrabold text-[#1C1917]">₱5,000–₱8,000</span>
-                                    </div>
-                                    <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱7,650 <span
-                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
-                                    </div>
-                                </div>
-                                <button data-product="hs6-lite" data-action="details"
-                                    class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
-                                    View Details
-                                </button>
-                            </div>
+                        <!-- Card 1: HS 6 Lite -->
+                        <div id="card-hs6-lite" data-product-card="hs6-lite" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-7 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-6 relative shadow-xs min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 6 <span class="text-amber-500">LITE</span>
+                                    </h3>
 
-                            <!-- Card 2: HS 6 Pro (Most Popular) -->
-                            <div id="card-hs6-pro" data-product-card="hs6-pro" role="button" tabindex="0"
-                                class="option-card is-selected bg-white rounded-[24px] 2xl:rounded-[32px] border-2 border-amber-500 p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-[0_0_0_2px_rgba(245,158,11,0.2),0_16px_36px_rgba(245,158,11,0.22)] -translate-y-1.5">
-                                <div id="badge-most-popular"
-                                    class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] 2xl:text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-xs pointer-events-none z-10">
-                                    Most Popular
                                 </div>
-                                <div class="space-y-4 pt-1">
-                                    <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 6 <span
-                                                class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">PRO</span>
-                                        </h3>
-                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">More power, more backup
-                                        </p>
-                                    </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>4.96kW</span><span class="text-stone-300">|</span><span>6kW</span><span
+                                        class="text-stone-300">|</span><span>4.8kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱5,000–₱8,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
                                     <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-amber-900 bg-amber-50 py-1.5 2xl:py-2 rounded-lg border border-amber-200/60">
-                                        <span>6.2kW</span><span class="text-amber-300">|</span><span>6kW</span><span
-                                            class="text-amber-300">|</span><span>9.6kWh</span>
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱7,650 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
                                     </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
-                                        Ideal for bills: <span
-                                            class="font-extrabold text-[#1C1917]">₱5,000–₱8,000</span>
-                                    </div>
-                                    <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱9,067 <span
-                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
                                     </div>
                                 </div>
-                                <button data-product="hs6-pro" data-action="details"
-                                    class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition shadow-sm hover:shadow flex items-center justify-center gap-1.5 cursor-pointer">
-                                    View Details
-                                </button>
                             </div>
-
-                            <!-- Card 3: HS 8 Pro -->
-                            <div id="card-hs8-pro" data-product-card="hs8-pro" role="button" tabindex="0"
-                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
-                                <div class="space-y-4">
-                                    <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 8 <span
-                                                class="text-orange-500">PRO</span>
-                                        </h3>
-                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">For bigger homes</p>
-                                    </div>
-                                    <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-1.5 2xl:py-2 rounded-lg">
-                                        <span>8.27kW</span><span class="text-stone-300">|</span><span>8kW</span><span
-                                            class="text-stone-300">|</span><span>9.6kWh</span>
-                                    </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
-                                        Ideal for bills: <span
-                                            class="font-extrabold text-[#1C1917]">₱8,000–₱12,000</span>
-                                    </div>
-                                    <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱11,750 <span
-                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
-                                    </div>
-                                </div>
-                                <button data-product="hs8-pro" data-action="details"
-                                    class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
-                                    View Details
-                                </button>
-                            </div>
+                            <button data-product="hs6-lite" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
                         </div>
 
-                        <!-- PAGE 2: HS 10 Pro, HS 12 Pro, HS 15 Pro (The other options) -->
-                        <div class="options-slide-page">
-                            <!-- Card 4: HS 10 Pro -->
-                            <div id="card-hs10-pro" data-product-card="hs10-pro" role="button" tabindex="0"
-                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
-                                <div class="space-y-4">
-                                    <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 10 <span
-                                                class="text-amber-500">PRO</span>
-                                        </h3>
-                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">Expanded residential</p>
-                                    </div>
+                        <!-- Card 2: HS 6 Pro (Most Popular) -->
+                        <div id="card-hs6-pro" data-product-card="hs6-pro" role="button" tabindex="0"
+                            class="option-card is-selected bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-7 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-6 relative shadow-xs min-h-[450px] 2xl:min-h-[500px]">
+                            <div id="badge-most-popular"
+                                class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] 2xl:text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-xs pointer-events-none z-10">
+                                Most Popular
+                            </div>
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7 pt-1">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 6 <span
+                                            class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">PRO</span>
+                                    </h3>
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-amber-900 bg-amber-50 py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl border border-amber-200/60">
+                                    <span>6.2kW</span><span class="text-amber-300">|</span><span>6kW</span><span
+                                        class="text-amber-300">|</span><span>9.6kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱5,000–₱8,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
                                     <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-1.5 2xl:py-2 rounded-lg">
-                                        <span>10.3kW</span><span class="text-stone-300">|</span><span>10kW</span><span
-                                            class="text-stone-300">|</span><span>14.4kWh</span>
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱9,066.67 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
                                     </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
-                                        Ideal for bills: <span
-                                            class="font-extrabold text-[#1C1917]">₱12,000–₱18,000</span>
-                                    </div>
-                                    <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱14,850 <span
-                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
                                     </div>
                                 </div>
-                                <button data-product="hs10-pro" data-action="details"
-                                    class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
-                                    View Details
-                                </button>
                             </div>
+                            <button data-product="hs6-pro" data-action="details"
+                                class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition shadow-sm hover:shadow flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
 
-                            <!-- Card 5: HS 12 Pro -->
-                            <div id="card-hs12-pro" data-product-card="hs12-pro" role="button" tabindex="0"
-                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
-                                <div class="space-y-4">
-                                    <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 12 <span
-                                                class="text-orange-500">PRO</span>
-                                        </h3>
-                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">Commercial & villa</p>
-                                    </div>
-                                    <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-1.5 2xl:py-2 rounded-lg">
-                                        <span>12.4kW</span><span class="text-stone-300">|</span><span>12kW</span><span
-                                            class="text-stone-300">|</span><span>19.2kWh</span>
-                                    </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
-                                        Ideal for bills: <span
-                                            class="font-extrabold text-[#1C1917]">₱18,000–₱25,000</span>
-                                    </div>
-                                    <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱18,200 <span
-                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
-                                    </div>
-                                </div>
-                                <button data-product="hs12-pro" data-action="details"
-                                    class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
-                                    View Details
-                                </button>
-                            </div>
+                        <!-- Card 3: HS 8 Pro -->
+                        <div id="card-hs8-pro" data-product-card="hs8-pro" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-7 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-6 relative shadow-xs min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 6 <span class="text-amber-500">MAX</span>
+                                    </h3>
 
-                            <!-- Card 6: HS 15 Pro -->
-                            <div id="card-hs15-pro" data-product-card="hs15-pro" role="button" tabindex="0"
-                                class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-9 flex flex-col justify-between space-y-6 relative shadow-xs">
-                                <div class="space-y-4">
-                                    <div class="text-center space-y-0.5">
-                                        <h3 class="text-2xl 2xl:text-3xl font-black text-[#1C1917]">HS 15 <span
-                                                class="text-orange-600">PRO</span>
-                                        </h3>
-                                        <p class="text-xs 2xl:text-sm text-stone-600 font-bold">Enterprise & business
-                                        </p>
-                                    </div>
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>8.27kW</span><span class="text-stone-300">|</span><span>8kW</span><span
+                                        class="text-stone-300">|</span><span>9.6kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱8,000–₱12,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
                                     <div
-                                        class="flex justify-center items-center gap-2 text-xs 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-1.5 2xl:py-2 rounded-lg">
-                                        <span>15.5kW</span><span class="text-stone-300">|</span><span>15kW</span><span
-                                            class="text-stone-300">|</span><span>28.8kWh</span>
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱10,908.33 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
                                     </div>
-                                    <div class="text-center text-xs 2xl:text-sm text-stone-600 font-semibold">
-                                        Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱25,000+</span>
-                                    </div>
-                                    <div class="text-center pt-1">
-                                        <div class="text-3xl 2xl:text-4xl font-black text-[#1C1917]">₱23,500 <span
-                                                class="text-xs 2xl:text-sm font-bold text-stone-600">/month</span></div>
-                                        <div class="text-xs 2xl:text-sm text-stone-600 font-bold">5 years, 10% DP</div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
                                     </div>
                                 </div>
-                                <button data-product="hs15-pro" data-action="details"
-                                    class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
-                                    View Details
-                                </button>
                             </div>
+                            <button data-product="hs8-pro" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
+
+                        <!-- Card 4: HS 9 Pro -->
+                        <div id="card-hs10-pro" data-product-card="hs10-pro" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-7 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-6 relative shadow-xs min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 8 <span class="text-amber-500">PRO</span>
+                                    </h3>
+
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>8kW</span><span class="text-stone-300">|</span><span>8kW</span><span
+                                        class="text-stone-300">|</span><span>16kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱8,000–₱13,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
+                                    <div
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱11,900 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
+                                    </div>
+                                </div>
+                            </div>
+                            <button data-product="hs10-pro" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
+
+                        <!-- Card 5: HS 12 Pro -->
+                        <div id="card-hs12-pro" data-product-card="hs12-pro" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-7 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-6 relative shadow-xs min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 8 <span class="text-amber-500">MAX</span>
+                                    </h3>
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>8kW</span><span class="text-stone-300">|</span><span>12kW</span><span
+                                        class="text-stone-300">|</span><span>32kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱13,000–₱18,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
+                                    <div
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱16,859 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
+                                    </div>
+                                </div>
+                            </div>
+                            <button data-product="hs12-pro" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
+
+                        <!-- Card 6: HS 15 Pro -->
+                        <div id="card-hs15-pro" data-product-card="hs15-pro" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-7 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-6 relative shadow-xs min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 10 <span class="text-amber-500">PRO</span>
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-stone-600 font-bold">Enterprise & business
+                                    </p>
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>10kW</span><span class="text-stone-300">|</span><span>12kW</span><span
+                                        class="text-stone-300">|</span><span>16kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱17,000-₱21,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
+                                    <div
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱15,159 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
+                                    </div>
+                                </div>
+                            </div>
+                            <button data-product="hs15-pro" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
+
+                        <!-- Card 7: HS 12 Pro -->
+                        <div id="card-hs12-pro-max" data-product-card="hs12-pro-max" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-7 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-6 relative shadow-xs min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 12 <span class="text-amber-500">MAX</span>
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-stone-600 font-bold">Commercial & industrial</p>
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>12kW</span><span class="text-stone-300">|</span><span>16kW</span><span
+                                        class="text-stone-300">|</span><span>32kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱18,000-₱25,000+</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
+                                    <div
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱21,533.33 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
+                                    </div>
+                                </div>
+                            </div>
+                            <button data-product="hs12-pro-max" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Slide Arrow Button (Visible on Page 1 beside HS 8 Pro; hidden when on Page 2) -->
+                <!-- Right Slide Arrow Button (Circular continuous carousel) -->
                 <button type="button" id="slideNextOptionBtn" aria-label="Slide to see the other options"
                     title="View more options"
                     class="flex absolute -right-3 lg:-right-5 xl:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 2xl:w-13 2xl:h-13 rounded-full bg-white/95 backdrop-blur-xs border-2 border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white shadow-[0_4px_16px_rgba(245,158,11,0.22)] hover:shadow-[0_8px_24px_rgba(245,158,11,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 items-center justify-center cursor-pointer group">
@@ -691,14 +764,40 @@
                     </svg>
                 </button>
             </div>
+
+            <!-- Carousel Pagination Dots Indicator (7 logical packages) -->
+            <div id="optionsPageDots" class="flex items-center justify-center gap-2 pt-3"
+                aria-label="Carousel pagination">
+                <button type="button"
+                    class="options-page-dot w-6 h-2 bg-amber-500 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(1)" aria-label="Go to package 1" aria-current="true"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(2)" aria-label="Go to package 2"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(3)" aria-label="Go to package 3"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(4)" aria-label="Go to package 4"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(5)" aria-label="Go to package 5"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(6)" aria-label="Go to package 6"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(7)" aria-label="Go to package 7"></button>
+            </div>
         </section>
 
         <!-- HOW IT WORKS SECTION -->
         <section id="how-it-works" class="w-full space-y-6 pt-6">
             <div class="text-center space-y-1">
                 <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#1C1917]">How it works</h2>
-                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">Your simple 4-step journey to clean
-                    solar energy.</p>
+                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">Your 4-Step Switch to Hello Solar
+                </p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 2xl:gap-8 items-stretch pt-2">
@@ -707,10 +806,8 @@
                     class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <div
-                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-amber-600">
-                                <i data-lucide="clipboard-list" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
-                            </div>
+                            <i data-lucide="clipboard-list"
+                                class="w-9 h-9 2xl:w-11 2xl:h-11 text-amber-500 stroke-[2.2]"></i>
                             <span
                                 class="text-xs 2xl:text-sm font-black text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
                                 1</span>
@@ -730,19 +827,15 @@
                     class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <div
-                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-orange-50 border border-orange-200/80 flex items-center justify-center text-orange-600">
-                                <i data-lucide="sparkles" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
-                            </div>
+                            <i data-lucide="sparkles" class="w-9 h-9 2xl:w-11 2xl:h-11 text-amber-500 stroke-[2.2]"></i>
                             <span
-                                class="text-xs 2xl:text-sm font-black text-orange-700 bg-orange-50 border border-orange-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                class="text-xs 2xl:text-sm font-black text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
                                 2</span>
                         </div>
                         <div class="space-y-1.5">
                             <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Get Your Recommendation</h3>
                             <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
-                                Hello Solar evaluates your consumption profile and recommends the ideal panel, inverter,
-                                and battery setup for your needs.
+                                Hello Solar evaluates your consumption profile and recommends the ideal kit for you
                             </p>
                         </div>
                     </div>
@@ -753,19 +846,17 @@
                     class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <div
-                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-amber-100/70 border border-amber-300/80 flex items-center justify-center text-amber-700">
-                                <i data-lucide="check-square" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
-                            </div>
+                            <i data-lucide="check-square"
+                                class="w-9 h-9 2xl:w-11 2xl:h-11 text-amber-500 stroke-[2.2]"></i>
                             <span
-                                class="text-xs 2xl:text-sm font-black text-amber-800 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                class="text-xs 2xl:text-sm font-black text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
                                 3</span>
                         </div>
                         <div class="space-y-1.5">
-                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Choose Your Solar System</h3>
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Choose Your HS Kit</h3>
                             <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
-                                Compare available solar packages and choose the system and financing plan that best fits
-                                your home and budget.
+                                Compare available solar kits and choose a payment plan that best fits your home and
+                                budget.
                             </p>
                         </div>
                     </div>
@@ -776,183 +867,17 @@
                     class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <div
-                                class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center text-emerald-700">
-                                <i data-lucide="sun" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2]"></i>
-                            </div>
+                            <i data-lucide="sun" class="w-9 h-9 2xl:w-11 2xl:h-11 text-amber-500 stroke-[2.2]"></i>
                             <span
-                                class="text-xs 2xl:text-sm font-black text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                class="text-xs 2xl:text-sm font-black text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
                                 4</span>
                         </div>
                         <div class="space-y-1.5">
-                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Start Saving</h3>
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Activate Hello Solar</h3>
                             <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
-                                After turnkey installation, enjoy substantially lower electric bills every month and
-                                reliable backup power when applicable.
+                                Schedule Installation, monitor and request anything 24/7 on your portal, and enjoy.
                             </p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- WHY CHOOSE US SECTION (6 Official Brand Pillars from Brand Reference Sheet) -->
-        <section id="why-choose-us" class="w-full space-y-8 pt-6">
-            <div class="text-center space-y-2">
-                <span
-                    class="inline-block bg-amber-500/10 border border-amber-500/20 text-amber-700 text-[10px] 2xl:text-[12px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
-                    Our Core Pillars
-                </span>
-                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#1C1917]">Why choose Hello Solar?</h2>
-                <p class="text-xs sm:text-sm 2xl:text-base font-semibold text-stone-600 max-w-xl mx-auto">
-                    Built on certified quality, transparent savings, and continuous homeowner care.
-                </p>
-            </div>
-
-            <!-- 6 Brand Pillars Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 2xl:gap-6 text-center">
-                <!-- Pillar 1: Clean, Renewable Energy -->
-                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
-                    <div
-                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-amber-50 border border-amber-200/80 shadow-xs flex items-center justify-center mb-1 text-amber-600">
-                        <i data-lucide="sun" class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]"></i>
-                    </div>
-                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">Clean, Renewable Energy</h4>
-                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Zero emissions, 100%
-                        natural solar power</p>
-                </div>
-
-                <!-- Pillar 2: Lower Bills, More Savings (Philippine Peso ₱ Coin) -->
-                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
-                    <div
-                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-amber-50 border border-amber-200/80 shadow-xs flex items-center justify-center mb-1 text-amber-600">
-                        <svg class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="9.5"></circle>
-                            <path d="M9 7.5h4.5a3 3 0 0 1 0 6H9v4"></path>
-                            <line x1="7" y1="9.5" x2="15" y2="9.5"></line>
-                            <line x1="7" y1="11.5" x2="15" y2="11.5"></line>
-                        </svg>
-                    </div>
-                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">Lower Bills, More Savings
-                    </h4>
-                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Cut monthly electric
-                        costs substantially</p>
-                </div>
-
-                <!-- Pillar 3: Quality Systems, Built to Last -->
-                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
-                    <div
-                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-amber-100/70 border border-amber-300/80 shadow-xs flex items-center justify-center mb-1 text-amber-700">
-                        <i data-lucide="shield-check" class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]"></i>
-                    </div>
-                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">Quality Systems, Built to
-                        Last</h4>
-                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Tier-1 panels &
-                        25-yr linear warranty</p>
-                </div>
-
-                <!-- Pillar 4: Expert Installation, Professional Service -->
-                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
-                    <div
-                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-orange-50 border border-orange-200/80 shadow-xs flex items-center justify-center mb-1 text-orange-600">
-                        <i data-lucide="wrench" class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]"></i>
-                    </div>
-                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">Expert Installation,
-                        Professional Service</h4>
-                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Turnkey engineering
-                        & net-metering filing</p>
-                </div>
-
-                <!-- Pillar 5: After-Sales Support, Always Here -->
-                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
-                    <div
-                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-amber-50 border border-amber-200/80 shadow-xs flex items-center justify-center mb-1 text-amber-600">
-                        <i data-lucide="headset" class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]"></i>
-                    </div>
-                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">After-Sales Support, Always
-                        Here</h4>
-                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Real-time mobile
-                        Wi-Fi solar monitoring</p>
-                </div>
-
-                <!-- Pillar 6: Brighter Future for Every Home -->
-                <div class="space-y-2 flex flex-col items-center p-3 rounded-2xl transition hover:bg-amber-50/50">
-                    <div
-                        class="w-13 h-13 2xl:w-16 2xl:h-16 rounded-2xl bg-emerald-50 border border-emerald-200/80 shadow-xs flex items-center justify-center mb-1 text-emerald-700">
-                        <i data-lucide="sparkles" class="w-6 h-6 2xl:w-7 2xl:h-7 stroke-[2]"></i>
-                    </div>
-                    <h4 class="text-xs 2xl:text-sm font-black text-[#1C1917] leading-tight">Brighter Future for Every
-                        Home</h4>
-                    <p class="text-[11px] 2xl:text-xs text-stone-500 font-semibold leading-relaxed">Long-term energy
-                        independence & value</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT US SECTION -->
-        <section id="about-us" class="w-full space-y-6 pt-6">
-            <div
-                class="bg-white rounded-[28px] 2xl:rounded-[36px] border border-[#E5E0D8] p-8 sm:p-10 2xl:p-14 shadow-[0_8px_30px_rgba(28,25,23,0.03)] space-y-10">
-                <div class="max-w-3xl mx-auto text-center space-y-4">
-                    <span
-                        class="inline-block bg-amber-500/10 border border-amber-500/20 text-amber-700 text-[10px] 2xl:text-[12px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
-                        About Hello Solar
-                    </span>
-                    <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#1C1917] tracking-tight">
-                        Powering Filipino homes with cleaner, smarter energy.
-                    </h2>
-                    <p class="text-xs sm:text-sm 2xl:text-base font-semibold text-stone-600 leading-relaxed">
-                        Hello Solar helps Filipino homeowners make the transition to cleaner, more reliable, and more
-                        affordable energy. We make solar easier to understand by helping homeowners find a system that
-                        matches their electricity needs, lifestyle, and budget.
-                    </p>
-                    <div class="pt-2">
-                        <div
-                            class="inline-block bg-gradient-to-r from-amber-50 via-amber-50/60 to-orange-50/60 border border-amber-200/80 rounded-2xl px-6 py-3.5">
-                            <p class="text-xs sm:text-sm 2xl:text-base font-extrabold text-[#1C1917]">
-                                Our goal is simple: <span
-                                    class="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Help
-                                    homeowners take control of their energy and reduce their electricity costs.</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3 Supporting Values -->
-                <div class="grid md:grid-cols-3 gap-6 2xl:gap-8 pt-8 border-t border-stone-100">
-                    <div class="space-y-3 text-center md:text-left flex flex-col items-center md:items-start">
-                        <div
-                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center">
-                            <i data-lucide="zap" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2.2]"></i>
-                        </div>
-                        <h3 class="text-base 2xl:text-lg font-black text-[#1C1917]">Smart Energy</h3>
-                        <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
-                            Solar solutions designed around the customer's actual energy needs, maximizing daily savings
-                            and efficiency.
-                        </p>
-                    </div>
-
-                    <div class="space-y-3 text-center md:text-left flex flex-col items-center md:items-start">
-                        <div
-                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-orange-50 border border-orange-200/80 text-orange-600 flex items-center justify-center">
-                            <i data-lucide="shield-check" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2.2]"></i>
-                        </div>
-                        <h3 class="text-base 2xl:text-lg font-black text-[#1C1917]">Reliable Power</h3>
-                        <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
-                            Systems designed to help homeowners stay powered when electricity reliability matters.
-                        </p>
-                    </div>
-
-                    <div class="space-y-3 text-center md:text-left flex flex-col items-center md:items-start">
-                        <div
-                            class="w-12 h-12 2xl:w-14 2xl:h-14 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-emerald-700 flex items-center justify-center">
-                            <i data-lucide="leaf" class="w-5 h-5 2xl:w-6 2xl:h-6 stroke-[2.2]"></i>
-                        </div>
-                        <h3 class="text-base 2xl:text-lg font-black text-[#1C1917]">Sustainable Future</h3>
-                        <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
-                            Helping households move toward cleaner and more sustainable energy for the next generation.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -960,7 +885,7 @@
 
         <!-- FOOTER CTA BANNER -->
         <section
-            class="w-full bg-gradient-to-r from-amber-500 via-amber-500 to-orange-600 p-8 sm:p-12 2xl:p-16 rounded-[32px] 2xl:rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_20px_50px_-15px_rgba(234,88,12,0.32)]">
+            class="w-full bg-gradient-to-r from-amber-500 to-amber-400 p-8 sm:p-12 2xl:p-16 rounded-[32px] 2xl:rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_20px_50px_-15px_rgba(245,158,11,0.25)]">
             <div class="space-y-1.5 text-center md:text-left">
                 <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-white">Start saving on electricity today.
                 </h2>
@@ -969,48 +894,15 @@
                 </p>
             </div>
             <button data-action="recommend"
-                class="bg-[#1C1917] hover:bg-black text-white text-xs sm:text-sm 2xl:text-base font-black px-8 2xl:px-10 py-4 2xl:py-5 rounded-full flex items-center gap-2 shadow-xl hover:scale-[1.02] transition whitespace-nowrap cursor-pointer">
-                Get My Recommendation &rarr;
+                class="bg-white hover:bg-stone-50 active:scale-95 text-[#FDC400] text-xs sm:text-sm 2xl:text-base font-black px-8 2xl:px-10 py-4 2xl:py-5 rounded-full flex items-center gap-2 shadow-xl hover:shadow-2xl transition whitespace-nowrap cursor-pointer">
+                <span>Get My Recommendation</span>
+                <svg class="w-4 h-4 2xl:w-4.5 2xl:h-4.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                </svg>
             </button>
         </section>
 
-        <!-- FINALIZED BRAND FOOTER
-        <footer class="pt-10 pb-4 border-t border-[#E7E2D7] text-stone-600 space-y-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="flex flex-col items-center md:items-start space-y-2">
-                    <a href="#home" class="flex items-center focus:outline-none">
-                        <img src="assets/images/hello_solar.png" alt="Hello Solar Logo"
-                            class="h-8 2xl:h-9 w-auto object-contain" />
-                    </a>
-                    <p class="text-xs 2xl:text-sm font-semibold text-stone-500 text-center md:text-left max-w-sm">
-                        Smart, reliable residential and commercial solar systems tailored for Philippine households.
-                    </p>
-                </div>
-
-                <div class="flex flex-wrap justify-center gap-6 2xl:gap-8 text-xs 2xl:text-sm font-bold text-stone-700">
-                    <a href="#home" class="hover:text-amber-600 transition-colors">Home</a>
-                    <a href="#solar-systems" class="hover:text-amber-600 transition-colors">Solar Systems</a>
-                    <a href="#how-it-works" class="hover:text-amber-600 transition-colors">How It Works</a>
-                    <a href="#about-us" class="hover:text-amber-600 transition-colors">About Us</a>
-                </div>
-
-                <div class="text-center md:text-right space-y-1">
-                    <div class="text-xs 2xl:text-sm font-black text-[#1C1917]">Philippines</div>
-                    <div class="text-xs font-semibold text-stone-500">Tier-1 Monocrystalline PV & Hybrid Storage</div>
-                </div>
-            </div>
-
-            <div
-                class="pt-6 border-t border-stone-200/70 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] 2xl:text-xs font-semibold text-stone-500">
-                <p>&copy; 2026 Hello Solar. All rights reserved.</p>
-                <div class="flex items-center gap-4">
-                    <span class="inline-flex items-center gap-1.5 text-amber-700 font-bold">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                        Net-Metering Assistance Included
-                    </span>
-                </div>
-            </div>
-        </footer> -->
 
     </main>
 
@@ -1086,6 +978,10 @@
                             <option value="hs6-lite">HS 6 LITE (4.96kW | 6kW | 4.8kWh) — ₱7,650/mo</option>
                             <option value="hs6-pro">HS 6 PRO (6.2kW | 6kW | 9.6kWh) — ₱9,067/mo</option>
                             <option value="hs8-pro">HS 8 PRO (8.27kW | 8kW | 9.6kWh) — ₱11,750/mo</option>
+                            <option value="hs10-pro">HS 9 PRO (10.3kW | 10kW | 14.4kWh) — ₱14,850/mo</option>
+                            <option value="hs12-pro">HS 10 PRO (12.4kW | 12kW | 19.2kWh) — ₱18,200/mo</option>
+                            <option value="hs15-pro">HS 11 PRO (15.5kW | 15kW | 28.8kWh) — ₱23,500/mo</option>
+                            <option value="hs12-pro-max">HS 12 PRO (18.6kW | 18kW | 38.4kWh) — ₱28,500/mo</option>
                         </select>
                     </div>
 
@@ -1184,7 +1080,6 @@
                 name: 'HS 6 LITE',
                 tag: 'OUR RECOMMENDATION',
                 tagline: 'Smart. Reliable. Built for Everyday Savings.',
-                badge: 'Essential coverage',
                 panels: '4.96kW',
                 inverter: '6kW',
                 battery: '4.8kWh',
@@ -1193,13 +1088,10 @@
                 cashPrice: '₱270,000',
                 estSavings: '₱4,200 – ₱6,800',
                 features: [
-                    'Tier-1 Monocrystalline Solar Panels (4.96kW capacity)',
-                    '6kW High-Efficiency Pure Sine Wave Hybrid Inverter',
-                    '4.8kWh LiFePO4 Ultra-Safe Lithium Iron Battery Storage',
-                    'Smart Wi-Fi Energy Tracking App for iOS & Android',
-                    '25-Year Linear Solar Panel Performance Warranty',
-                    '5-Year Inverter & Battery Replacement Warranty',
-                    'Turnkey Rooftop Installation & Net-Metering Assistance'
+                    'Lower your electrci bill every month',
+                    'Keep your lights, fans and Wi-Fi running during brownouts for up to 8hrs (*Based on 500W essential household load)',
+                    'Lowest upfront investment',
+                    'Ideal if your electric bill is around ₱5,000–₱8,000/month',
                 ]
             },
             'hs6-pro': {
@@ -1212,142 +1104,158 @@
                 inverter: '6kW',
                 battery: '9.6kWh',
                 idealBills: '₱5,000–₱8,000',
-                monthly: '₱9,067',
+                monthly: '₱9,066.67',
                 cashPrice: '₱320,000',
                 estSavings: '₱5,500 – ₱8,400',
                 features: [
-                    '6.2kW Tier-1 High-Efficiency Half-Cut Solar Panels',
-                    '6kW Heavy-Duty Smart Hybrid Inverter with UPS mode (<10ms)',
-                    '9.6kWh Double-Capacity LiFePO4 Energy Storage Bank',
-                    'Whole-Home Critical Load Automatic Backup Switch',
-                    'Real-time Cloud Solar Production & Consumption Analytics',
-                    '25-Year Solar Panel Warranty & 10-Year Battery Warranty',
-                    'Full Meralco/Electric Coop Net Metering Processing'
+                    'Bigger savings every month',
+                    'Reliable backup during brownouts for up to 18hrs (*Based on a 500W essential household load)',
+                    'Covers most family homes comfortably',
+                    'Best value for money',
+                    'Ideal if your electric bill is around ₱5,000–₱8,000/month'
                 ]
             },
-            'hs8-pro': {
-                id: 'hs8-pro',
-                name: 'HS 8 PRO',
-                tag: 'COMMERCIAL / LARGE HOME',
+            'hs6-max': {
+                id: 'hs6-max',
+                name: 'HS 6 MAX',
                 tagline: 'Maximum solar yield and multi-aircon whole home power.',
                 badge: 'For bigger homes',
                 panels: '8.27kW',
                 inverter: '8kW',
                 battery: '9.6kWh',
                 idealBills: '₱8,000–₱12,000+',
-                monthly: '₱11,750',
-                cashPrice: '₱415,000',
+                monthly: '₱10,908.33',
+                cashPrice: '₱385,000',
                 estSavings: '₱7,800 – ₱12,500',
                 features: [
-                    '8.27kW High-Yield Monocrystalline PV Generation Array',
-                    '8kW Commercial-Grade Dual MPPT Hybrid Inverter',
-                    '9.6kWh Scalable Modular Lithium LiFePO4 Storage',
-                    'Heavy-duty surge & lightning arrestor protection kit',
-                    'Multi-Split Inverter AC and EV-ready power distribution',
-                    '25-Year Panel Warranty + Premium Rapid Maintenance Support',
-                    'Complete Engineering Permit and Utility Grid Interconnection'
+                    'Ultimate system for long brownouts',
+                    'Run essentials during outages for up to 28hrs (*Based on a 500W essential household load)',
+                    'Store more solar energy for nighttime use',
+                    'Best for future expansion',
+                    'Ideal if your electric bill is around ₱8,000–₱13,000/month'
+                ]
+            },
+            'hs8-pro': {
+                id: 'hs8-pro',
+                name: 'HS 8 PRO',
+                tag: 'EXPANDED RESIDENTIAL / ESTATE',
+                tagline: 'High-yield whole-day solar with expanded battery storage.',
+                panels: '6.2kW',
+                inverter: '8kW',
+                battery: '16kWh',
+                idealBills: '₱12,000–₱18,000',
+                monthly: '₱11,900',
+                cashPrice: '₱420,000',
+                estSavings: '₱10,500 – ₱16,000',
+                features: [
+                    'Bigger savings every month',
+                    'Reliable backup during brownouts for up to 28hrs (*Based on a 500W essential household load)',
+                    'Covers most family homes comfortably',
+                    'Best value for money',
+                    'Ideal if your electric bill is around ₱8,000-₱13,000/ month'
+                ]
+            },
+            'hs8-max': {
+                id: 'hs8-max',
+                name: 'HS 8 MAX',
+                tag: 'COMMERCIAL & VILLA',
+                tagline: 'Built for multi-story villas, resorts, and commercial hubs.',
+                panels: '8kW',
+                inverter: '12kW',
+                battery: '32kWh',
+                idealBills: '₱13,000–₱18,000',
+                monthly: '₱16,859',
+                cashPrice: '₱595,000',
+                estSavings: '₱11,500 – ₱16,000',
+                features: [
+                    '8kw Panels, 12kw Inverter, 32kwh Battery Maximum Backup Power ',
+                    'Ultimate system for long brownoutsRun essentials during outages for 56hrs (*Based on a500W essential household load)',
+                    'Store more solar energy for nighttime use',
+                    'Best for future expansion',
+                    'Run multiple AC units and large appliances seamlessly',
+                    'Ideal if your electric bill is around ₱13,000-₱18,000/month'
                 ]
             },
             'hs10-pro': {
                 id: 'hs10-pro',
                 name: 'HS 10 PRO',
-                tag: 'EXPANDED RESIDENTIAL / ESTATE',
-                tagline: 'High-yield whole-day solar with expanded battery storage.',
-                badge: 'Expanded residential',
-                panels: '10.3kW',
-                inverter: '10kW',
-                battery: '14.4kWh',
-                idealBills: '₱12,000–₱18,000',
-                monthly: '₱14,850',
-                cashPrice: '₱525,000',
-                estSavings: '₱10,500 – ₱16,000',
-                features: [
-                    '10.3kW Tier-1 High-Efficiency Half-Cut Solar Panels',
-                    '10kW Smart Heavy-Duty Hybrid Inverter with UPS mode (<10ms)',
-                    '14.4kWh Triple-Capacity LiFePO4 Energy Storage Bank',
-                    'Whole-Home Automatic Backup Switch & EV-Ready Integration',
-                    'Real-time Cloud Solar Production & Consumption Analytics',
-                    '25-Year Solar Panel Warranty & 10-Year Battery Warranty',
-                    'Full Utility Interconnection & Net-Metering Processing'
-                ]
-            },
-            'hs12-pro': {
-                id: 'hs12-pro',
-                name: 'HS 12 PRO',
-                tag: 'COMMERCIAL & VILLA',
-                tagline: 'Built for multi-story villas, resorts, and commercial hubs.',
-                badge: 'Commercial & villa',
-                panels: '12.4kW',
-                inverter: '12kW',
-                battery: '19.2kWh',
-                idealBills: '₱18,000–₱25,000',
-                monthly: '₱18,200',
-                cashPrice: '₱640,000',
-                estSavings: '₱15,000 – ₱22,000',
-                features: [
-                    '12.4kW High-Yield Monocrystalline PV Generation Array',
-                    '12kW Commercial-Grade Dual MPPT Hybrid Inverter',
-                    '19.2kWh Scalable Modular Lithium LiFePO4 Storage Bank',
-                    'Full Heavy-Duty Surge & Industrial Lightning Protection Kit',
-                    'Multi-Split AC and EV Fast-Charging Power Distribution',
-                    '25-Year Panel Warranty + Premium Rapid Maintenance Support',
-                    'Turnkey Rooftop Installation & Net-Metering Processing'
-                ]
-            },
-            'hs15-pro': {
-                id: 'hs15-pro',
-                name: 'HS 15 PRO',
                 tag: 'ENTERPRISE / BUSINESS',
                 tagline: 'Maximum generation capacity for intensive daytime power.',
-                badge: 'Enterprise & business',
-                panels: '15.5kW',
-                inverter: '15kW',
-                battery: '28.8kWh',
-                idealBills: '₱25,000+',
-                monthly: '₱23,500',
-                cashPrice: '₱820,000',
+
+                panels: '10kW',
+                inverter: '12kW',
+                battery: '16kWh',
+                idealBills: '₱17,000-₱21,000',
+                monthly: '₱15,159',
+                cashPrice: '₱535,000',
                 estSavings: '₱21,000 – ₱30,000+',
                 features: [
-                    '15.5kW Heavy Industrial Solar Generation Array',
-                    '15kW Enterprise Smart Hybrid Inverter with Dual MPPT',
-                    '28.8kWh High-Capacity LiFePO4 Battery Bank Storage',
-                    'Seamless Enterprise Automatic Transfer Switch System',
-                    'Continuous Cloud Energy Analytics & Diagnostic Alerts',
-                    '25-Year Solar Panel Warranty & 10-Year Battery Warranty',
-                    'Complete Engineering Processing and Net-Metering Permit'
+                    '10kw Panels, 12kw Inverter, 16kwh Battery Perfect Balance ',
+                    'Bigger savings every month',
+                    'Reliable backup during brownouts for up to 28hrs (*Based on a 500W essential household load)',
+                    'Covers most family homes comfortably',
+                    'Best value for money',
+                    'Ideal if your electric bill is around ₱17,000-₱21,000/month'
+                ]
+            },
+            'hs12-max': {
+                id: 'hs12-max',
+                name: 'HS 12 MAX',
+                tag: 'COMMERCIAL & INDUSTRIAL / ESTATE',
+                tagline: 'Ultimate generation capacity and mega battery reserve for heavy loads.',
+
+                panels: '12kW',
+                inverter: '16kW',
+                battery: '32kWh',
+                idealBills: '₱18,000-₱25,000',
+                monthly: '₱21,533.33',
+                cashPrice: '₱760,000',
+                estSavings: '₱24,000 – ₱40,000+',
+                features: [
+                    '12kw Panels, 16kw Inverter, 32kwh Battery Maximum Backup Power ',
+                    'Ultimate system for long brownouts',
+                    'Run essentials during outages for 56hrs (*Based on a 500W essential household load)',
+                    'Store more solar energy for nighttime use',
+                    'Best for future expansion',
+                    'Ideal if your electric bill is around ₱18,000-₱25,000/month'
                 ]
             }
         };
 
-        // PRICING / OPTION SELECTION & CAROUSEL ENGINE
+        // PRICING / OPTION SELECTION & CIRCULAR CAROUSEL ENGINE
         let selectedOption = 'hs6-pro';
-        let currentOptionsPage = 1;
+        const TOTAL_PACKAGES = 7;
+        const CLONE_COUNT = 3;
+        let carouselCurrentPackage = 1; // 1 to 7
+        let carouselTrackIndex = CLONE_COUNT; // starts at 3 (Card 1)
+        let carouselIsTransitioning = false;
+        let carouselTransitionTimeout = null;
 
         function updateOptionsUI() {
-            const productIds = ['hs6-lite', 'hs6-pro', 'hs8-pro', 'hs10-pro', 'hs12-pro', 'hs15-pro'];
+            const productIds = ['hs6-lite', 'hs6-pro', 'hs8-pro', 'hs10-pro', 'hs12-pro', 'hs15-pro', 'hs12-pro-max'];
 
             productIds.forEach(id => {
-                const card = document.querySelector(`[data-product-card="${id}"]`);
-                if (!card) return;
+                const cards = document.querySelectorAll(`[data-product-card="${id}"]`);
+                cards.forEach(card => {
+                    const isSelected = (id === selectedOption);
+                    const actionBtn = card.querySelector('[data-action="details"]');
 
-                const isSelected = (id === selectedOption);
-                const actionBtn = card.querySelector('[data-action="details"]');
+                    if (isSelected) {
+                        card.classList.add('is-selected');
+                        card.classList.remove('border-[#FCD34D]', 'border-[#E5E0D8]', 'shadow-xs');
 
-                if (isSelected) {
-                    card.classList.add('is-selected');
-                    card.classList.remove('border-[#E5E0D8]', 'shadow-xs');
+                        if (actionBtn) {
+                            actionBtn.className = 'w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition shadow-sm hover:shadow flex items-center justify-center gap-1.5 cursor-pointer';
+                        }
+                    } else {
+                        card.classList.remove('is-selected');
+                        card.classList.add('border-[#FCD34D]', 'shadow-xs');
 
-                    if (actionBtn) {
-                        actionBtn.className = 'w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition shadow-sm hover:shadow flex items-center justify-center gap-1.5 cursor-pointer';
+                        if (actionBtn) {
+                            actionBtn.className = 'w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer';
+                        }
                     }
-                } else {
-                    card.classList.remove('is-selected');
-                    card.classList.add('border-[#E5E0D8]', 'shadow-xs');
-
-                    if (actionBtn) {
-                        actionBtn.className = 'w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3 2xl:py-3.5 rounded-xl text-xs 2xl:text-sm transition flex items-center justify-center gap-1.5 cursor-pointer';
-                    }
-                }
+                });
             });
 
             // IMPORTANT: "Most Popular" is permanent and independent on HS 6 PRO
@@ -1363,42 +1271,181 @@
             updateOptionsUI();
         }
 
-        function setOptionsPage(pageNumber) {
+        function getCarouselStepWidth() {
             const track = document.getElementById('optionsCarouselTrack');
-            const prevBtn = document.getElementById('slidePrevOptionBtn');
-            const nextBtn = document.getElementById('slideNextOptionBtn');
+            if (!track || !track.children[0]) return 0;
+            const card = track.children[0];
+            const cardWidth = card.getBoundingClientRect().width;
+            const gap = parseFloat(window.getComputedStyle(track).gap) || 24;
+            return cardWidth + gap;
+        }
 
-            currentOptionsPage = pageNumber;
+        function updateCarouselPosition(animated = true) {
+            const track = document.getElementById('optionsCarouselTrack');
+            if (!track) return;
 
-            if (track) {
-                if (currentOptionsPage === 2) {
-                    track.style.transform = 'translateX(-100%)';
-                } else {
-                    track.style.transform = 'translateX(0%)';
-                }
-            }
+            const step = getCarouselStepWidth();
+            const offset = carouselTrackIndex * step;
 
-            if (currentOptionsPage === 2) {
-                // Showing Page 2: Hide right arrow, Show left arrow
-                if (nextBtn) {
-                    nextBtn.classList.add('hidden');
-                    nextBtn.classList.remove('flex');
-                }
-                if (prevBtn) {
-                    prevBtn.classList.remove('hidden');
-                    prevBtn.classList.add('flex');
-                }
+            if (animated) {
+                track.style.transition = 'transform 500ms cubic-bezier(0.16, 1, 0.3, 1)';
             } else {
-                // Showing Page 1: Show right arrow, Hide left arrow
-                if (prevBtn) {
-                    prevBtn.classList.add('hidden');
-                    prevBtn.classList.remove('flex');
-                }
-                if (nextBtn) {
-                    nextBtn.classList.remove('hidden');
-                    nextBtn.classList.add('flex');
-                }
+                track.style.transition = 'none';
             }
+
+            track.style.transform = `translateX(-${offset}px)`;
+
+            if (!animated) {
+                void track.offsetHeight;
+            }
+        }
+
+        function updateCarouselPagination() {
+            const dots = document.querySelectorAll('.options-page-dot');
+            dots.forEach((dot, index) => {
+                const pkgIndex = index + 1;
+                if (pkgIndex === carouselCurrentPackage) {
+                    dot.className = 'options-page-dot w-6 h-2 bg-amber-500 rounded-full transition-all duration-300 cursor-pointer';
+                    dot.setAttribute('aria-current', 'true');
+                } else {
+                    dot.className = 'options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer';
+                    dot.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        function initCarousel() {
+            const track = document.getElementById('optionsCarouselTrack');
+            if (!track) return;
+
+            if (track.dataset.carouselInitialized === 'true') return;
+            track.dataset.carouselInitialized = 'true';
+
+            const cards = Array.from(track.children);
+            if (cards.length !== TOTAL_PACKAGES) return;
+
+            function cleanClone(clone) {
+                clone.removeAttribute('id');
+                clone.setAttribute('aria-hidden', 'true');
+                clone.setAttribute('tabindex', '-1');
+                clone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+            }
+
+            // Trailing clones (cards 1, 2, 3 appended)
+            for (let i = 0; i < CLONE_COUNT; i++) {
+                const clone = cards[i].cloneNode(true);
+                cleanClone(clone);
+                track.appendChild(clone);
+            }
+
+            // Leading clones (cards 5, 6, 7 prepended)
+            for (let i = TOTAL_PACKAGES - 1; i >= TOTAL_PACKAGES - CLONE_COUNT; i--) {
+                const clone = cards[i].cloneNode(true);
+                cleanClone(clone);
+                track.insertBefore(clone, track.firstChild);
+            }
+
+            // Position at initial real card (Package 1)
+            updateCarouselPosition(false);
+
+            // Handle seamless jump when transition ends
+            track.addEventListener('transitionend', (e) => {
+                if (e.target !== track) return;
+                clearTimeout(carouselTransitionTimeout);
+                carouselIsTransitioning = false;
+
+                // Scrolled past card 7 into trailing clones -> seamlessly jump to real card
+                if (carouselTrackIndex >= TOTAL_PACKAGES + CLONE_COUNT) {
+                    carouselTrackIndex = carouselTrackIndex - TOTAL_PACKAGES;
+                    updateCarouselPosition(false);
+                }
+                // Scrolled before card 1 into leading clones -> seamlessly jump to real card
+                else if (carouselTrackIndex < CLONE_COUNT) {
+                    carouselTrackIndex = carouselTrackIndex + TOTAL_PACKAGES;
+                    updateCarouselPosition(false);
+                }
+            });
+
+            // Delegate card selection and details modal trigger to support clones
+            track.addEventListener('click', (e) => {
+                const detailBtn = e.target.closest('[data-action="details"]');
+                if (detailBtn) {
+                    e.preventDefault();
+                    const productId = detailBtn.getAttribute('data-product') || 'hs6-lite';
+                    selectOption(productId);
+                    viewProductDetails(productId);
+                    return;
+                }
+
+                const card = e.target.closest('[data-product-card]');
+                if (card) {
+                    const productId = card.getAttribute('data-product-card');
+                    selectOption(productId);
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                updateCarouselPosition(false);
+            }, { passive: true });
+        }
+
+        function nextPackage() {
+            if (carouselIsTransitioning) return;
+            carouselIsTransitioning = true;
+            carouselTrackIndex++;
+            carouselCurrentPackage = (carouselCurrentPackage % TOTAL_PACKAGES) + 1;
+            updateCarouselPagination();
+            updateCarouselPosition(true);
+
+            clearTimeout(carouselTransitionTimeout);
+            carouselTransitionTimeout = setTimeout(() => {
+                if (carouselIsTransitioning) {
+                    carouselIsTransitioning = false;
+                    if (carouselTrackIndex >= TOTAL_PACKAGES + CLONE_COUNT) {
+                        carouselTrackIndex = carouselTrackIndex - TOTAL_PACKAGES;
+                        updateCarouselPosition(false);
+                    }
+                }
+            }, 550);
+        }
+
+        function prevPackage() {
+            if (carouselIsTransitioning) return;
+            carouselIsTransitioning = true;
+            carouselTrackIndex--;
+            carouselCurrentPackage = carouselCurrentPackage === 1 ? TOTAL_PACKAGES : carouselCurrentPackage - 1;
+            updateCarouselPagination();
+            updateCarouselPosition(true);
+
+            clearTimeout(carouselTransitionTimeout);
+            carouselTransitionTimeout = setTimeout(() => {
+                if (carouselIsTransitioning) {
+                    carouselIsTransitioning = false;
+                    if (carouselTrackIndex < CLONE_COUNT) {
+                        carouselTrackIndex = carouselTrackIndex + TOTAL_PACKAGES;
+                        updateCarouselPosition(false);
+                    }
+                }
+            }, 550);
+        }
+
+        function goToPackage(pkgNum) {
+            if (carouselIsTransitioning) return;
+            if (pkgNum < 1 || pkgNum > TOTAL_PACKAGES) return;
+            carouselIsTransitioning = true;
+            carouselCurrentPackage = pkgNum;
+            carouselTrackIndex = (pkgNum - 1) + CLONE_COUNT;
+            updateCarouselPagination();
+            updateCarouselPosition(true);
+
+            clearTimeout(carouselTransitionTimeout);
+            carouselTransitionTimeout = setTimeout(() => {
+                carouselIsTransitioning = false;
+            }, 550);
+        }
+
+        function setOptionsPage(pkgNum) {
+            goToPackage(pkgNum);
         }
 
         // RECOMMENDATION WIZARD STATE
@@ -1802,7 +1849,7 @@
                         <div>
                             <div class="text-xs font-bold text-stone-500">Monthly Installment</div>
                             <div class="text-2xl font-black text-amber-600">${product.monthly}<span class="text-xs font-bold text-stone-500">/mo</span></div>
-                            <div class="text-[11px] font-bold text-stone-500">5 yrs with 10% DP</div>
+                            <div class="text-[11px] font-bold text-stone-500">5 yrs with 10k DP</div>
                         </div>
                         <div class="text-right">
                             <div class="text-xs font-bold text-stone-500">Cash Discount Price</div>
@@ -1966,22 +2013,42 @@
                 });
             });
 
-            // 5. Slide Next (Right Arrow clicked): Shows the other options, hides right arrow, shows left arrow
+            // 5. Slide Next (Right Arrow clicked): Navigates to next package circularly
             const nextBtn = document.getElementById('slideNextOptionBtn');
             if (nextBtn) {
                 nextBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    setOptionsPage(2);
+                    nextPackage();
                 });
             }
 
-            // 6. Slide Prev (Left Arrow clicked): Slides back to initial options, hides left arrow, shows right arrow
+            // 6. Slide Prev (Left Arrow clicked): Navigates to previous package circularly
             const prevBtn = document.getElementById('slidePrevOptionBtn');
             if (prevBtn) {
                 prevBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    setOptionsPage(1);
+                    prevPackage();
                 });
+            }
+
+            // Touch Swipe support for options carousel
+            const carouselViewport = document.querySelector('.options-carousel-viewport');
+            if (carouselViewport) {
+                let startX = 0;
+                carouselViewport.addEventListener('touchstart', (e) => {
+                    startX = e.changedTouches[0].screenX;
+                }, { passive: true });
+                carouselViewport.addEventListener('touchend', (e) => {
+                    const endX = e.changedTouches[0].screenX;
+                    const diff = startX - endX;
+                    if (Math.abs(diff) > 40) {
+                        if (diff > 0) {
+                            nextPackage();
+                        } else if (diff < 0) {
+                            prevPackage();
+                        }
+                    }
+                }, { passive: true });
             }
 
             // 7. Featured recommendation "or explore other options" note
@@ -1996,9 +2063,10 @@
                 });
             }
 
-            // 8. Initial option selection UI sync
+            // 8. Initial option selection UI sync & circular carousel initialization
+            initCarousel();
             updateOptionsUI();
-            setOptionsPage(1);
+            updateCarouselPagination();
 
             // 9. Desktop Navigation Hover Underline & Active State Controller
             const desktopNav = document.getElementById('desktopNav');
@@ -2041,7 +2109,7 @@
             }
 
             // 10. Intelligent Section Detection (Scrollspy)
-            const sectionKeys = ['home', 'solar-systems', 'how-it-works', 'about-us'];
+            const sectionKeys = ['home', 'solar-systems', 'how-it-works'];
             function onScrollDetectSection() {
                 const scrollPos = window.scrollY + 200;
                 let detected = 'home';
@@ -2161,6 +2229,129 @@
                     toggleMobileMenu(false);
                 }
             });
+
+            // 12. Feature Badges Animated Values Controller
+            (function initFeatureBadgesObserver() {
+                const badgesSection = document.getElementById('featureBadgesContainer');
+                if (!badgesSection) return;
+
+                const dpEl = document.getElementById('badgeDpVal');
+                const billsEl = document.getElementById('badgeBillsVal');
+                const brownoutEl = document.getElementById('badgeBrownoutVal');
+                const brownoutRing = document.getElementById('badgeBrownoutRing');
+
+                const ringCircumference = 75.4; // 2 * PI * 12 for r=12
+
+                // Set final static values (for reduced motion or completion)
+                const setFinalValues = () => {
+                    if (dpEl) dpEl.textContent = '₱10,000';
+                    if (billsEl) {
+                        billsEl.textContent = '5 Years';
+                        billsEl.style.opacity = '1';
+                        billsEl.style.transform = 'translateY(0)';
+                    }
+                    if (brownoutEl) brownoutEl.textContent = '0%';
+                };
+
+                // Accessibility check: Respect prefers-reduced-motion
+                const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (prefersReducedMotion) {
+                    setFinalValues();
+                    return;
+                }
+
+                // Initial starting display before trigger
+                if (dpEl) dpEl.textContent = '₱50,000';
+                if (billsEl) billsEl.textContent = '6 Months';
+                if (brownoutEl) brownoutEl.textContent = '100%';
+
+                let hasAnimated = false;
+
+                function runFeatureAnimation() {
+                    if (hasAnimated) return;
+                    hasAnimated = true;
+
+                    const duration = 2200; // 2.2 seconds for calm, premium feel
+                    const startTime = performance.now();
+
+                    // Down Payment: ₱50,000 -> ₱10,000
+                    const startDp = 50000;
+                    const endDp = 10000;
+
+                    // Monthly Bills sequence: 6 Months -> 1 Year -> 2 Years -> 3 Years -> 4 Years -> 5 Years
+                    const billStages = ['6 Months', '1 Year', '2 Years', '3 Years', '4 Years', '5 Years'];
+                    let currentStageIndex = 0;
+
+                    // Brownouts: 100% -> 0%
+                    const startBrownout = 100;
+                    const endBrownout = 0;
+
+                    // Easing: easeOutQuart for smooth acceleration and long, natural deceleration
+                    function easeOutQuart(t) {
+                        return 1 - Math.pow(1 - t, 4);
+                    }
+
+                    function updateBillsStage(newIndex) {
+                        if (!billsEl || newIndex === currentStageIndex) return;
+                        currentStageIndex = newIndex;
+                        billsEl.style.opacity = '0.3';
+                        billsEl.style.transform = 'translateY(2px)';
+                        setTimeout(() => {
+                            billsEl.textContent = billStages[newIndex];
+                            billsEl.style.opacity = '1';
+                            billsEl.style.transform = 'translateY(0)';
+                        }, 80);
+                    }
+
+                    function frame(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(1, elapsed / duration);
+                        const eased = easeOutQuart(progress);
+
+                        // 1. Down Payment smooth count down
+                        if (dpEl) {
+                            const rawDp = startDp - (startDp - endDp) * eased;
+                            const dpVal = progress >= 1 ? endDp : Math.round(rawDp / 10) * 10;
+                            dpEl.textContent = '₱' + dpVal.toLocaleString('en-PH');
+                        }
+
+                        // 2. Monthly Bills step transitions (distributed smoothly across timeline)
+                        if (billsEl) {
+                            const stageProgress = Math.min(1, progress / 0.85);
+                            const stageIdx = Math.min(billStages.length - 1, Math.floor(stageProgress * billStages.length));
+                            updateBillsStage(stageIdx);
+                        }
+
+                        // 3. Brownouts smooth countdown (100% -> 0%)
+                        if (brownoutEl) {
+                            const rawPct = Math.round(startBrownout - (startBrownout - endBrownout) * eased);
+                            brownoutEl.textContent = rawPct + '%';
+                        }
+
+                        if (progress < 1) {
+                            requestAnimationFrame(frame);
+                        } else {
+                            setFinalValues();
+                        }
+                    }
+
+                    requestAnimationFrame(frame);
+                }
+
+                if ('IntersectionObserver' in window) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                runFeatureAnimation();
+                                observer.disconnect();
+                            }
+                        });
+                    }, { threshold: 0.25 });
+                    observer.observe(badgesSection);
+                } else {
+                    runFeatureAnimation();
+                }
+            })();
         }
 
         if (document.readyState === 'loading') {
