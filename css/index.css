@@ -45,6 +45,20 @@ body {
     }
 }
 
+/* Nudge the house photo to the right so it doesn't crowd the headline (tablet and up).
+   The hero wrapper clips the overflow, so only a sliver of the trees on the far right is hidden. */
+@media (min-width: 768px) {
+    .hero-photo-backdrop {
+        transform: translateX(4%);
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-photo-backdrop {
+        transform: translateX(6%);
+    }
+}
+
 /* Hero composition (tablet → desktop, 768–1535px): photo and copy scale together with the viewport,
    so the house stays at the same size/position next to the headline instead of jumping between breakpoints. */
 @media (min-width: 768px) and (max-width: 1535.98px) {
