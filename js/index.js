@@ -951,6 +951,23 @@ function setLeadPayment(value) {
         btn.setAttribute('aria-checked', active ? 'true' : 'false');
         btn.tabIndex = active ? 0 : -1;
     });
+    renderSubmitLabel();
+}
+
+// Main button label follows the payment type and the selected package price (label only)
+function getSubmitLabelHTML() {
+    const payInput = document.getElementById('leadPayment');
+    if (payInput && payInput.value === 'Installment') {
+        return `<span>Start Installment</span> &rarr;`;
+    }
+    const pkgInput = document.getElementById('leadPackage');
+    const product = PRODUCTS[pkgInput && pkgInput.value] || PRODUCTS['hs6-lite'];
+    return `<span>Pay Now — ${product.cashPrice}</span> &rarr;`;
+}
+
+function renderSubmitLabel() {
+    const btn = document.getElementById('submitLeadBtn');
+    if (btn && !btn.disabled) btn.innerHTML = getSubmitLabelHTML();
 }
 
 // Show the selected package's full-payment and installment prices on the payment cards
@@ -961,6 +978,7 @@ function renderPaymentOptions() {
     const inst = document.querySelector('[data-pay-price="installment"]');
     if (full) full.textContent = product.cashPrice;
     if (inst) inst.innerHTML = `${product.monthly}<small>/mo</small>`;
+    renderSubmitLabel();
 }
 
 function initPaymentOptions() {
@@ -1366,7 +1384,7 @@ function handleLeadSubmit(e) {
 
         if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = `<span>Request Free Assessment</span> &rarr;`;
+            submitBtn.innerHTML = getSubmitLabelHTML();
         }
 
         lucide.createIcons();
